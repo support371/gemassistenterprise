@@ -59,6 +59,55 @@ export default function AboutPage() {
 
       <section className="py-24">
         <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto rounded-2xl border border-cyan-500/20 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-900 p-10">
+            <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+              <div>
+                <div className="text-xs uppercase tracking-[0.2em] text-cyan-300">Architecture Framework</div>
+                <h2 className="mt-2 text-3xl font-bold text-white">GEM and ATR Enterprise Foundation</h2>
+                <p className="mt-3 text-slate-300">
+                  Our operating model is grounded in a published architecture framework that aligns execution,
+                  delivery controls, and governance for enterprise-grade resilience.
+                </p>
+              </div>
+              <Link
+                href="/atr-framework"
+                className="inline-flex items-center justify-center rounded-lg bg-cyan-500 px-4 py-2 font-semibold text-white transition-colors hover:bg-cyan-400"
+              >
+                Explore the Framework
+              </Link>
+            </div>
+            <div className="mt-6 grid gap-4 md:grid-cols-2">
+              <div className="rounded-xl border border-slate-800 bg-slate-950/60 p-4">
+                <h3 className="text-sm font-semibold uppercase tracking-wide text-slate-200">Foundation</h3>
+                <p className="mt-2 text-sm text-slate-400">
+                  Zero Trust access, encryption, and monitoring at the core.
+                </p>
+              </div>
+              <div className="rounded-xl border border-slate-800 bg-slate-950/60 p-4">
+                <h3 className="text-sm font-semibold uppercase tracking-wide text-slate-200">Execution</h3>
+                <p className="mt-2 text-sm text-slate-400">
+                  API-first delivery with containerized services and event automation.
+                </p>
+              </div>
+              <div className="rounded-xl border border-slate-800 bg-slate-950/60 p-4">
+                <h3 className="text-sm font-semibold uppercase tracking-wide text-slate-200">Delivery</h3>
+                <p className="mt-2 text-sm text-slate-400">
+                  Release safety with canary controls and automated validation.
+                </p>
+              </div>
+              <div className="rounded-xl border border-slate-800 bg-slate-950/60 p-4">
+                <h3 className="text-sm font-semibold uppercase tracking-wide text-slate-200">Governance</h3>
+                <p className="mt-2 text-sm text-slate-400">
+                  Audit integrity, compliance posture, and AI oversight for scale.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24">
+        <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">Our Journey</h2>

@@ -1,14 +1,29 @@
-import { Search, FileText, Clock, Download, Mail } from 'lucide-react';
+import Link from "next/link";
+import { Search, FileText, Clock, Download, Mail } from "lucide-react";
 
 
 export default function ResourcesPage() {
   const resources = [
-    { title: 'SOC 2 Compliance Guide', type: 'Whitepaper', time: '45 min', views: '12.5K' },
-    { title: 'Ransomware Defense 2026', type: 'Whitepaper', time: '35 min', views: '18.2K' },
-    { title: 'Zero Trust Framework', type: 'Guide', time: '30 min', views: '11.2K' },
-    { title: 'Incident Response Checklist', type: 'Guide', time: '15 min', views: '25.3K' },
-    { title: 'Q1 2026 Threat Report', type: 'Report', time: '25 min', views: '21.8K' },
-    { title: 'Security ROI Calculator', type: 'Tool', time: '5 min', views: '31.2K' }
+    { title: "SOC 2 Compliance Guide", type: "Whitepaper", time: "45 min", views: "12.5K" },
+    { title: "Ransomware Defense 2026", type: "Whitepaper", time: "35 min", views: "18.2K" },
+    { title: "Zero Trust Framework", type: "Guide", time: "30 min", views: "11.2K" },
+    { title: "Incident Response Checklist", type: "Guide", time: "15 min", views: "25.3K" },
+    { title: "Q1 2026 Threat Report", type: "Report", time: "25 min", views: "21.8K" },
+    { title: "Security ROI Calculator", type: "Tool", time: "5 min", views: "31.2K" },
+    {
+      title: "GEM and ATR Enterprise Architecture Framework",
+      type: "Architecture",
+      time: "10 min",
+      views: "New",
+      href: "/atr-framework",
+    },
+  ];
+
+  const atrPdfs = [
+    { label: "01 Foundation Architecture", href: "/docs/atr/01_GEM_ATR_Foundation_Architecture.pdf" },
+    { label: "02 Execution Architecture", href: "/docs/atr/02_GEM_ATR_Execution_Architecture.pdf" },
+    { label: "03 Delivery Deployment Framework", href: "/docs/atr/03_GEM_ATR_Delivery_Deployment_Framework.pdf" },
+    { label: "04 Enterprise Governance and Scaling", href: "/docs/atr/04_GEM_ATR_Enterprise_Governance_and_Scaling.pdf" },
   ];
 
   return (
@@ -55,12 +70,45 @@ export default function ResourcesPage() {
                   </div>
                   <div>{resource.views} views</div>
                 </div>
-                <button className="w-full px-4 py-2 bg-cyan-500/10 hover:bg-cyan-500 border border-cyan-500/30 text-cyan-500 hover:text-white rounded-lg font-semibold transition-all flex items-center justify-center gap-2">
-                  <Download className="w-4 h-4" />
-                  Download
-                </button>
+                {resource.href ? (
+                  <Link
+                    href={resource.href}
+                    className="w-full px-4 py-2 bg-cyan-500/10 hover:bg-cyan-500 border border-cyan-500/30 text-cyan-500 hover:text-white rounded-lg font-semibold transition-all flex items-center justify-center gap-2"
+                  >
+                    <Download className="w-4 h-4" />
+                    Open Framework
+                  </Link>
+                ) : (
+                  <button className="w-full px-4 py-2 bg-cyan-500/10 hover:bg-cyan-500 border border-cyan-500/30 text-cyan-500 hover:text-white rounded-lg font-semibold transition-all flex items-center justify-center gap-2">
+                    <Download className="w-4 h-4" />
+                    Download
+                  </button>
+                )}
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="pb-8">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto rounded-2xl border border-slate-800 bg-slate-900 p-6">
+            <h2 className="text-2xl font-bold text-white">ATR Architecture Documents</h2>
+            <p className="mt-2 text-slate-400">Download the complete GEM and ATR architecture reference set.</p>
+            <div className="mt-4 grid gap-3 md:grid-cols-2">
+              {atrPdfs.map((pdf) => (
+                <a
+                  key={pdf.href}
+                  href={pdf.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center justify-between rounded-lg border border-slate-700 px-4 py-3 text-sm text-slate-200 transition-colors hover:border-cyan-500 hover:text-white"
+                >
+                  <span>{pdf.label}</span>
+                  <Download className="h-4 w-4 text-cyan-400" />
+                </a>
+              ))}
+            </div>
           </div>
         </div>
       </section>

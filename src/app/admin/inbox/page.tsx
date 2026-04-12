@@ -32,6 +32,7 @@ export default async function InboxPage({
   const status = params.status || 'all';
 
   const messages = await listContactMessages({
+    tenantId: 'tenant-default',
     q,
     status: status === 'all' ? undefined : status,
   });

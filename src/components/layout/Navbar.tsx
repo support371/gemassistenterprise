@@ -9,6 +9,7 @@ const navigation = [
   { name: 'Home', href: '/', icon: Home },
   { name: 'About', href: '/about-us', icon: Shield },
   { name: 'Services', href: '/services', icon: LayoutDashboard },
+  { name: 'ATR', href: '/atr-framework', icon: BookOpen },
   { name: 'Intelligence', href: '/news', icon: BookOpen },
   { name: 'Team', href: '/teams', icon: Users },
 ];

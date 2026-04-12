@@ -3,6 +3,13 @@ import type { ReactNode } from 'react';
 
 const navItems = [
   { href: '/admin/inbox', label: 'Inbox' },
+  { href: '/admin/incidents', label: 'Incidents' },
+  { href: '/admin/alerts', label: 'Alerts' },
+  { href: '/admin/on-call', label: 'On-Call' },
+  { href: '/admin/sla', label: 'SLA' },
+  { href: '/admin/newsroom', label: 'Newsroom' },
+  { href: '/admin/audit', label: 'Audit' },
+  { href: '/admin/iam', label: 'IAM' },
   { href: '/admin/teams', label: 'Teams' },
   { href: '/admin/organizations', label: 'Organizations' },
   { href: '/admin/grants', label: 'Grants' },

@@ -1,4 +1,5 @@
 import { Users, Eye, Lock, Network, FileText, Shield } from 'lucide-react';
+import Link from 'next/link';
 
 export default function SentinelPage() {
   return (
@@ -56,6 +57,25 @@ export default function SentinelPage() {
                 <div className="text-sm text-slate-400">{benefit.label}</div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto rounded-2xl border border-cyan-500/20 bg-slate-900 p-8">
+            <div className="text-xs uppercase tracking-[0.2em] text-cyan-300">Governance and Audit Integrity</div>
+            <h2 className="mt-2 text-2xl font-bold text-white">ATR Governance Model</h2>
+            <p className="mt-3 text-slate-300">
+              Sentinel Trust is governed by immutable audit trails, data classification, and compliance
+              controls established in the ATR enterprise governance framework.
+            </p>
+            <Link
+              href="/atr-framework"
+              className="mt-5 inline-flex items-center justify-center rounded-lg border border-cyan-500/40 px-4 py-2 font-semibold text-cyan-200 transition-colors hover:border-cyan-400 hover:text-white"
+            >
+              Explore the ATR Framework
+            </Link>
           </div>
         </div>
       </section>

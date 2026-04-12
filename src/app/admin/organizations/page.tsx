@@ -1,9 +1,7 @@
-const organizations = [
-  { id: 'ORG-100', name: 'Vertex Finance', domain: 'vertex.example', billingEnabled: true, tier: 'Enterprise' },
-  { id: 'ORG-233', name: 'Northwind Health', domain: 'northwind.example', billingEnabled: false, tier: 'Pilot' },
-];
+import { listOrganizations } from '@/lib/iamStore';
 
-export default function OrganizationsAdminPage() {
+export default async function OrganizationsAdminPage() {
+  const organizations = await listOrganizations('tenant-default');
   return (
     <section className="bg-slate-900 border border-slate-800 rounded-xl p-6">
       <h2 className="text-2xl font-semibold mb-2">Organizations</h2>

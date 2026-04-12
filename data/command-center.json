@@ -1,0 +1,90 @@
+{
+  "alerts": [
+    {
+      "id": "ALERT-1001",
+      "tenantId": "tenant-default",
+      "title": "Suspicious privilege escalation pattern",
+      "severity": "high",
+      "status": "investigating",
+      "source": "EDR",
+      "indicator": "hash:9e4d...",
+      "incidentId": "INC-9001",
+      "createdAt": "2026-04-12T05:33:49.509Z",
+      "updatedAt": "2026-04-12T05:33:49.509Z"
+    },
+    {
+      "id": "ALERT-1002",
+      "tenantId": "tenant-default",
+      "title": "Unusual outbound transfer spike",
+      "severity": "critical",
+      "status": "new",
+      "source": "SIEM",
+      "indicator": "ip:185.44.x.x",
+      "incidentId": null,
+      "createdAt": "2026-04-12T05:33:49.509Z",
+      "updatedAt": "2026-04-12T05:33:49.509Z"
+    }
+  ],
+  "incidents": [
+    {
+      "id": "INC-9001",
+      "tenantId": "tenant-default",
+      "title": "Potential credential compromise",
+      "severity": "sev2",
+      "status": "contained",
+      "detectedAt": "2026-04-12T05:33:49.509Z",
+      "assignedTeamId": "T-01",
+      "slaProfileId": "SLA-STD",
+      "createdAt": "2026-04-12T05:33:49.509Z",
+      "updatedAt": "2026-04-12T05:33:49.509Z"
+    },
+    {
+      "id": "INC-9002",
+      "tenantId": "tenant-default",
+      "title": "Cloud policy drift in production",
+      "severity": "sev3",
+      "status": "open",
+      "detectedAt": "2026-04-12T05:33:49.509Z",
+      "assignedTeamId": "T-03",
+      "slaProfileId": "SLA-STD",
+      "createdAt": "2026-04-12T05:33:49.509Z",
+      "updatedAt": "2026-04-12T05:33:49.509Z"
+    }
+  ],
+  "slaProfiles": [
+    {
+      "id": "SLA-STD",
+      "tenantId": "tenant-default",
+      "name": "Enterprise Standard",
+      "acknowledgeMinutes": 5,
+      "containMinutes": 30,
+      "resolveMinutes": 240,
+      "createdAt": "2026-04-12T05:33:49.509Z",
+      "updatedAt": "2026-04-12T05:33:49.509Z"
+    }
+  ],
+  "slaBreaches": [
+    {
+      "id": "BREACH-101",
+      "tenantId": "tenant-default",
+      "incidentId": "INC-9002",
+      "breachType": "ack",
+      "breachedAt": "2026-04-12T05:33:49.509Z",
+      "createdAt": "2026-04-12T05:33:49.509Z",
+      "updatedAt": "2026-04-12T05:33:49.509Z"
+    }
+  ],
+  "onCallSchedules": [
+    {
+      "id": "ONCALL-1",
+      "tenantId": "tenant-default",
+      "teamId": "T-02",
+      "policyId": "ESC-PRIMARY",
+      "activeUserId": "user-ir-primary",
+      "startsAt": "2026-04-12T05:33:49.509Z",
+      "endsAt": "2026-04-12T13:33:49.509Z",
+      "createdAt": "2026-04-12T05:33:49.509Z",
+      "updatedAt": "2026-04-12T05:33:49.509Z"
+    }
+  ]
+}

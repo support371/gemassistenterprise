@@ -69,6 +69,26 @@ export default function CaseStudiesPage() {
         </div>
       </section>
 
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-5xl mx-auto rounded-2xl border border-cyan-500/20 bg-slate-900 p-8">
+            <div className="text-xs uppercase tracking-[0.2em] text-cyan-300">Methodology</div>
+            <h2 className="mt-2 text-2xl font-bold text-white">Execution and Delivery Controls</h2>
+            <p className="mt-3 text-slate-300">
+              Each outcome is anchored to the ATR execution model: API-first services, containerized delivery,
+              event-driven automation, and release governance with canary safeguards.
+            </p>
+            <Link
+              href="/atr-framework"
+              className="mt-5 inline-flex items-center gap-2 rounded-lg border border-cyan-500/40 px-4 py-2 text-cyan-200 transition-colors hover:border-cyan-400 hover:text-white"
+            >
+              Explore the ATR Framework
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
       <section className="py-24 text-center">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto bg-gradient-to-r from-cyan-500/10 to-blue-600/10 border-2 border-cyan-500/30 p-12 rounded-2xl">

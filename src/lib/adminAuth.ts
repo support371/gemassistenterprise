@@ -15,3 +15,16 @@ export async function isAdminAuthenticated(): Promise<boolean> {
   const session = cookieStore.get(ADMIN_COOKIE)?.value;
   return isValidAdminToken(session ?? '');
 }
+
+export function isAdminAuthenticatedRequest(request: Request): boolean {
+  const cookieHeader = request.headers.get('cookie') ?? '';
+  const cookies = cookieHeader.split(';').map((entry) => entry.trim());
+  const prefix = `${ADMIN_COOKIE}=`;
+  const cookie = cookies.find((entry) => entry.startsWith(prefix));
+  if (!cookie) {
+    return false;
+  }
+
+  const token = decodeURIComponent(cookie.slice(prefix.length));
+  return isValidAdminToken(token);
+}

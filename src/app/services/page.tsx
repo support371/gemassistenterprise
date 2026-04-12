@@ -114,6 +114,29 @@ export default function ServicesHubPage() {
           </div>
         </div>
       </section>
+
+      <section className="py-24">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto rounded-2xl border border-cyan-500/30 bg-gradient-to-r from-cyan-950/30 to-blue-950/20 p-10">
+            <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+              <div>
+                <div className="text-xs uppercase tracking-[0.2em] text-cyan-300">Architecture Alignment</div>
+                <h2 className="mt-2 text-3xl font-bold text-white">Services Built on the ATR Framework</h2>
+                <p className="mt-3 text-slate-300">
+                  Each service maps to an enterprise architecture model that governs execution, delivery,
+                  and compliance posture from the first engagement.
+                </p>
+              </div>
+              <Link
+                href="/atr-framework"
+                className="inline-flex items-center justify-center rounded-lg border border-cyan-500/40 px-4 py-2 font-semibold text-cyan-200 transition-colors hover:border-cyan-400 hover:text-white"
+              >
+                View ATR Framework
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

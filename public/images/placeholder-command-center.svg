@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600" fill="none">
+  <rect width="1200" height="600" fill="#0F172A"/>
+  <rect x="40" y="40" width="1120" height="520" rx="16" fill="#020617" stroke="#1E293B"/>
+  <text x="600" y="290" text-anchor="middle" fill="#22D3EE" font-size="42" font-family="Arial, Helvetica, sans-serif">
+    GEM Cyber Command Center Placeholder
+  </text>
+</svg>

@@ -9,12 +9,29 @@ async function checkStorage() {
   }
 }
 
+async function checkPath(filePath: string) {
+  try {
+    await fs.access(filePath);
+    return 'reachable';
+  } catch {
+    return 'initializing';
+  }
+}
+
 export default async function DiagnosticsPage() {
   const storageStatus = await checkStorage();
+  const [auditStatus, commandCenterStatus, newsletterStatus] = await Promise.all([
+    checkPath('data/audit-events.ndjson'),
+    checkPath('data/command-center.json'),
+    checkPath('data/newsletter.json'),
+  ]);
 
   const checks = [
     { key: 'runtime', label: 'Runtime', value: process.env.NODE_ENV || 'development' },
     { key: 'storage', label: 'Message Store', value: storageStatus },
+    { key: 'audit', label: 'Audit Store', value: auditStatus },
+    { key: 'command', label: 'Command Center Store', value: commandCenterStatus },
+    { key: 'newsletter', label: 'Newsletter Store', value: newsletterStatus },
     { key: 'smtp', label: 'SMTP', value: process.env.SMTP_USER ? 'configured' : 'not configured' },
     { key: 'admin', label: 'Admin Token', value: process.env.ADMIN_ACCESS_TOKEN ? 'configured' : 'using default (change me)' },
   ];

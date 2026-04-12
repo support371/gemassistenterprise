@@ -94,6 +94,35 @@ export default function TeamPage() {
         </div>
       </section>
 
+      <section className="py-24">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto grid gap-6 lg:grid-cols-2">
+            <div className="rounded-2xl border border-cyan-500/20 bg-slate-900 p-8">
+              <div className="text-xs uppercase tracking-[0.2em] text-cyan-300">Operating Model</div>
+              <h2 className="mt-2 text-2xl font-bold text-white">Execution and Governance Pillars</h2>
+              <p className="mt-3 text-slate-300">
+                Teams operate within the ATR execution model: API-first workflows, event-driven automation,
+                and containerized services with audit visibility.
+              </p>
+              <Link
+                href="/atr-framework"
+                className="mt-5 inline-flex items-center rounded-lg border border-cyan-500/40 px-4 py-2 font-semibold text-cyan-200 transition-colors hover:border-cyan-400 hover:text-white"
+              >
+                Explore the ATR Framework
+              </Link>
+            </div>
+            <div className="rounded-2xl border border-slate-800 bg-slate-900 p-8">
+              <div className="text-xs uppercase tracking-[0.2em] text-slate-400">Architecture Stewardship</div>
+              <h3 className="mt-2 text-2xl font-bold text-white">Principles and Deployment Controls</h3>
+              <p className="mt-3 text-slate-300">
+                Governance teams maintain Zero Trust access, encryption standards, and release safeguards
+                through canary and rollback controls defined in ATR delivery guidance.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="py-24 text-center">
         <div className="container mx-auto px-4">
           <Users className="w-16 h-16 text-cyan-500 mx-auto mb-6" />

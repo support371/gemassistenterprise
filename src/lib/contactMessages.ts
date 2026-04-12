@@ -5,7 +5,9 @@ export type MessageStatus = 'open' | 'triaged' | 'closed';
 
 export interface ContactMessage {
   id: string;
+  tenantId: string;
   createdAt: string;
+  updatedAt: string;
   sourcePage: string;
   firstName: string;
   lastName: string;
@@ -20,6 +22,7 @@ export interface ContactMessage {
 }
 
 interface ListFilters {
+  tenantId?: string;
   q?: string;
   status?: MessageStatus;
   assignedToUserId?: string;
@@ -42,8 +45,31 @@ async function readMessages(): Promise<ContactMessage[]> {
   const raw = await fs.readFile(dataPath, 'utf8');
 
   try {
-    const parsed = JSON.parse(raw) as ContactMessage[];
-    return Array.isArray(parsed) ? parsed : [];
+    const parsed = JSON.parse(raw) as Partial<ContactMessage>[];
+    if (!Array.isArray(parsed)) {
+      return [];
+    }
+
+    return parsed.map((message) => {
+      const createdAt = typeof message.createdAt === 'string' ? message.createdAt : new Date().toISOString();
+      return {
+        id: message.id ?? crypto.randomUUID(),
+        tenantId: message.tenantId ?? 'tenant-default',
+        createdAt,
+        updatedAt: typeof message.updatedAt === 'string' ? message.updatedAt : createdAt,
+        sourcePage: message.sourcePage ?? '/contact-us',
+        firstName: message.firstName ?? 'Unknown',
+        lastName: message.lastName ?? '',
+        email: message.email ?? '',
+        phone: message.phone ?? '',
+        serviceInterest: message.serviceInterest ?? '',
+        messageBody: message.messageBody ?? '',
+        status: message.status === 'triaged' || message.status === 'closed' ? message.status : 'open',
+        assignedToUserId: message.assignedToUserId ?? null,
+        orgId: message.orgId ?? null,
+        tags: Array.isArray(message.tags) ? message.tags : [],
+      };
+    });
   } catch {
     return [];
   }
@@ -54,13 +80,15 @@ async function writeMessages(messages: ContactMessage[]): Promise<void> {
 }
 
 export async function createContactMessage(
-  input: Omit<ContactMessage, 'id' | 'createdAt' | 'status' | 'assignedToUserId' | 'orgId' | 'tags'>,
+  input: Omit<ContactMessage, 'id' | 'createdAt' | 'updatedAt' | 'status' | 'assignedToUserId' | 'orgId' | 'tags'>,
 ): Promise<ContactMessage> {
   const messages = await readMessages();
+  const timestamp = new Date().toISOString();
 
   const record: ContactMessage = {
     id: crypto.randomUUID(),
-    createdAt: new Date().toISOString(),
+    createdAt: timestamp,
+    updatedAt: timestamp,
     status: 'open',
     assignedToUserId: null,
     orgId: null,
@@ -79,6 +107,10 @@ export async function listContactMessages(filters: ListFilters = {}): Promise<Co
   const query = filters.q?.trim().toLowerCase();
 
   return messages.filter((message) => {
+    if (filters.tenantId && message.tenantId !== filters.tenantId) {
+      return false;
+    }
+
     if (filters.status && message.status !== filters.status) {
       return false;
     }
@@ -124,6 +156,7 @@ export async function updateContactMessage(
     ...current,
     ...updates,
     tags: updates.tags ?? current.tags,
+    updatedAt: new Date().toISOString(),
   };
 
   await writeMessages(messages);
@@ -134,7 +167,9 @@ export function toCsv(messages: ContactMessage[]): string {
   const escape = (value: string) => `"${value.replaceAll('"', '""')}"`;
   const header = [
     'id',
+    'tenantId',
     'createdAt',
+    'updatedAt',
     'sourcePage',
     'firstName',
     'lastName',
@@ -151,7 +186,9 @@ export function toCsv(messages: ContactMessage[]): string {
   const rows = messages.map((message) =>
     [
       message.id,
+      message.tenantId,
       message.createdAt,
+      message.updatedAt,
       message.sourcePage,
       message.firstName,
       message.lastName,

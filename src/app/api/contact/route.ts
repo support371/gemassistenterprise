@@ -1,9 +1,12 @@
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 import { createContactMessage } from '@/lib/contactMessages';
+import { emitAuditEvent } from '@/lib/eventBackbone';
+import { getRequestContextFromRequest } from '@/lib/tenantContext';
 
 export async function POST(request: Request) {
   try {
+    const context = getRequestContextFromRequest(request);
     const body = await request.json();
     const { name, email, company, phone, service, message, sourcePage } = body;
 
@@ -17,7 +20,8 @@ export async function POST(request: Request) {
     const [firstName, ...rest] = String(name).trim().split(' ');
     const lastName = rest.join(' ');
 
-    await createContactMessage({
+    const messageRecord = await createContactMessage({
+      tenantId: context.tenantId,
       sourcePage: typeof sourcePage === 'string' ? sourcePage : '/contact-us',
       firstName: firstName || 'Unknown',
       lastName: lastName || '',
@@ -25,6 +29,20 @@ export async function POST(request: Request) {
       phone: typeof phone === 'string' ? phone : '',
       serviceInterest: service,
       messageBody: `${message}\n\nCompany: ${company}`,
+    });
+
+    await emitAuditEvent({
+      tenantId: context.tenantId,
+      actorId: context.actorId,
+      requestId: context.requestId,
+      eventName: 'contact.message_created.v1',
+      entityType: 'contact_message',
+      entityId: messageRecord.id,
+      payload: {
+        sourcePage: messageRecord.sourcePage,
+        email: messageRecord.email,
+        serviceInterest: messageRecord.serviceInterest,
+      },
     });
 
     const emailRegex = /^[^@]+@(?!gmail|yahoo|hotmail|outlook|live|icloud)[^@]+\.[^@]+$/;

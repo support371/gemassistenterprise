@@ -55,6 +55,21 @@ export default function QFSPage() {
               management for organizations on the QFS network.
             </p>
           </div>
+
+          <div className="mt-10 max-w-4xl mx-auto rounded-2xl border border-cyan-500/20 bg-slate-900 p-8">
+            <div className="text-xs uppercase tracking-[0.2em] text-cyan-300">Security Architecture</div>
+            <h3 className="mt-2 text-2xl font-bold text-white">Foundational and Governance Controls</h3>
+            <p className="mt-3 text-slate-300">
+              QFS security is aligned to ATR foundation controls: Zero Trust access, encrypted data handling,
+              continuous monitoring, and immutable audit governance.
+            </p>
+            <Link
+              href="/atr-framework"
+              className="mt-5 inline-flex items-center justify-center rounded-lg border border-cyan-500/40 px-4 py-2 font-semibold text-cyan-200 transition-colors hover:border-cyan-400 hover:text-white"
+            >
+              Explore the ATR Framework
+            </Link>
+          </div>
         </div>
       </section>
     </div>

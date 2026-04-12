@@ -28,6 +28,21 @@ export default function AllianceTrustPage() {
               </li>
            </ul>
         </div>
+        <div className="mt-10 bg-slate-900 border border-cyan-500/20 p-8 rounded-2xl text-left text-slate-300">
+          <div className="text-xs uppercase tracking-[0.2em] text-cyan-300">Compliance and Audit Integrity</div>
+          <h2 className="mt-2 text-2xl font-bold text-white">ATR Governance Controls</h2>
+          <p className="mt-3">
+            Physical asset protection is governed by the ATR enterprise framework with data classification,
+            immutable audit logging, and regional compliance modules for global holdings.
+          </p>
+          <Link
+            href="/atr-framework"
+            className="mt-5 inline-flex items-center gap-2 text-cyan-400 font-semibold hover:text-cyan-300"
+          >
+            Explore the ATR Framework
+            <ArrowRight className="w-5 h-5" />
+          </Link>
+        </div>
         <div className="mt-12">
            <Link href="/contact-us" className="inline-flex items-center gap-2 text-cyan-500 font-bold hover:text-cyan-400">
               Learn more about our dual-platform model
