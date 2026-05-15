@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+
+{% block title %}Intelligence - GEM Cybersecurity Enterprise Security Platform{% endblock %}
+
+{% block content %}
+<!-- Section 1: Hero -->
+<section class="relative bg-[#030712] pt-32 pb-24 overflow-hidden">
+    <div class="container mx-auto max-w-screen-xl px-6 relative z-10 text-center">
+        <h1 class="text-5xl md:text-8xl font-black text-white mb-8 tracking-tighter">
+            Intelligence <span class="text-gemLightBlue">Hub</span>
+        </h1>
+        <p class="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
+            Proprietary threat intelligence and security research synthesized for enterprise decision-makers.
+        </p>
+    </div>
+</section>
+
+<!-- Section 2: News Feed -->
+<section class="bg-[#030712] px-6 pb-32">
+    <div class="max-w-screen-xl mx-auto">
+        <div class="grid gap-12 lg:grid-cols-3 mb-20">
+            <div class="bg-white/5 border border-white/10 rounded-[2.5rem] overflow-hidden group">
+                <div class="p-8">
+                    <div class="text-gemLightBlue font-black text-[10px] uppercase tracking-widest mb-4">Cybersecurity</div>
+                    <h3 class="text-2xl font-black text-white mb-4 group-hover:text-gemLightBlue transition-colors">Emerging Ransomware Vectors in 2026</h3>
+                    <p class="text-gray-500 mb-6">Analyzing the shift towards autonomous AI-driven exfiltration techniques.</p>
+                    <div class="text-gray-600 text-xs font-bold uppercase tracking-widest">2 hours ago</div>
+                </div>
+            </div>
+            <div class="bg-white/5 border border-white/10 rounded-[2.5rem] overflow-hidden group">
+                <div class="p-8">
+                    <div class="text-gemGreen font-black text-[10px] uppercase tracking-widest mb-4">Finance</div>
+                    <h3 class="text-2xl font-black text-white mb-4 group-hover:text-gemLightBlue transition-colors">Quantum Financial System Integration</h3>
+                    <p class="text-gray-500 mb-6">How QFS is redefining digital asset security for global banking.</p>
+                    <div class="text-gray-600 text-xs font-bold uppercase tracking-widest">5 hours ago</div>
+                </div>
+            </div>
+            <div class="bg-white/5 border border-white/10 rounded-[2.5rem] overflow-hidden group">
+                <div class="p-8">
+                    <div class="text-gemRed font-black text-[10px] uppercase tracking-widest mb-4">Alert</div>
+                    <h3 class="text-2xl font-black text-white mb-4 group-hover:text-gemLightBlue transition-colors">Critical Infrastructure Vulnerability</h3>
+                    <p class="text-gray-500 mb-6">Immediate patching required for federal-grade cloud environments.</p>
+                    <div class="text-gray-600 text-xs font-bold uppercase tracking-widest">12 hours ago</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Newsletter Signup -->
+        <div class="bg-gemBlue/20 border border-white/10 p-16 rounded-[4rem] text-center relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-gemLightBlue/5 rounded-full blur-[100px]"></div>
+            <h2 class="text-4xl lg:text-5xl font-black text-white mb-6">Stay Ahead of <span class="text-gemLightBlue">Threats</span></h2>
+            <p class="text-gray-400 text-lg mb-10 max-w-2xl mx-auto">Join 12,000+ industry leaders receiving daily encrypted intelligence reports.</p>
+            <form id="newsletterForm" class="max-w-md mx-auto flex flex-col sm:flex-row gap-4">
+                <input type="email" name="email" required placeholder="Enter enterprise email..." class="flex-1 bg-white/5 border border-white/10 rounded-2xl h-16 px-6 text-white outline-none focus:border-gemLightBlue transition-all">
+                <button type="submit" class="h-16 px-10 rounded-2xl bg-gemLightBlue text-gemBlue font-black uppercase tracking-widest hover:bg-white transition-all shadow-xl shadow-gemLightBlue/20">Subscribe</button>
+            </form>
+            <div id="newsletterStatus" class="mt-6 font-bold uppercase tracking-widest text-xs hidden"></div>
+        </div>
+    </div>
+</section>
+
+<script>
+document.getElementById('newsletterForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = e.target.querySelector('button');
+    const status = document.getElementById('newsletterStatus');
+    const originalText = btn.innerText;
+    
+    btn.innerText = 'PROCESSING...';
+    btn.disabled = true;
+    
+    const email = e.target.email.value;
+    
+    try {
+        const response = await fetch('/api/newsletter', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email })
+        });
+        const result = await response.json();
+        
+        status.innerText = result.message;
+        status.classList.remove('hidden', 'text-gemRed', 'text-gemGreen');
+        status.classList.add(result.status === 'success' ? 'text-gemGreen' : 'text-gemRed');
+        
+        if (result.status === 'success') e.target.reset();
+    } catch (error) {
+        status.innerText = 'SUBSCRIPTION ERROR';
+        status.classList.remove('hidden');
+        status.classList.add('text-gemRed');
+    } finally {
+        btn.innerText = originalText;
+        btn.disabled = false;
+    }
+});
+</script>
+{% endblock %}
+

@@ -1,0 +1,427 @@
+{% extends "base.html" %}
+
+{% block title %}GEM Cybersecurity - Enterprise Threat Detection & 24/7 SOC Monitoring{% endblock %}
+
+{% block content %}
+<!-- Page 1: HOMEPAGE (/) -->
+
+<!-- Section 1: Hero -->
+<section class="relative bg-[#030712] pt-32 pb-24 lg:pt-48 lg:pb-40 overflow-hidden" aria-label="Hero Section">
+  <!-- Dynamic Background Orbs -->
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="absolute top-[-10%] right-[-10%] w-[600px] h-[600px] bg-gemBlue/20 rounded-full blur-[150px] animate-pulse"></div>
+    <div class="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] bg-gemLightBlue/10 rounded-full blur-[120px] animate-bounce" style="animation-duration: 12s"></div>
+  </div>
+
+  <div class="container mx-auto max-w-screen-xl px-6 relative z-10 lg:flex lg:items-center lg:gap-12">
+    <div class="lg:w-7/12 w-full text-center lg:text-left">
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gemBlue/10 border border-gemBlue/20 mb-8 backdrop-blur-md">
+        <span class="relative flex h-2 w-2">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-gemLightBlue opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-gemLightBlue"></span>
+        </span>
+        <p class="text-[10px] font-black uppercase text-gemLightBlue tracking-[0.2em]">
+          24/7 ENTERPRISE MONITORING ACTIVE
+        </p>
+      </div>
+      
+      <h1 class="text-5xl sm:text-6xl lg:text-8xl font-black text-white mb-8 leading-[0.9] tracking-tighter">
+        Enterprise <span class="text-transparent bg-clip-text bg-gradient-to-r from-gemLightBlue to-blue-400">Cybersecurity</span> & Physical <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-gemLightBlue">Asset Recovery</span>
+      </h1>
+      
+      <p class="text-xl sm:text-2xl text-gray-400 max-w-2xl mx-auto lg:mx-0 mb-12 leading-relaxed font-medium">
+        GEM Enterprise + Alliance Trust Realty: A unified platform for global threat detection, regulatory compliance, and high-value asset protection.
+      </p>
+      
+      <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-6">
+        <a href="{{ url_for('contact_page') }}" class="group relative inline-flex items-center justify-center h-16 px-10 rounded-2xl bg-gemLightBlue text-white text-lg font-black transition-all hover:scale-105 hover:shadow-[0_20px_40px_-10px_rgba(0,178,255,0.4)] w-full sm:w-auto">
+          Schedule Security Assessment
+          <i data-lucide="shield-check" class="ml-2 h-5 w-5 group-hover:rotate-12 transition-transform"></i>
+        </a>
+        <a href="{{ url_for('qfs_route') }}" class="group relative inline-flex items-center justify-center h-16 px-10 rounded-2xl bg-white/5 text-white text-lg font-black transition-all hover:bg-white/10 w-full sm:w-auto">
+          QFS Network
+        </a>
+        <a href="tel:+18603054376" class="inline-flex items-center justify-center h-16 px-10 rounded-2xl bg-gemRed/10 border border-gemRed/20 text-gemRed text-lg font-black backdrop-blur-xl hover:bg-gemRed/20 transition-all w-full sm:w-auto">
+          🚨 24/7 Emergency: (860) 305-4376
+        </a>
+      </div>
+
+      <div class="flex flex-wrap items-center justify-center lg:justify-start gap-8 mt-16 py-6 border-t border-white/5">
+        <div class="flex items-center gap-3">
+          <div class="h-10 w-10 rounded-xl bg-gemGreen/10 flex items-center justify-center text-gemGreen border border-gemGreen/20">
+            <i data-lucide="award" class="h-5 w-5"></i>
+          </div>
+          <div>
+            <div class="text-3xl font-black text-white leading-none">99.9%</div>
+            <span class="text-[9px] font-bold text-gray-500 uppercase tracking-widest">Uptime SLA</span>
+          </div>
+        </div>
+        <div class="flex items-center gap-3">
+          <div class="h-10 w-10 rounded-xl bg-gemLightBlue/10 flex items-center justify-center text-gemLightBlue border border-gemLightBlue/20">
+            <i data-lucide="clock" class="h-5 w-5"></i>
+          </div>
+          <div>
+            <div class="text-3xl font-black text-white leading-none">2.0m</div>
+            <span class="text-[9px] font-bold text-gray-500 uppercase tracking-widest">Response Time</span>
+          </div>
+        </div>
+        <div class="flex items-center gap-3">
+          <div class="h-10 w-10 rounded-xl bg-gemGreen/10 flex items-center justify-center text-gemGreen border border-gemGreen/20">
+            <i data-lucide="landmark" class="h-5 w-5"></i>
+          </div>
+          <div>
+            <div class="text-3xl font-black text-white leading-none">$50M+</div>
+            <span class="text-[9px] font-bold text-gray-500 uppercase tracking-widest">Assets Managed</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 2: Security Ops Center Dashboard Visual -->
+    <div class="mt-20 lg:mt-0 lg:w-5/12 w-full">
+      <div class="relative group">
+        <div class="bg-[#111827]/80 backdrop-blur-2xl rounded-[2.5rem] p-8 border border-white/10 shadow-2xl relative z-10 overflow-hidden">
+          <!-- Animated pulse background for dashboard -->
+          <div class="absolute inset-0 bg-gradient-to-br from-gemBlue/10 to-transparent opacity-50"></div>
+          
+          <div class="flex items-center justify-between mb-10 relative z-10">
+            <div>
+              <h4 class="text-white font-black text-xl tracking-tight">Security Ops Center</h4>
+              <p class="text-[10px] font-bold text-gray-500 uppercase tracking-widest">Global Monitoring Engine</p>
+            </div>
+            <div class="flex items-center gap-3 bg-gemGreen/10 px-4 py-2 rounded-xl border border-gemGreen/20">
+              <span class="h-2 w-2 rounded-full bg-gemGreen animate-pulse"></span>
+              <span class="text-[10px] font-black text-gemGreen uppercase tracking-[0.2em]">Live Status</span>
+            </div>
+          </div>
+
+          <div class="space-y-6 relative z-10">
+            <!-- Metric Card: Threats Blocked -->
+            <div class="bg-white/5 p-6 rounded-[1.5rem] border border-white/5 flex items-center justify-between hover:bg-white/10 transition-all group/metric">
+              <div class="flex items-center gap-4">
+                <div class="h-12 w-12 rounded-2xl bg-gemLightBlue/10 flex items-center justify-center text-gemLightBlue group-hover/metric:scale-110 transition-transform">
+                  <i data-lucide="shield-alert" class="h-6 w-6"></i>
+                </div>
+                <div>
+                  <div class="text-[10px] font-bold text-gray-500 uppercase tracking-widest">Threats Blocked</div>
+                  <div class="text-3xl font-black text-white counter" data-target="2437291">2.4M+</div>
+                </div>
+              </div>
+              <div class="text-right">
+                <div class="text-gemGreen font-black flex items-center gap-1"><i data-lucide="trending-up" class="h-3 w-3"></i> 12%</div>
+                <div class="text-[10px] text-gray-600 font-bold uppercase">Hourly Delta</div>
+              </div>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="grid grid-cols-2 gap-6">
+              <div class="bg-white/5 p-6 rounded-[1.5rem] border border-white/5">
+                <div class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2">Response Time</div>
+                <div class="text-2xl font-black text-white">1.8m</div>
+                <div class="w-full bg-white/10 h-1 mt-3 rounded-full overflow-hidden">
+                  <div class="bg-gemLightBlue h-full w-[85%] animate-pulse"></div>
+                </div>
+              </div>
+              <div class="bg-white/5 p-6 rounded-[1.5rem] border border-white/5">
+                <div class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-2">Uptime</div>
+                <div class="text-2xl font-black text-white">99.97%</div>
+                <div class="w-full bg-white/10 h-1 mt-3 rounded-full overflow-hidden">
+                  <div class="bg-gemGreen h-full w-[99%] animate-pulse"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Network Latency visualization -->
+            <div class="bg-white/5 p-4 rounded-xl border border-white/5">
+                <div class="flex justify-between items-center mb-2">
+                    <span class="text-[10px] font-bold text-gray-500 uppercase">Network Latency</span>
+                    <span class="text-[10px] font-black text-gemLightBlue uppercase">12ms</span>
+                </div>
+                <div class="flex items-end gap-1 h-8">
+                    <div class="bg-gemLightBlue/20 w-full h-[40%] rounded-t-sm"></div>
+                    <div class="bg-gemLightBlue/30 w-full h-[60%] rounded-t-sm"></div>
+                    <div class="bg-gemLightBlue/40 w-full h-[30%] rounded-t-sm"></div>
+                    <div class="bg-gemLightBlue/50 w-full h-[80%] rounded-t-sm"></div>
+                    <div class="bg-gemLightBlue/60 w-full h-[50%] rounded-t-sm"></div>
+                    <div class="bg-gemLightBlue h-full w-full rounded-t-sm animate-pulse"></div>
+                </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Decoration Elements -->
+        <div class="absolute -top-10 -right-10 w-48 h-48 bg-gemLightBlue/20 rounded-full blur-3xl group-hover:bg-gemLightBlue/30 transition-all duration-700"></div>
+        <div class="absolute -bottom-10 -left-10 w-56 h-56 bg-gemBlue/20 rounded-full blur-3xl group-hover:bg-gemBlue/30 transition-all duration-700"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section 3: Core Services Grid -->
+<section class="bg-[#030712] px-6 py-24 lg:py-32" id="services" aria-label="Services Section">
+  <div class="max-w-screen-xl mx-auto">
+    <div class="text-center mb-20">
+      <p class="text-[10px] font-black uppercase text-gemLightBlue tracking-[0.3em] mb-4">CYBERSECURITY SOLUTIONS</p>
+      <h2 class="text-4xl sm:text-5xl lg:text-7xl font-black text-white mb-6 tracking-tighter">
+        Enterprise-Grade <span class="text-transparent bg-clip-text bg-gradient-to-r from-gemLightBlue to-blue-400">Protection</span>
+      </h2>
+      <p class="text-xl text-gray-400 mb-16 max-w-3xl mx-auto font-medium">
+        Uncompromising security for modern enterprises. We provide the intelligence, technology, and expert support to defend your global infrastructure.
+      </p>
+    </div>
+
+    <div class="grid gap-8 lg:grid-cols-3">
+      <!-- Card 1: 24/7 Threat Monitoring -->
+      <div class="group relative bg-white/5 border border-white/10 rounded-[2.5rem] p-10 transition-all duration-500 hover:-translate-y-4 hover:bg-white/10 hover:border-gemLightBlue/30 hover:shadow-[0_40px_80px_-15px_rgba(0,178,255,0.1)] overflow-hidden">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-gemLightBlue/5 rounded-full blur-3xl group-hover:bg-gemLightBlue/10 transition-all"></div>
+        <div class="h-16 w-16 bg-gemLightBlue/10 rounded-2xl flex items-center justify-center text-gemLightBlue mb-8 group-hover:scale-110 transition-transform">
+          <i data-lucide="shield" class="h-8 w-8"></i>
+        </div>
+        <h3 class="text-2xl font-black text-white mb-6 leading-tight">24/7 Threat Monitoring & Detection</h3>
+        <p class="text-lg text-gray-400 leading-relaxed mb-8 font-medium">
+          Continuous surveillance of your entire digital perimeter using advanced AI and expert human analysis.
+        </p>
+        <ul class="space-y-4 mb-10 text-gray-500 font-bold text-sm uppercase tracking-wide">
+          <li class="flex items-center gap-3"><i data-lucide="check" class="h-4 w-4 text-gemGreen"></i> Real-time SIEM Analysis</li>
+          <li class="flex items-center gap-3"><i data-lucide="check" class="h-4 w-4 text-gemGreen"></i> AI-Powered Behavior Analysis</li>
+          <li class="flex items-center gap-3"><i data-lucide="check" class="h-4 w-4 text-gemGreen"></i> Global Threat Intelligence</li>
+          <li class="flex items-center gap-3"><i data-lucide="check" class="h-4 w-4 text-gemGreen"></i> Network Traffic Surveillance</li>
+          <li class="flex items-center gap-3"><i data-lucide="check" class="h-4 w-4 text-gemGreen"></i> Cloud Infrastructure Auditing</li>
+        </ul>
+        <div class="pt-8 border-t border-white/5 mb-10">
+            <div class="text-3xl font-black text-white">2.4M+</div>
+            <div class="text-[10px] font-bold text-gray-500 uppercase tracking-widest">Threats Blocked YTD</div>
+        </div>
+        <a href="{{ url_for('contact') }}" class="inline-flex items-center justify-center h-14 px-8 rounded-xl bg-gemLightBlue text-white text-xs font-black uppercase tracking-widest hover:bg-gemBlue transition-all w-full">
+          Schedule Assessment
+        </a>
+      </div>
+
+      <!-- Card 2: Incident Response -->
+      <div class="group relative bg-white/5 border border-white/10 rounded-[2.5rem] p-10 transition-all duration-500 hover:-translate-y-4 hover:bg-white/10 hover:border-gemRed/30 hover:shadow-[0_40px_80px_-15px_rgba(239,68,68,0.1)] overflow-hidden">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-gemRed/5 rounded-full blur-3xl group-hover:bg-gemRed/10 transition-all"></div>
+        <div class="h-16 w-16 bg-gemRed/10 rounded-2xl flex items-center justify-center text-gemRed mb-8 group-hover:scale-110 transition-transform">
+          <i data-lucide="alert-octagon" class="h-8 w-8"></i>
+        </div>
+        <h3 class="text-2xl font-black text-white mb-6 leading-tight">Incident Response & Digital Forensics</h3>
+        <p class="text-lg text-gray-400 leading-relaxed mb-8 font-medium">
+          Rapid containment and remediation of active security breaches with full forensic documentation.
+        </p>
+        <ul class="space-y-4 mb-10 text-gray-500 font-bold text-sm uppercase tracking-wide">
+          <li class="flex items-center gap-3"><i data-lucide="check" class="h-4 w-4 text-gemGreen"></i> 2-Minute Response Guarantee</li>
+          <li class="flex items-center gap-3"><i data-lucide="check" class="h-4 w-4 text-gemGreen"></i> Breach Containment</li>
+          <li class="flex items-center gap-3"><i data-lucide="check" class="h-4 w-4 text-gemGreen"></i> Evidence Collection</li>
+          <li class="flex items-center gap-3"><i data-lucide="check" class="h-4 w-4 text-gemGreen"></i> Root Cause Analysis</li>
+          <li class="flex items-center gap-3"><i data-lucide="check" class="h-4 w-4 text-gemGreen"></i> Remediation Planning</li>
+        </ul>
+        <div class="pt-8 border-t border-white/5 mb-10">
+            <div class="text-3xl font-black text-white">2 Min</div>
+            <div class="text-[10px] font-bold text-gray-500 uppercase tracking-widest">Average Response Time</div>
+        </div>
+        <a href="{{ url_for('contact') }}" class="inline-flex items-center justify-center h-14 px-8 rounded-xl bg-gemRed text-white text-xs font-black uppercase tracking-widest hover:bg-red-700 transition-all w-full">
+          Schedule Assessment
+        </a>
+      </div>
+
+      <!-- Card 3: Compliance & Risk Management -->
+      <div class="group relative bg-white/5 border border-white/10 rounded-[2.5rem] p-10 transition-all duration-500 hover:-translate-y-4 hover:bg-white/10 hover:border-gemGreen/30 hover:shadow-[0_40px_80px_-15px_rgba(16,185,129,0.1)] overflow-hidden">
+        <div class="absolute top-0 right-0 w-32 h-32 bg-gemGreen/5 rounded-full blur-3xl group-hover:bg-gemGreen/10 transition-all"></div>
+        <div class="h-16 w-16 bg-gemGreen/10 rounded-2xl flex items-center justify-center text-gemGreen mb-8 group-hover:scale-110 transition-transform">
+          <i data-lucide="check-circle" class="h-8 w-8"></i>
+        </div>
+        <h3 class="text-2xl font-black text-white mb-6 leading-tight">Compliance & Risk Management</h3>
+        <p class="text-lg text-gray-400 leading-relaxed mb-8 font-medium">
+          Strategic frameworks to ensure regulatory compliance and systematic reduction of enterprise risk.
+        </p>
+        <ul class="space-y-4 mb-10 text-gray-500 font-bold text-sm uppercase tracking-wide">
+          <li class="flex items-center gap-3"><i data-lucide="check" class="h-4 w-4 text-gemGreen"></i> SOC 2 / ISO 27001 Readiness</li>
+          <li class="flex items-center gap-3"><i data-lucide="check" class="h-4 w-4 text-gemGreen"></i> Federal Standard Alignment</li>
+          <li class="flex items-center gap-3"><i data-lucide="check" class="h-4 w-4 text-gemGreen"></i> Vulnerability Assessments</li>
+          <li class="flex items-center gap-3"><i data-lucide="check" class="h-4 w-4 text-gemGreen"></i> Supply Chain Risk Audits</li>
+          <li class="flex items-center gap-3"><i data-lucide="check" class="h-4 w-4 text-gemGreen"></i> Security Policy Design</li>
+        </ul>
+        <div class="pt-8 border-t border-white/5 mb-10">
+            <div class="text-3xl font-black text-white">90-Day</div>
+            <div class="text-[10px] font-bold text-gray-500 uppercase tracking-widest">Typical Implementation</div>
+        </div>
+        <a href="{{ url_for('contact') }}" class="inline-flex items-center justify-center h-14 px-8 rounded-xl bg-gemGreen text-white text-xs font-black uppercase tracking-widest hover:bg-green-700 transition-all w-full">
+          Schedule Assessment
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section 4: Stats Bar -->
+<section class="bg-gemBlue py-20 overflow-hidden relative" aria-label="Social Proof Stats">
+  <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent"></div>
+  <div class="container mx-auto max-w-screen-xl px-6 relative z-10">
+    <div class="grid gap-12 md:grid-cols-3 text-center">
+      <div class="scroll-animate" data-animation="fade-up">
+        <div class="text-6xl lg:text-7xl font-black text-white mb-2 tracking-tighter">500+</div>
+        <div class="text-sm font-black uppercase tracking-[0.2em] text-gemLightBlue">Enterprises Protected</div>
+      </div>
+      <div class="scroll-animate" data-animation="fade-up" style="animation-delay: 0.1s">
+        <div class="text-6xl lg:text-7xl font-black text-white mb-2 tracking-tighter">2 Min</div>
+        <div class="text-sm font-black uppercase tracking-[0.2em] text-gemLightBlue">Average Response Time</div>
+      </div>
+      <div class="scroll-animate" data-animation="fade-up" style="animation-delay: 0.2s">
+        <div class="text-6xl lg:text-7xl font-black text-white mb-2 tracking-tighter">99.97%</div>
+        <div class="text-sm font-black uppercase tracking-[0.2em] text-gemLightBlue">Detection Accuracy</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section 5: Testimonials -->
+<section class="bg-white px-6 py-24 lg:py-32" aria-label="Client Testimonials">
+  <div class="max-w-screen-xl mx-auto">
+    <div class="text-center mb-20">
+      <p class="text-[10px] font-black uppercase text-gemBlue/40 tracking-[0.3em] mb-4">CLIENT SUCCESS STORIES</p>
+      <h2 class="text-4xl sm:text-5xl lg:text-7xl font-black text-gemBlue tracking-tighter">
+        Trusted by Global <span class="text-gemLightBlue">Leaders</span>
+      </h2>
+    </div>
+
+    <div class="grid gap-8 lg:grid-cols-2">
+      <!-- Testimonial 1 -->
+      <div class="bg-[#f9fafb] rounded-[2.5rem] p-10 lg:p-14 border border-gray-100 hover:shadow-2xl transition-all duration-500 flex flex-col justify-between">
+        <div>
+          <i data-lucide="quote" class="h-16 w-16 text-gemLightBlue/10 mb-8"></i>
+          <p class="text-2xl lg:text-3xl font-black text-gemBlue leading-tight mb-10 italic">
+            "GEM Enterprise's detection capabilities are unmatched. We've seen a 94% reduction in security incidents since implementation across our global hubs."
+          </p>
+        </div>
+        <div class="flex items-center justify-between pt-10 border-t border-gray-200">
+          <div class="flex items-center gap-4">
+            <div class="h-16 w-16 rounded-full overflow-hidden bg-gray-200 border-2 border-white shadow-lg">
+                <img src="{{ url_for('static', filename='images/michael-gilbert.jpg') }}" alt="Michael Gilbert" class="h-full w-full object-cover">
+            </div>
+            <div>
+              <div class="font-black text-gemBlue">Michael Gilbert</div>
+              <div class="text-xs font-bold text-gray-500 uppercase tracking-widest">Chief Compliance Officer</div>
+              <div class="text-[10px] font-black text-gemLightBlue uppercase tracking-tighter">International Regulatory Agency</div>
+            </div>
+          </div>
+          <div class="hidden sm:block">
+            <div class="bg-gemLightBlue/10 text-gemLightBlue px-4 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest border border-gemLightBlue/20">
+                94% Reduction
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Testimonial 2 -->
+      <div class="bg-[#f9fafb] rounded-[2.5rem] p-10 lg:p-14 border border-gray-100 hover:shadow-2xl transition-all duration-500 flex flex-col justify-between">
+        <div>
+          <i data-lucide="quote" class="h-16 w-16 text-gemLightBlue/10 mb-8"></i>
+          <p class="text-2xl lg:text-3xl font-black text-gemBlue leading-tight mb-10 italic">
+            "The 24/7 incident response team saved us from a potential ransomware catastrophe. Their precision and speed are truly enterprise-grade."
+          </p>
+        </div>
+        <div class="flex items-center justify-between pt-10 border-t border-gray-200">
+          <div class="flex items-center gap-4">
+            <div class="h-16 w-16 rounded-full overflow-hidden bg-gray-200 border-2 border-white shadow-lg flex items-center justify-center text-gemBlue font-black text-xl">
+                JD
+            </div>
+            <div>
+              <div class="font-black text-gemBlue">Jennifer Davis</div>
+              <div class="text-xs font-bold text-gray-500 uppercase tracking-widest">Head of Infrastructure</div>
+              <div class="text-[10px] font-black text-gemLightBlue uppercase tracking-tighter">Global Financial Services</div>
+            </div>
+          </div>
+          <div class="hidden sm:block">
+            <div class="bg-gemGreen/10 text-gemGreen px-4 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest border border-gemGreen/20">
+                Zero Data Loss
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section 6: Emergency Response -->
+<section class="bg-[#030712] border-t-8 border-gemRed px-6 py-24 lg:py-32 relative overflow-hidden" aria-label="Emergency Section">
+    <!-- Red glow for emergency -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gemRed/10 rounded-full blur-[120px] pointer-events-none"></div>
+
+  <div class="max-w-screen-xl mx-auto text-center relative z-10">
+    <p class="text-sm font-black uppercase text-gemRed tracking-[0.4em] mb-4">
+      🚨 NEED IMMEDIATE HELP?
+    </p>
+    <h2 class="text-4xl sm:text-5xl lg:text-7xl font-black text-white mb-8 tracking-tighter">
+      24/7 Emergency Incident Response
+    </h2>
+    <p class="text-lg sm:text-2xl text-gray-400 max-w-4xl mx-auto leading-relaxed mb-16 font-medium">
+      Active security breach? Our rapid-response analysts are standing by 24/7/365 to contain threats and protect your assets.
+    </p>
+    <div class="flex flex-col sm:flex-row justify-center items-center gap-6 mb-20">
+      <a href="tel:+18603054376" class="inline-flex items-center justify-center h-20 px-12 rounded-2xl bg-gemRed text-white text-2xl font-black hover:bg-red-700 transition-all shadow-[0_20px_60px_-10px_rgba(239,68,68,0.5)] active:scale-95 group">
+        <i data-lucide="phone-call" class="mr-3 h-6 w-6 group-hover:animate-bounce"></i>
+        Call Emergency Hotline
+      </a>
+      <a href="mailto:emergency@gemcybersecurityassist.com" class="inline-flex items-center justify-center h-20 px-12 rounded-2xl border-2 border-white/20 text-white text-2xl font-black hover:bg-white/10 transition-all active:scale-95">
+        Email Emergency Team
+      </a>
+    </div>
+    <div class="grid gap-12 sm:grid-cols-3 max-w-5xl mx-auto">
+      <div class="flex flex-col items-center gap-4 group">
+        <div class="h-16 w-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-gemGreen group-hover:scale-110 transition-transform">
+            <i data-lucide="zap" class="h-8 w-8"></i>
+        </div>
+        <span class="text-lg font-bold text-gray-300">2-Minute Response</span>
+      </div>
+      <div class="flex flex-col items-center gap-4 group">
+        <div class="h-16 w-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-gemGreen group-hover:scale-110 transition-transform">
+            <i data-lucide="users" class="h-8 w-8"></i>
+        </div>
+        <span class="text-lg font-bold text-gray-300">Expert Lead Analysts</span>
+      </div>
+      <div class="flex flex-col items-center gap-4 group">
+        <div class="h-16 w-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-gemGreen group-hover:scale-110 transition-transform">
+            <i data-lucide="heart-pulse" class="h-8 w-8"></i>
+        </div>
+        <span class="text-lg font-bold text-gray-300">Full Recovery Support</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section 7: Footer (handled by base.html but specifically themed for homepage here if needed) -->
+
+<!-- Scripts for Homepage interactivity -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Simple counter animation
+        const counters = document.querySelectorAll('.counter');
+        const speed = 200;
+
+        counters.forEach(counter => {
+            const updateCount = () => {
+                const target = +counter.getAttribute('data-target');
+                const count = +counter.innerText.replace(/[^0-9]/g, '');
+                const inc = target / speed;
+
+                if (count < target) {
+                    const nextVal = Math.ceil(count + inc);
+                    counter.innerText = nextVal.toLocaleString() + (target > 1000000 ? '+' : '');
+                    setTimeout(updateCount, 1);
+                } else {
+                    counter.innerText = target.toLocaleString() + (target > 1000000 ? '+' : '');
+                }
+            };
+            
+            // Trigger animation when visible
+            const observer = new IntersectionObserver((entries) => {
+                if(entries[0].isIntersecting) {
+                    updateCount();
+                    observer.unobserve(counter);
+                }
+            }, { threshold: 0.5 });
+            
+            observer.observe(counter);
+        });
+    });
+</script>
+{% endblock %}

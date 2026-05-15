@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% block title %}Sentinel Trust - GEM Enterprise Framework{% endblock %}
+{% block content %}
+<section class="relative min-h-screen pt-32 pb-24 overflow-hidden">
+    <!-- Background Pattern -->
+    <div class="absolute inset-0 -z-10" style="background-image: radial-gradient(circle at 1px 1px, rgb(71, 85, 105) 1px, transparent 0); background-size: 40px 40px; opacity: 0.15"></div>
+
+    <div class="container mx-auto max-w-screen-xl px-6 relative z-10">
+        <div class="text-center mb-24 animate-fade-in">
+            <p class="text-[10px] font-black uppercase text-cyan-500 tracking-[0.3em] mb-4">TRUST INFRASTRUCTURE</p>
+            <h1 class="text-5xl lg:text-7xl font-black text-white mb-8 tracking-tighter">Cyber <span class="text-cyan-500">Sentinel Trust</span></h1>
+            <p class="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">The definitive enterprise trust framework built on Zero-Trust principles and continuous asset verification.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-32">
+            <!-- Pillar 1 -->
+            <div class="bg-slate-900/50 border border-slate-800 rounded-3xl p-10 backdrop-blur-sm hover:border-cyan-500/30 transition-all group">
+                <div class="h-14 w-14 bg-cyan-500/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <i data-lucide="user-check" class="w-8 h-8 text-cyan-500"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-4">Identity Verification</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">Multi-factor cryptographic identity assurance for every user and service across the network.</p>
+            </div>
+            <!-- Pillar 2 -->
+            <div class="bg-slate-900/50 border border-slate-800 rounded-3xl p-10 backdrop-blur-sm hover:border-blue-500/30 transition-all group">
+                <div class="h-14 w-14 bg-blue-500/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <i data-lucide="key" class="w-8 h-8 text-blue-500"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-4">Least Privilege Access</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">Granular access controls ensuring users and systems only access the exact resources required.</p>
+            </div>
+            <!-- Pillar 3 -->
+            <div class="bg-slate-900/50 border border-slate-800 rounded-3xl p-10 backdrop-blur-sm hover:border-gemGreen/30 transition-all group">
+                <div class="h-14 w-14 bg-gemGreen/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <i data-lucide="scan-eye" class="w-8 h-8 text-gemGreen"></i>
+                </div>
+                <h3 class="text-xl font-bold text-white mb-4">Continuous Monitoring</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">Real-time behavior analysis and asset health checks to maintain trust status dynamically.</p>
+            </div>
+        </div>
+
+        <div class="bg-slate-900 border border-slate-800 rounded-[3rem] p-16 overflow-hidden relative group">
+            <div class="absolute top-0 right-0 p-12 opacity-5 group-hover:opacity-10 transition-opacity">
+                <i data-lucide="lock" class="w-64 h-64 text-cyan-500"></i>
+            </div>
+            <div class="relative z-10 max-w-2xl">
+                <h2 class="text-3xl md:text-5xl font-black text-white mb-8 tracking-tight">The Architecture of Absolute Trust</h2>
+                <p class="text-lg text-slate-400 mb-10 leading-relaxed">Cyber Sentinel Trust isn't just a security tool—it's a comprehensive governance layer that protects digital perimeters and physical portfolios under a single verified umbrella.</p>
+                <ul class="space-y-4 mb-12">
+                    <li class="flex items-center gap-3 text-slate-300">
+                        <i data-lucide="check-circle" class="w-5 h-5 text-cyan-500"></i> Micro-segmentation of critical assets
+                    </li>
+                    <li class="flex items-center gap-3 text-slate-300">
+                        <i data-lucide="check-circle" class="w-5 h-5 text-cyan-500"></i> Quantum-resistant encryption protocols
+                    </li>
+                    <li class="flex items-center gap-3 text-slate-300">
+                        <i data-lucide="check-circle" class="w-5 h-5 text-cyan-500"></i> Automated compliance reporting
+                    </li>
+                </ul>
+                <a href="{{ url_for('contact_page') }}" class="inline-flex items-center justify-center h-16 px-10 rounded-2xl bg-cyan-500 text-gemBlue font-black uppercase tracking-widest hover:bg-white transition-all shadow-2xl shadow-cyan-500/20">
+                    Deploy Sentinel Trust
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

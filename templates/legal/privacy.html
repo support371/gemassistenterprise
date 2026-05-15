@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}Privacy Policy - GEM Enterprise{% endblock %}
+{% block content %}
+<section class="relative min-h-screen pt-32 pb-24 overflow-hidden">
+    <!-- Background Pattern -->
+    <div class="absolute inset-0 -z-10" style="background-image: radial-gradient(circle at 1px 1px, rgb(71, 85, 105) 1px, transparent 0); background-size: 40px 40px; opacity: 0.15"></div>
+
+    <div class="container mx-auto max-w-screen-xl px-6 relative z-10">
+        <div class="text-center mb-24 animate-fade-in">
+            <p class="text-[10px] font-black uppercase text-cyan-500 tracking-[0.3em] mb-4">LEGAL COMPLIANCE</p>
+            <h1 class="text-5xl lg:text-7xl font-black text-white mb-8 tracking-tighter">Privacy <span class="text-cyan-500">Policy</span></h1>
+            <p class="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">How GEM Enterprise and Alliance Trust Realty handle your sensitive data with absolute integrity.</p>
+        </div>
+
+        <div class="max-w-4xl mx-auto bg-slate-900 border border-slate-800 rounded-[3rem] p-12 lg:p-20 text-slate-300 leading-relaxed space-y-12">
+            <div class="space-y-6">
+                <h2 class="text-2xl font-black text-white">1. Data Collection & Security</h2>
+                <p>We implement enterprise-grade security protocols, including quantum-resistant encryption, to protect all personal and corporate data collected during the course of our cybersecurity and real estate operations.</p>
+            </div>
+            <div class="space-y-6">
+                <h2 class="text-2xl font-black text-white">2. Information Usage</h2>
+                <p>Data is used exclusively for service delivery, threat monitoring, and portfolio management. We maintain a strict zero-sharing policy with third-party advertisers.</p>
+            </div>
+            <div class="space-y-6">
+                <h2 class="text-2xl font-black text-white">3. User Rights</h2>
+                <p>Under GDPR and other relevant regulations, you maintain the right to access, rectify, or request deletion of your data at any time through our verified trust center.</p>
+            </div>
+            <div class="pt-12 border-t border-slate-800 text-center">
+                <p class="text-sm font-bold text-slate-500 mb-8">Last Updated: January 2026</p>
+                <a href="mailto:legal@gemcybersecurityassist.com" class="inline-flex items-center gap-2 text-cyan-500 text-xs font-black uppercase tracking-widest hover:text-white transition-colors">
+                    Contact Legal Division <i data-lucide="mail" class="w-4 h-4"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block title %}Case Studies - GEM Cybersecurity Success Stories{% endblock %}
+
+{% block content %}
+<section class="relative bg-[#030712] pt-32 pb-24 overflow-hidden">
+    <div class="container mx-auto max-w-screen-xl px-6 relative z-10">
+        <div class="text-center mb-20">
+            <h1 class="text-5xl md:text-8xl font-black text-white mb-8 tracking-tighter">
+                Success <span class="text-gemLightBlue">Stories</span>
+            </h1>
+            <p class="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed font-medium">
+                Real-world examples of how we protect global enterprises from advanced digital threats and manage complex asset recovery.
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12 mb-24">
+            <div class="bg-white/5 border border-white/10 rounded-[3rem] p-10 overflow-hidden group hover:border-gemLightBlue/30 transition-all">
+                <div class="text-gemLightBlue font-black text-xs uppercase tracking-widest mb-4">Financial Services</div>
+                <h3 class="text-3xl font-black text-white mb-6">Securing a $50B Asset Management Firm</h3>
+                <p class="text-gray-400 mb-8">Implementation of 24/7 SIEM monitoring and rapid incident response protocols for a leading global investment group.</p>
+                <div class="grid grid-cols-2 gap-6 border-t border-white/5 pt-8">
+                    <div>
+                        <div class="text-2xl font-black text-white">100%</div>
+                        <p class="text-[10px] font-bold text-gray-500 uppercase tracking-widest">Threat Containment</p>
+                    </div>
+                    <div>
+                        <div class="text-2xl font-black text-white">< 2min</div>
+                        <p class="text-[10px] font-bold text-gray-500 uppercase tracking-widest">Response Time</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white/5 border border-white/10 rounded-[3rem] p-10 overflow-hidden group hover:border-gemLightBlue/30 transition-all">
+                <div class="text-gemGreen font-black text-xs uppercase tracking-widest mb-4">Healthcare Technology</div>
+                <h3 class="text-3xl font-black text-white mb-6">HIPAA Compliance & SOC 2 Transformation</h3>
+                <p class="text-gray-400 mb-8">Automating compliance framework for a fast-growing SaaS provider handling sensitive patient data.</p>
+                <div class="grid grid-cols-2 gap-6 border-t border-white/5 pt-8">
+                    <div>
+                        <div class="text-2xl font-black text-white">0</div>
+                        <p class="text-[10px] font-bold text-gray-500 uppercase tracking-widest">Audit Failures</p>
+                    </div>
+                    <div>
+                        <div class="text-2xl font-black text-white">45 Days</div>
+                        <p class="text-[10px] font-bold text-gray-500 uppercase tracking-widest">Full Certification</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

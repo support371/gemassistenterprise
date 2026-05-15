@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block title %}Terms of Service - GEM Enterprise{% endblock %}
+{% block content %}
+<section class="relative min-h-screen pt-32 pb-24 overflow-hidden">
+    <!-- Background Pattern -->
+    <div class="absolute inset-0 -z-10" style="background-image: radial-gradient(circle at 1px 1px, rgb(71, 85, 105) 1px, transparent 0); background-size: 40px 40px; opacity: 0.15"></div>
+
+    <div class="container mx-auto max-w-screen-xl px-6 relative z-10">
+        <div class="text-center mb-24 animate-fade-in">
+            <p class="text-[10px] font-black uppercase text-cyan-500 tracking-[0.3em] mb-4">SERVICE AGREEMENT</p>
+            <h1 class="text-5xl lg:text-7xl font-black text-white mb-8 tracking-tighter">Terms of <span class="text-cyan-500">Service</span></h1>
+            <p class="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">The governing framework for our cybersecurity and real estate services.</p>
+        </div>
+
+        <div class="max-w-4xl mx-auto bg-slate-900 border border-slate-800 rounded-[3rem] p-12 lg:p-20 text-slate-300 leading-relaxed space-y-12">
+            <div class="space-y-6">
+                <h2 class="text-2xl font-black text-white">1. Service Engagement</h2>
+                <p>By accessing the GEM Enterprise platform, you agree to comply with our security protocols and operational standards. Our services are provided under a dual-platform model covering both digital security and physical asset management.</p>
+            </div>
+            <div class="space-y-6">
+                <h2 class="text-2xl font-black text-white">2. Security Obligations</h2>
+                <p>Clients are responsible for maintaining the confidentiality of their access credentials. GEM Enterprise provides 24/7 monitoring, but active participation in security hygiene is required.</p>
+            </div>
+            <div class="space-y-6">
+                <h2 class="text-2xl font-black text-white">3. Liability Framework</h2>
+                <p>Our liability is structured to reflect the complex nature of cyber threats and physical asset recovery. Detailed coverage limits are defined in specific service level agreements (SLAs).</p>
+            </div>
+            <div class="pt-12 border-t border-slate-800 text-center">
+                <p class="text-sm font-bold text-slate-500 mb-8">Last Updated: January 2026</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

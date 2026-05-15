@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Threat Monitoring - GEM Cyber{% endblock %}
+
+{% block content %}
+<section class="relative bg-[#030712] pt-32 pb-24 overflow-hidden">
+    <div class="container mx-auto max-w-screen-xl px-6 relative z-10">
+        <p class="text-sm font-black uppercase text-gemLightBlue tracking-[0.4em] mb-4">SOC OPERATIONS</p>
+        <h1 class="text-5xl lg:text-7xl font-black text-white mb-8 tracking-tighter">24/7 Threat <span class="text-gemLightBlue">Monitoring</span></h1>
+        <p class="text-xl text-gray-400 max-w-3xl mb-12 font-medium">Continuous surveillance of your digital perimeter with AI-driven detection and human expertise.</p>
+        
+        <div class="grid gap-8 lg:grid-cols-3 mb-20">
+            <div class="bg-white/5 border border-white/10 p-10 rounded-[2.5rem]">
+                <h3 class="text-2xl font-black text-white mb-4">SIEM Integration</h3>
+                <p class="text-gray-400">Real-time log aggregation and correlation across your entire infrastructure.</p>
+            </div>
+            <div class="bg-white/5 border border-white/10 p-10 rounded-[2.5rem]">
+                <h3 class="text-2xl font-black text-white mb-4">Endpoint Defense</h3>
+                <p class="text-gray-400">Advanced EDR solutions monitoring workstation and server behavior 24/7.</p>
+            </div>
+            <div class="bg-white/5 border border-white/10 p-10 rounded-[2.5rem]">
+                <h3 class="text-2xl font-black text-white mb-4">Cloud Security</h3>
+                <p class="text-gray-400">Native monitoring for AWS, Azure, and GCP environments with automated alerting.</p>
+            </div>
+        </div>
+
+        <div class="bg-gemBlue/20 border border-gemLightBlue/30 p-12 rounded-[3rem] text-center">
+            <h2 class="text-3xl font-black text-white mb-6">Ready to secure your perimeter?</h2>
+            <a href="{{ url_for('contact_page') }}" class="inline-flex items-center justify-center h-16 px-12 rounded-2xl bg-gemLightBlue text-gemBlue font-black uppercase tracking-widest hover:bg-white transition-all">Schedule Audit</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

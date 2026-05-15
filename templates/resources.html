@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% block title %}Resources Hub - GEM Enterprise{% endblock %}
+{% block content %}
+<section class="relative min-h-screen pt-32 pb-24 overflow-hidden">
+    <!-- Background Pattern -->
+    <div class="absolute inset-0 -z-10" style="background-image: radial-gradient(circle at 1px 1px, rgb(71, 85, 105) 1px, transparent 0); background-size: 40px 40px; opacity: 0.15"></div>
+
+    <div class="container mx-auto max-w-screen-xl px-6 relative z-10">
+        <div class="text-center mb-20 animate-fade-in">
+            <p class="text-[10px] font-black uppercase text-gemLightBlue tracking-[0.3em] mb-4">KNOWLEDGE BASE</p>
+            <h1 class="text-5xl lg:text-7xl font-black text-white mb-8 tracking-tighter">Security <span class="text-gemLightBlue">Intelligence</span> & Insights</h1>
+            <p class="text-xl text-slate-400 max-w-2xl mx-auto">Explore our collection of expert whitepapers, guides, and threat reports.</p>
+        </div>
+
+        <!-- Filter Tabs -->
+        <div class="flex flex-wrap justify-center gap-4 mb-16">
+            <button class="px-6 py-2 rounded-full bg-cyan-500 text-gemBlue font-black text-xs uppercase tracking-widest">All Resources</button>
+            <button class="px-6 py-2 rounded-full bg-slate-900 border border-slate-800 text-slate-400 font-black text-xs uppercase tracking-widest hover:border-cyan-500/50 transition-all">Whitepapers</button>
+            <button class="px-6 py-2 rounded-full bg-slate-900 border border-slate-800 text-slate-400 font-black text-xs uppercase tracking-widest hover:border-cyan-500/50 transition-all">Guides</button>
+            <button class="px-6 py-2 rounded-full bg-slate-900 border border-slate-800 text-slate-400 font-black text-xs uppercase tracking-widest hover:border-cyan-500/50 transition-all">Threat Reports</button>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Resource 1 -->
+            <div class="group bg-slate-900 border border-slate-800 rounded-[2rem] p-8 text-left hover:border-cyan-500/50 transition-all">
+                <div class="h-14 w-14 bg-cyan-500/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <i data-lucide="file-text" class="w-8 h-8 text-cyan-500"></i>
+                </div>
+                <div class="mb-4">
+                    <span class="text-[9px] font-black text-cyan-500 uppercase tracking-widest">Whitepaper</span>
+                </div>
+                <h3 class="text-xl font-black text-white mb-4">SOC 2 Compliance Guide 2026</h3>
+                <p class="text-slate-400 text-sm mb-8 leading-relaxed">A comprehensive roadmap for enterprises navigating regulatory alignment and security auditing.</p>
+                <div class="flex items-center justify-between">
+                    <span class="text-[10px] text-slate-500 font-bold uppercase tracking-widest">12 Page PDF</span>
+                    <a href="#" class="inline-flex items-center gap-2 text-cyan-500 text-xs font-black uppercase tracking-widest hover:text-white transition-colors">
+                        Download <i data-lucide="download" class="w-4 h-4"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Resource 2 -->
+            <div class="group bg-slate-900 border border-slate-800 rounded-[2rem] p-8 text-left hover:border-blue-500/50 transition-all">
+                <div class="h-14 w-14 bg-blue-500/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <i data-lucide="shield-check" class="w-8 h-8 text-blue-500"></i>
+                </div>
+                <div class="mb-4">
+                    <span class="text-[9px] font-black text-blue-500 uppercase tracking-widest">Security Guide</span>
+                </div>
+                <h3 class="text-xl font-black text-white mb-4">Ransomware Defense Strategies</h3>
+                <p class="text-slate-400 text-sm mb-8 leading-relaxed">Critical steps for proactive threat containment and organizational resilience in 2026.</p>
+                <div class="flex items-center justify-between">
+                    <span class="text-[10px] text-slate-500 font-bold uppercase tracking-widest">8 Min Read</span>
+                    <a href="#" class="inline-flex items-center gap-2 text-blue-500 text-xs font-black uppercase tracking-widest hover:text-white transition-colors">
+                        Read More <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Resource 3 -->
+            <div class="group bg-slate-900 border border-slate-800 rounded-[2rem] p-8 text-left hover:border-gemGreen/50 transition-all">
+                <div class="h-14 w-14 bg-gemGreen/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <i data-lucide="database" class="w-8 h-8 text-gemGreen"></i>
+                </div>
+                <div class="mb-4">
+                    <span class="text-[9px] font-black text-gemGreen uppercase tracking-widest">Threat Report</span>
+                </div>
+                <h3 class="text-xl font-black text-white mb-4">Q1 Cyber Landscape Analysis</h3>
+                <p class="text-slate-400 text-sm mb-8 leading-relaxed">An in-depth look at emerging attack vectors and global threat trends for the current quarter.</p>
+                <div class="flex items-center justify-between">
+                    <span class="text-[10px] text-slate-500 font-bold uppercase tracking-widest">15 Page PDF</span>
+                    <a href="#" class="inline-flex items-center gap-2 text-gemGreen text-xs font-black uppercase tracking-widest hover:text-white transition-colors">
+                        Download <i data-lucide="download" class="w-4 h-4"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

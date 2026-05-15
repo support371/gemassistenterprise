@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Gem Assist Enterprise - Professional Security & Trust Services{% endblock %}</title>
+    <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='images/favicon.svg') }}">
+    <link rel="shortcut icon" type="image/svg+xml" href="{{ url_for('static', filename='images/favicon.svg') }}">
+
+    <!-- DNS prefetch for all CDN origins -->
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://unpkg.com">
+    <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+
+    <!-- Typography: Inter (only preconnect what's actually used) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=optional" rel="stylesheet">
+    <style>
+    :root { font-family: 'Inter', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif; }
+    </style>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/ai-support.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/modern-enterprise.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/animations.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/performance.css') }}" rel="stylesheet">
+
+    <!-- Tailwind (must be synchronous — scans DOM to generate utility CSS) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              gemBlue: '#0A2463',
+              gemLightBlue: '#00B2FF',
+              gemNavy: '#0A2342',
+              gemRed: '#EF4444',
+              gemGreen: '#10B981',
+            }
+          }
+        }
+      }
+    </script>
+    <!-- Lucide Icons — async, initialized on load -->
+    <script async src="https://unpkg.com/lucide@latest" onload="if(window.lucide)lucide.createIcons()"></script>
+</head>
+<body>
+    <!-- Global Dark Theme Background -->
+    <div class="fixed inset-0 -z-50 bg-[#030712]">
+      <div class="absolute inset-0 bg-gradient-to-b from-gemBlue/5 via-transparent to-transparent"></div>
+      <div class="absolute top-[-20%] left-[-10%] w-[1000px] h-[1000px] bg-gemBlue/10 rounded-full blur-[150px]"></div>
+      <div class="absolute bottom-[-10%] right-[-10%] w-[800px] h-[800px] bg-gemLightBlue/5 rounded-full blur-[120px]"></div>
+    </div>
+
+    <!-- Navigation -->
+    <header id="main-nav" class="fixed top-0 inset-x-0 z-[100] transition-all duration-500 border-b border-white/5">
+      <div class="max-w-screen-xl mx-auto flex items-center justify-between h-24 px-6 transition-all duration-500 relative z-[110]" id="nav-container">
+        <a href="{{ url_for('index') }}" class="text-3xl font-black text-white tracking-tighter flex items-center gap-3 group relative z-[120]">
+          <div class="bg-gemLightBlue p-2 rounded-2xl group-hover:rotate-12 transition-transform shadow-2xl shadow-gemLightBlue/20">
+            <i data-lucide="shield" class="text-white h-7 w-7"></i>
+          </div>
+          <span class="hidden sm:block">GEM <span class="text-gemLightBlue">CYBER</span></span>
+        </a>
+        <nav class="hidden lg:flex items-center space-x-12 relative z-[120]">
+          <div class="flex items-center space-x-10">
+            <div class="relative group/dropdown">
+              <a href="{{ url_for('services_page') }}" class="text-[11px] font-black uppercase tracking-[0.3em] text-white/70 group-hover/dropdown:text-gemLightBlue transition-all flex items-center gap-1">
+                Solutions <i data-lucide="chevron-down" class="h-3 w-3"></i>
+              </a>
+              <div class="absolute top-full left-1/2 -translate-x-1/2 pt-4 opacity-0 invisible group-hover/dropdown:opacity-100 group-hover/dropdown:visible transition-all duration-300">
+                <div class="bg-[#030712] border border-white/10 rounded-2xl p-6 w-64 shadow-2xl backdrop-blur-xl">
+                  <div class="space-y-4">
+                    <div>
+                      <p class="text-[9px] font-black text-gemLightBlue uppercase tracking-[0.2em] mb-2">Cybersecurity</p>
+                      <ul class="space-y-2">
+                        <li><a href="{{ url_for('monitoring_route_unified') }}" class="text-xs font-bold text-gray-400 hover:text-white transition-colors">Threat Monitoring</a></li>
+                        <li><a href="{{ url_for('incident_response') }}" class="text-xs font-bold text-gray-400 hover:text-white transition-colors">Incident Response</a></li>
+                        <li><a href="{{ url_for('compliance_route_unified') }}" class="text-xs font-bold text-gray-400 hover:text-white transition-colors">Compliance</a></li>
+                      </ul>
+                    </div>
+                    <div class="pt-4 border-t border-white/5">
+                      <p class="text-[9px] font-black text-gemGreen uppercase tracking-[0.2em] mb-2">Real Estate</p>
+                      <ul class="space-y-2">
+                        <li><a href="{{ url_for('bridge_alliance') }}" class="text-xs font-bold text-gray-400 hover:text-white transition-colors">Alliance Trust Realty</a></li>
+                        <li><a href="{{ url_for('bridge_gem') }}" class="text-xs font-bold text-gray-400 hover:text-white transition-colors">GEM Cybersecurity</a></li>
+                        <li><a href="{{ url_for('services_page') }}" class="text-xs font-bold text-gray-400 hover:text-white transition-colors">Asset Recovery</a></li>
+                        <li><a href="{{ url_for('services_page') }}" class="text-xs font-bold text-gray-400 hover:text-white transition-colors">Federal Compliance</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="relative group">
+              <button class="text-[11px] font-black uppercase tracking-[0.3em] text-white/70 hover:text-gemLightBlue transition-all flex items-center gap-1">
+                Enterprise
+                <i data-lucide="chevron-down" class="h-3 w-3 group-hover:rotate-180 transition-transform"></i>
+              </button>
+              <div class="absolute top-full left-0 mt-4 w-64 bg-[#030712] border border-white/10 rounded-2xl p-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50 backdrop-blur-3xl shadow-2xl">
+                <div class="space-y-2">
+                  <a href="{{ url_for('teams_page') }}" class="block px-4 py-3 rounded-xl hover:bg-white/5 transition-all">
+                    <p class="text-[10px] font-black uppercase text-gemLightBlue tracking-widest mb-1">Our Team</p>
+                    <p class="text-xs text-gray-500">Executive & Operations</p>
+                  </a>
+                  <a href="{{ url_for('trust_compliance') }}" class="block px-4 py-3 rounded-xl hover:bg-white/5 transition-all">
+                    <p class="text-[10px] font-black uppercase text-gemLightBlue tracking-widest mb-1">Trust & Compliance</p>
+                    <p class="text-xs text-gray-500">Legal & Regulatory</p>
+                  </a>
+                  <div class="h-px bg-white/5 mx-4"></div>
+                  <a href="{{ url_for('portfolio') }}" class="block px-4 py-3 rounded-xl hover:bg-white/5 transition-all">
+                    <p class="text-[10px] font-black uppercase text-gemLightBlue tracking-widest mb-1">Portfolio</p>
+                    <p class="text-xs text-gray-400">Asset Management</p>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <a href="{{ url_for('news_feed') }}" class="text-[11px] font-black uppercase tracking-[0.3em] text-white/70 hover:text-gemLightBlue transition-all">Intelligence</a>
+            <a href="{{ url_for('sentinel_trust') }}" class="text-[11px] font-black uppercase tracking-[0.3em] text-white/70 hover:text-gemLightBlue transition-all">Sentinel Trust</a>
+            <a href="{{ url_for('about_page') }}" class="text-[11px] font-black uppercase tracking-[0.3em] text-white/70 hover:text-gemLightBlue transition-all">About</a>
+          </div>
+          <div class="h-8 w-px bg-white/10"></div>
+          <a href="{{ url_for('contact_page') }}" class="inline-flex items-center justify-center h-14 px-10 rounded-[1.25rem] bg-gemLightBlue text-gemBlue text-xs font-black uppercase tracking-widest hover:bg-white hover:scale-105 transition-all shadow-2xl shadow-gemLightBlue/20 active:scale-95 group">
+            Security Audit
+            <i data-lucide="chevron-right" class="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform"></i>
+          </a>
+        </nav>
+        
+        <!-- Mobile Menu Toggle -->
+        <button id="mobile-menu-toggle" type="button" class="lg:hidden p-4 rounded-2xl bg-white/5 text-white hover:bg-white/10 transition-colors border border-white/10 relative z-[130] pointer-events-auto cursor-pointer" style="pointer-events: auto !important; position: relative; z-index: 1000 !important;">
+          <i data-lucide="menu" id="menu-icon" class="h-7 w-7 pointer-events-none"></i>
+          <i data-lucide="x" id="close-icon" class="h-7 w-7 hidden pointer-events-none"></i>
+        </button>
+      </div>
+
+      <!-- Mobile Menu Overlay -->
+      <div id="mobile-menu" class="hidden fixed inset-0 bg-[#030712]/98 backdrop-blur-3xl z-[1000] flex flex-col items-center justify-center p-6 transition-all duration-300">
+        <nav class="flex flex-col items-center space-y-8 w-full max-w-xs">
+          <div class="w-full">
+            <button id="mobile-solutions-toggle" class="w-full flex items-center justify-between text-2xl font-black uppercase tracking-[0.4em] text-white hover:text-gemLightBlue transition-all">
+              Solutions <i data-lucide="chevron-down" class="h-6 w-6"></i>
+            </button>
+            <div id="mobile-solutions-list" class="hidden flex flex-col items-center space-y-4 mt-6 bg-white/5 rounded-3xl p-6">
+              <p class="text-[9px] font-black text-gemLightBlue uppercase tracking-[0.2em]">Enterprise Platforms</p>
+              <a href="{{ url_for('bridge_alliance') }}" class="mobile-nav-link text-sm font-black uppercase tracking-widest text-white/50 hover:text-gemLightBlue">Alliance Trust</a>
+              <a href="{{ url_for('bridge_gem') }}" class="mobile-nav-link text-sm font-black uppercase tracking-widest text-white/50 hover:text-gemLightBlue">GEM Cybersecurity</a>
+              <div class="h-px w-12 bg-white/10 my-2"></div>
+              <p class="text-[9px] font-black text-gemLightBlue uppercase tracking-[0.2em]">Cybersecurity</p>
+              <a href="{{ url_for('monitoring_route_unified') }}" class="mobile-nav-link text-sm font-black uppercase tracking-widest text-white/50 hover:text-gemLightBlue">SOC Monitoring</a>
+              <a href="{{ url_for('incident_response') }}" class="mobile-nav-link text-sm font-black uppercase tracking-widest text-white/50 hover:text-gemLightBlue">Incident Response</a>
+              <a href="{{ url_for('compliance_route_unified') }}" class="mobile-nav-link text-sm font-black uppercase tracking-widest text-white/50 hover:text-gemLightBlue">Compliance</a>
+              <div class="h-px w-12 bg-white/10 my-2"></div>
+              <p class="text-[9px] font-black text-gemGreen uppercase tracking-[0.2em]">Real Estate</p>
+              <a href="{{ url_for('services_page') }}" class="mobile-nav-link text-sm font-black uppercase tracking-widest text-white/50 hover:text-gemLightBlue">Asset Recovery</a>
+              <a href="{{ url_for('services_page') }}" class="mobile-nav-link text-sm font-black uppercase tracking-widest text-white/50 hover:text-gemLightBlue">Federal Compliance</a>
+            </div>
+          </div>
+          <a href="{{ url_for('news_feed') }}" class="mobile-nav-link text-2xl font-black uppercase tracking-[0.4em] text-white hover:text-gemLightBlue">Intelligence</a>
+          <a href="{{ url_for('about_page') }}" class="mobile-nav-link text-2xl font-black uppercase tracking-[0.4em] text-white hover:text-gemLightBlue">About</a>
+          <a href="{{ url_for('contact_page') }}" class="mobile-nav-link text-2xl font-black uppercase tracking-[0.4em] text-white hover:text-gemLightBlue">Contact</a>
+          <div class="h-px w-20 bg-white/10"></div>
+          <a href="{{ url_for('contact_page') }}" class="mobile-nav-link inline-flex items-center justify-center h-16 px-10 w-full rounded-[1.5rem] bg-gemLightBlue text-white text-sm font-black uppercase tracking-widest shadow-2xl shadow-gemLightBlue/20">
+            Schedule Assessment
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <script>
+      // Professional Navigation Controller
+      const nav = document.getElementById('main-nav');
+      const container = document.getElementById('nav-container');
+      const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const menuIcon = document.getElementById('menu-icon');
+      const closeIcon = document.getElementById('close-icon');
+      const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+      const mobileSolutionsToggle = document.getElementById('mobile-solutions-toggle');
+      const mobileSolutionsList = document.getElementById('mobile-solutions-list');
+
+      function toggleMenu() {
+        const isHidden = mobileMenu.classList.contains('hidden');
+        if (isHidden) {
+          mobileMenu.classList.remove('hidden');
+          menuIcon.classList.add('hidden');
+          closeIcon.classList.remove('hidden');
+          document.body.style.overflow = 'hidden';
+        } else {
+          mobileMenu.classList.add('hidden');
+          menuIcon.classList.remove('hidden');
+          closeIcon.classList.add('hidden');
+          document.body.style.overflow = '';
+          mobileSolutionsList.classList.add('hidden');
+        }
+      }
+
+      mobileMenuToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleMenu();
+      });
+
+      mobileSolutionsToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        mobileSolutionsList.classList.toggle('hidden');
+      });
+
+      mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
+
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+          nav.classList.add('bg-[#030712]/80', 'backdrop-blur-2xl', 'shadow-2xl', 'shadow-black/20');
+          container.classList.replace('h-24', 'h-20');
+        } else {
+          nav.classList.remove('bg-[#030712]/80', 'backdrop-blur-2xl', 'shadow-2xl', 'shadow-black/20');
+          container.classList.replace('h-20', 'h-24');
+        }
+      });
+    </script>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Global Standard Footer -->
+    <footer class="bg-[#030712] text-white pt-32 pb-16 border-t border-white/5" aria-label="Footer">
+      <div class="max-w-screen-xl mx-auto px-6 grid gap-20 lg:grid-cols-4">
+        <div>
+          <h3 class="text-3xl font-black mb-8 tracking-tighter">GEM <span class="text-gemLightBlue">CYBER</span></h3>
+          <p class="text-lg text-gray-400 mb-8 leading-relaxed font-medium">
+            Enterprise Threat Detection & 24/7 SOC Monitoring. Protecting digital assets globally.
+          </p>
+          <div class="space-y-4">
+            <a href="tel:+18603054376" class="flex items-center gap-4 text-gray-400 hover:text-gemLightBlue transition-colors group">
+              <div class="h-10 w-10 rounded-xl bg-white/5 flex items-center justify-center group-hover:bg-gemLightBlue/10 transition-colors">
+                <i data-lucide="phone" class="h-5 w-5"></i>
+              </div>
+              <span class="font-bold">(860) 305‑4376</span>
+            </a>
+            <a href="mailto:info@gemcybersecurityassist.com" class="flex items-center gap-4 text-gray-400 hover:text-gemLightBlue transition-colors group">
+              <div class="h-10 w-10 rounded-xl bg-white/5 flex items-center justify-center group-hover:bg-gemLightBlue/10 transition-colors">
+                <i data-lucide="mail" class="h-5 w-5"></i>
+              </div>
+              <span class="font-bold text-sm">info@gemcybersecurityassist.com</span>
+            </a>
+          </div>
+        </div>
+        <div>
+          <h4 class="text-[10px] font-black uppercase tracking-[0.3em] mb-10 text-white/30">Solutions</h4>
+          <ul class="space-y-6">
+            <li><a href="{{ url_for('monitoring_route_unified') }}" class="text-lg font-bold text-gray-400 hover:text-gemLightBlue transition-all">Threat Monitoring</a></li>
+            <li><a href="{{ url_for('incident_response') }}" class="text-lg font-bold text-gray-400 hover:text-gemLightBlue transition-all">Incident Response</a></li>
+            <li><a href="{{ url_for('compliance_route_unified') }}" class="text-lg font-bold text-gray-400 hover:text-gemLightBlue transition-all">Compliance</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-[10px] font-black uppercase tracking-[0.3em] mb-10 text-white/30">Intelligence</h4>
+          <ul class="space-y-6">
+            <li><a href="{{ url_for('news_feed') }}" class="text-lg font-bold text-gray-400 hover:text-gemLightBlue transition-all">Threat Reports</a></li>
+            <li><a href="{{ url_for('news_feed') }}" class="text-lg font-bold text-gray-400 hover:text-gemLightBlue transition-all">Market Insights</a></li>
+            <li><a href="{{ url_for('about_page') }}" class="text-lg font-bold text-gray-400 hover:text-gemLightBlue transition-all">Documentation</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-[10px] font-black uppercase tracking-[0.3em] mb-10 text-white/30">Trust Center</h4>
+          <div class="flex gap-6 mb-12">
+            <a href="#" class="h-12 w-12 rounded-2xl bg-white/5 flex items-center justify-center text-gray-400 hover:bg-gemLightBlue hover:text-white transition-all">
+              <i class="fab fa-linkedin-in" style="font-size:1.25rem;"></i>
+            </a>
+            <a href="#" class="h-12 w-12 rounded-2xl bg-white/5 flex items-center justify-center text-gray-400 hover:bg-gemLightBlue hover:text-white transition-all">
+              <i class="fab fa-x-twitter" style="font-size:1.25rem;"></i>
+            </a>
+          </div>
+          <div class="p-8 rounded-[2rem] bg-white/5 border border-white/10 group hover:border-gemLightBlue/30 transition-all">
+            <h5 class="font-black mb-2 flex items-center gap-2 text-white">
+              SOC 2 Type II
+              <i data-lucide="shield-check" class="text-gemGreen h-4 w-4"></i>
+            </h5>
+            <p class="text-[10px] text-gray-500 font-bold uppercase tracking-widest">Certified & Verified 2026</p>
+          </div>
+        </div>
+      </div>
+      <div class="max-w-screen-xl mx-auto px-6 mt-24 pt-12 border-t border-white/5">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-8 text-sm font-bold text-gray-500">
+          <span>&copy; 2026 GEM Enterprise + Alliance Trust Realty LLC.</span>
+          <div class="flex gap-8">
+            <a href="{{ url_for('privacy_policy') }}" class="hover:text-gemLightBlue transition-colors">Privacy</a>
+            <a href="{{ url_for('terms_of_service') }}" class="hover:text-gemLightBlue transition-colors">Terms</a>
+            <a href="{{ url_for('cookie_policy') }}" class="hover:text-gemLightBlue transition-colors">Cookies</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Professional Live Chat Support -->
+    <div id="liveChatButton" class="live-chat-button">
+        <div class="chat-button-content">
+            <i class="fas fa-comments"></i>
+            <span class="chat-text">Live Support</span>
+            <div class="status-indicator online"></div>
+        </div>
+        <div class="chat-tooltip">
+            <div class="chat-agents">
+                <div class="agent-status">
+                    <i class="fas fa-user-shield text-primary"></i>
+                    <span>Security Team: <strong class="text-success">Online</strong></span>
+                </div>
+                <div class="agent-status">
+                    <i class="fas fa-user-tie text-info"></i>
+                    <span>Real Estate: <strong class="text-success">Online</strong></span>
+                </div>
+                <div class="agent-status">
+                    <i class="fas fa-user-cog text-warning"></i>
+                    <span>Technical Support: <strong class="text-success">Online</strong></span>
+                </div>
+            </div>
+            <small class="text-muted">Average response time: <strong>2 minutes</strong></small>
+        </div>
+    </div>
+
+    <!-- Live Chat Modal -->
+    <div class="modal fade" id="liveChatModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content bg-dark">
+                <div class="modal-header border-secondary">
+                    <h5 class="modal-title">
+                        <i class="fas fa-shield-alt text-primary me-2"></i>
+                        GEM Enterprise Live Support
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="chat-options">
+                        <div class="row g-3">
+                            <div class="col-md-4">
+                                <div class="support-department">
+                                    <i class="fas fa-shield-alt fa-2x text-primary mb-2"></i>
+                                    <h6>Cybersecurity</h6>
+                                    <p class="small text-muted">Threat monitoring, incident response, security audits</p>
+                                    <a href="mailto:Analyzer@gemcybersecurityassist.com" class="btn btn-primary btn-sm">
+                                        <i class="fas fa-envelope me-1"></i>Connect Now
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="support-department">
+                                    <i class="fas fa-home fa-2x text-success mb-2"></i>
+                                    <h6>Real Estate</h6>
+                                    <p class="small text-muted">Property investment, portfolio management, asset recovery</p>
+                                    <a href="mailto:support@alliancetrustrealty.com" class="btn btn-success btn-sm">
+                                        <i class="fas fa-envelope me-1"></i>Connect Now
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="support-department">
+                                    <i class="fas fa-headset fa-2x text-info mb-2"></i>
+                                    <h6>General Support</h6>
+                                    <p class="small text-muted">Account access, billing, general inquiries</p>
+                                    <a href="mailto:support@gemcybersecurityassist.com" class="btn btn-info btn-sm">
+                                        <i class="fas fa-envelope me-1"></i>Connect Now
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="emergency-contact mt-4 p-3 bg-danger bg-opacity-10 border border-danger rounded">
+                        <h6 class="text-danger">
+                            <i class="fas fa-exclamation-triangle me-2"></i>
+                            Emergency Security Incident?
+                        </h6>
+                        <p class="mb-2">For immediate security threats or active incidents:</p>
+                        <div class="d-flex gap-2">
+                            <a href="tel:+18603054376" class="btn btn-danger btn-sm">
+                                <i class="fas fa-phone me-1"></i>Call: +1 (860) 305-4376
+                            </a>
+                            <a href="mailto:Admin@gemcybersecurityassist.com" class="btn btn-outline-danger btn-sm">
+                                <i class="fas fa-envelope me-1"></i>Emergency Email
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS (deferred — initialises on DOMContentLoaded automatically) -->
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Lucide fallback: fire createIcons once DOM + Lucide are both ready -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        if (window.lucide) { lucide.createIcons(); }
+        else {
+          var t = setInterval(function() {
+            if (window.lucide) { lucide.createIcons(); clearInterval(t); }
+          }, 50);
+        }
+      });
+    </script>
+    
+    <!-- Partners Slider Script -->
+    <script>
+    // Trusted Partners and Business Allies Data
+    const trustedPartners = [
+        {
+            name: "Amazon Web Services (AWS)",
+            logo: "https://logos-world.net/wp-content/uploads/2021/04/Amazon-AWS-Logo.png",
+            category: "Cloud Infrastructure Partner",
+            description: "Enterprise cloud computing & security solutions"
+        },
+        {
+            name: "Microsoft Azure",
+            logo: "https://logos-world.net/wp-content/uploads/2020/04/Microsoft-Azure-Logo.png",
+            category: "Technology Partner",
+            description: "Cloud services & enterprise solutions"
+        },
+        {
+            name: "Google Cloud",
+            logo: "https://upload.wikimedia.org/wikipedia/commons/5/5f/Google_Cloud_logo.svg",
+            category: "Data & Analytics Partner",
+            description: "AI/ML and data analytics services"
+        },
+        {
+            name: "Deloitte",
+            logo: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Deloitte.svg",
+            category: "Strategic Trustee",
+            description: "Advisory & risk management services"
+        },
+        {
+            name: "PwC (PricewaterhouseCoopers)",
+            logo: "https://upload.wikimedia.org/wikipedia/commons/5/5e/PwC_logo.svg",
+            category: "Compliance Trustee",
+            description: "Audit, compliance & assurance services"
+        },
+        {
+            name: "IBM Security",
+            logo: "https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg",
+            category: "Cybersecurity Partner",
+            description: "Enterprise security & threat intelligence"
+        },
+        {
+            name: "Cisco Systems",
+            logo: "https://upload.wikimedia.org/wikipedia/commons/0/08/Cisco_logo_blue_2016.svg",
+            category: "Network Security Partner",
+            description: "Network infrastructure & security solutions"
+        },
+        {
+            name: "Oracle",
+            logo: "https://logos-world.net/wp-content/uploads/2020/09/Oracle-Logo.png",
+            category: "Database Partner",
+            description: "Enterprise database & cloud solutions"
+        },
+        {
+            name: "Salesforce",
+            logo: "https://upload.wikimedia.org/wikipedia/commons/f/f9/Salesforce.com_logo.svg",
+            category: "CRM Partner",
+            description: "Customer relationship management solutions"
+        },
+        {
+            name: "KPMG",
+            logo: "https://logos-world.net/wp-content/uploads/2020/04/KPMG-Logo.png",
+            category: "Financial Trustee",
+            description: "Financial audit & advisory services"
+        },
+        {
+            name: "Accenture",
+            logo: "https://upload.wikimedia.org/wikipedia/commons/c/cd/Accenture.svg",
+            category: "Consulting Partner",
+            description: "Digital transformation & consulting"
+        },
+        {
+            name: "VMware",
+            logo: "https://logos-world.net/wp-content/uploads/2021/02/VMware-Logo.png",
+            category: "Virtualization Partner",
+            description: "Cloud infrastructure & virtualization"
+        }
+    ];
+
+    // Initialize Partners Slider
+    document.addEventListener('DOMContentLoaded', function() {
+        const sliderContainer = document.getElementById('partnersSlider');
+        
+        if (sliderContainer) {
+            // Create two sets for seamless infinite loop
+            const createPartnerCards = () => {
+                return trustedPartners.map(partner => `
+                    <div class="partner-card">
+                        <div class="partner-logo-container">
+                            <img src="${partner.logo}" alt="${partner.name}" class="partner-logo" 
+                                 onerror="this.src='https://via.placeholder.com/150x60/667eea/ffffff?text=${encodeURIComponent(partner.name)}'">
+                        </div>
+                        <div class="partner-info">
+                            <div class="partner-category">${partner.category}</div>
+                            <div class="partner-name">${partner.name}</div>
+                            <div class="partner-description">${partner.description}</div>
+                        </div>
+                    </div>
+                `).join('');
+            };
+            
+            // Add two sets for seamless loop
+            sliderContainer.innerHTML = createPartnerCards() + createPartnerCards();
+            
+            // Start auto-sliding animation
+            let scrollPosition = 0;
+            const scrollSpeed = 0.5; // pixels per frame
+            
+            function autoSlide() {
+                scrollPosition += scrollSpeed;
+                sliderContainer.style.transform = `translateX(-${scrollPosition}px)`;
+                
+                // Reset when first set is completely scrolled
+                const cardWidth = 320; // width + margin
+                const resetPoint = trustedPartners.length * cardWidth;
+                
+                if (scrollPosition >= resetPoint) {
+                    scrollPosition = 0;
+                }
+                
+                requestAnimationFrame(autoSlide);
+            }
+            
+            // Pause on hover
+            sliderContainer.addEventListener('mouseenter', function() {
+                sliderContainer.style.animationPlayState = 'paused';
+            });
+            
+            sliderContainer.addEventListener('mouseleave', function() {
+                sliderContainer.style.animationPlayState = 'running';
+            });
+            
+            // Start animation
+            autoSlide();
+        }
+    });
+    </script>
+
+    <!-- Custom JS (deferred for faster page load) -->
+    <script defer src="{{ url_for('static', filename='js/main.js') }}"></script>
+    <script defer src="{{ url_for('static', filename='js/notion-cms.js') }}"></script>
+    <script defer src="{{ url_for('static', filename='js/ai-support.js') }}"></script>
+    <script defer src="{{ url_for('static', filename='js/modern-enterprise.js') }}"></script>
+    <script defer src="{{ url_for('static', filename='js/performance.js') }}"></script>
+    <script defer src="{{ url_for('static', filename='js/media-manager.js') }}"></script>
+    <script defer src="{{ url_for('static', filename='js/animations.js') }}"></script>
+    <script defer src="{{ url_for('static', filename='js/vercel-analytics.js') }}"></script>
+</body>
+</html>

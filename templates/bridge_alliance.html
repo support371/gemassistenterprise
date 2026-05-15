@@ -1,0 +1,191 @@
+{% extends "base.html" %}
+
+{% block title %}Alliance Trust Realty - GEM Enterprise Platform{% endblock %}
+
+{% block content %}
+<section class="relative bg-[#030712] pt-32 pb-24 lg:pt-48 lg:pb-40 overflow-hidden">
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="absolute top-[-10%] right-[-10%] w-[600px] h-[600px] bg-gemGreen/20 rounded-full blur-[150px] animate-pulse"></div>
+    <div class="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] bg-gemBlue/10 rounded-full blur-[120px]"></div>
+  </div>
+
+  <div class="container mx-auto max-w-screen-xl px-6 relative z-10 text-center">
+    <p class="text-[10px] font-black uppercase text-gemGreen tracking-[0.3em] mb-4">REAL ESTATE INVESTMENT SOLUTIONS</p>
+    <h1 class="text-5xl lg:text-7xl font-black text-white mb-8 leading-[0.9] tracking-tighter">
+      Alliance Trust <span class="text-gemGreen">Realty</span>
+    </h1>
+
+    <div class="max-w-3xl mx-auto mb-16">
+      <p class="text-xl text-gray-400 leading-relaxed font-medium mb-8">
+        Excellence in real estate investment services, federal compliance, and asset recovery. Alliance Trust Realty provides high-tier advisory for enterprise-grade property portfolios.
+      </p>
+
+      <div class="grid gap-6 md:grid-cols-2 text-left mb-12">
+        <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-gemGreen/30 transition-all">
+          <h3 class="text-white font-bold mb-2 flex items-center gap-2">
+            <i data-lucide="building" class="text-gemGreen h-5 w-5"></i>
+            Full-Service Solutions
+          </h3>
+          <p class="text-sm text-gray-500">Comprehensive real estate investment strategies and execution.</p>
+        </div>
+        <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-gemGreen/30 transition-all">
+          <h3 class="text-white font-bold mb-2 flex items-center gap-2">
+            <i data-lucide="landmark" class="text-gemGreen h-5 w-5"></i>
+            Governance & Trust
+          </h3>
+          <p class="text-sm text-gray-500">Strict adherence to regulatory standards and fiduciary duty.</p>
+        </div>
+        <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-gemGreen/30 transition-all">
+          <h3 class="text-white font-bold mb-2 flex items-center gap-2">
+            <i data-lucide="shield-check" class="text-gemGreen h-5 w-5"></i>
+            Asset Recovery
+          </h3>
+          <p class="text-sm text-gray-500">Federal-grade asset recovery and portfolio protection services.</p>
+        </div>
+        <div class="bg-white/5 p-6 rounded-2xl border border-white/10 hover:border-gemGreen/30 transition-all">
+          <h3 class="text-white font-bold mb-2 flex items-center gap-2">
+            <i data-lucide="bar-chart-2" class="text-gemGreen h-5 w-5"></i>
+            Investment Portfolio
+          </h3>
+          <p class="text-sm text-gray-500">Enterprise-grade portfolio management and market analytics.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Platform Access Section -->
+    <div class="max-w-2xl mx-auto">
+      <!-- Access Notice -->
+      <div class="mb-8 p-6 rounded-2xl bg-gemGreen/5 border border-gemGreen/20 text-left">
+        <div class="flex items-start gap-4">
+          <div class="h-10 w-10 rounded-xl bg-gemGreen/10 flex items-center justify-center flex-shrink-0 mt-1">
+            <i data-lucide="lock" class="text-gemGreen h-5 w-5"></i>
+          </div>
+          <div>
+            <h3 class="text-white font-bold mb-1">Platform Access by Invitation</h3>
+            <p class="text-sm text-gray-400 leading-relaxed">
+              The Alliance Trust Realty client platform is available to verified enterprise clients and investment partners. 
+              To request access, contact our team or submit a consultation request below.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="{{ url_for('contact_page') }}" class="inline-flex items-center justify-center h-16 px-10 rounded-2xl bg-gemGreen text-white text-sm font-black uppercase tracking-widest hover:bg-green-600 transition-all shadow-[0_20px_60px_-10px_rgba(16,185,129,0.4)] active:scale-95 group">
+          <i data-lucide="mail" class="mr-3 h-5 w-5"></i>
+          Request Platform Access
+          <i data-lucide="chevron-right" class="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform"></i>
+        </a>
+        <a href="tel:+18603054376" class="inline-flex items-center justify-center h-16 px-10 rounded-2xl bg-white/5 border border-white/10 text-white text-sm font-black uppercase tracking-widest hover:bg-white/10 hover:border-gemGreen/30 transition-all active:scale-95 group">
+          <i data-lucide="phone" class="mr-3 h-5 w-5 text-gemGreen"></i>
+          Call (860) 305‑4376
+        </a>
+      </div>
+
+      <!-- Already Have Access -->
+      <p class="mt-8 text-sm text-gray-600">
+        Already have access credentials?
+        <a id="platform-link-btn" href="#" onclick="confirmPlatformAccess(event)" class="text-gemGreen hover:text-green-400 font-bold transition-colors ml-1">
+          Sign in to the platform <i data-lucide="external-link" class="inline h-3 w-3 ml-1"></i>
+        </a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Quick Contact Form -->
+<section class="bg-[#030712] pb-24">
+  <div class="container mx-auto max-w-screen-md px-6">
+    <div class="bg-white/5 border border-white/10 rounded-[2rem] p-10 md:p-14">
+      <h2 class="text-3xl font-black text-white mb-2 tracking-tighter">Request a Consultation</h2>
+      <p class="text-gray-400 mb-10">Our real estate advisors will respond within 2 business hours.</p>
+
+      <form id="allianceContactForm" class="space-y-6">
+        <div class="grid gap-6 md:grid-cols-2">
+          <div>
+            <label class="block text-xs font-black uppercase tracking-widest text-gray-500 mb-2">Full Name</label>
+            <input type="text" name="name" required
+              class="w-full h-14 px-5 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-600 focus:outline-none focus:border-gemGreen/50 transition-colors"
+              placeholder="John Smith">
+          </div>
+          <div>
+            <label class="block text-xs font-black uppercase tracking-widest text-gray-500 mb-2">Business Email</label>
+            <input type="email" name="email" required
+              class="w-full h-14 px-5 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-600 focus:outline-none focus:border-gemGreen/50 transition-colors"
+              placeholder="john@company.com">
+          </div>
+        </div>
+        <div>
+          <label class="block text-xs font-black uppercase tracking-widest text-gray-500 mb-2">Company / Organization</label>
+          <input type="text" name="company" required
+            class="w-full h-14 px-5 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-600 focus:outline-none focus:border-gemGreen/50 transition-colors"
+            placeholder="Your Company Name">
+        </div>
+        <div>
+          <label class="block text-xs font-black uppercase tracking-widest text-gray-500 mb-2">How Can We Help?</label>
+          <textarea name="message" rows="4" required
+            class="w-full px-5 py-4 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-600 focus:outline-none focus:border-gemGreen/50 transition-colors resize-none"
+            placeholder="Tell us about your real estate investment needs or what platform access you are requesting..."></textarea>
+        </div>
+
+        <div id="alliance-form-status" class="hidden"></div>
+
+        <button type="submit"
+          class="w-full h-16 rounded-2xl bg-gemGreen text-white text-sm font-black uppercase tracking-widest hover:bg-green-600 transition-all shadow-[0_20px_60px_-10px_rgba(16,185,129,0.3)] active:scale-95 flex items-center justify-center gap-3">
+          <i data-lucide="send" class="h-5 w-5"></i>
+          Submit Request
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<script>
+  function confirmPlatformAccess(e) {
+    e.preventDefault();
+    if (confirm('You are about to open the Alliance Trust Realty client portal in a new tab.\n\nPlease have your access credentials ready. If you need access, close this dialog and use the Request Access form below.')) {
+      window.open('https://shrill-sympathetic-runtimes--analyzer1.replit.app', '_blank', 'noopener,noreferrer');
+    }
+  }
+
+  document.getElementById('allianceContactForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const statusEl = document.getElementById('alliance-form-status');
+    const btn = this.querySelector('button[type="submit"]');
+    const formData = new FormData(this);
+    const data = Object.fromEntries(formData.entries());
+
+    btn.disabled = true;
+    btn.innerHTML = '<i data-lucide="loader-2" class="h-5 w-5 animate-spin"></i> Submitting...';
+    if (window.lucide) lucide.createIcons();
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(data)
+      });
+      const result = await res.json();
+
+      statusEl.classList.remove('hidden');
+      if (res.ok) {
+        statusEl.className = 'p-4 rounded-xl bg-gemGreen/10 border border-gemGreen/30 text-gemGreen text-sm font-bold';
+        statusEl.textContent = 'Thank you! A real estate advisor will contact you within 2 business hours.';
+        this.reset();
+      } else {
+        statusEl.className = 'p-4 rounded-xl bg-red-500/10 border border-red-500/30 text-red-400 text-sm font-bold';
+        statusEl.textContent = result.message || 'Submission failed. Please try again or call us directly.';
+      }
+    } catch {
+      statusEl.classList.remove('hidden');
+      statusEl.className = 'p-4 rounded-xl bg-red-500/10 border border-red-500/30 text-red-400 text-sm font-bold';
+      statusEl.textContent = 'Network error. Please call us at (860) 305-4376.';
+    }
+
+    btn.disabled = false;
+    btn.innerHTML = '<i data-lucide="send" class="h-5 w-5"></i> Submit Request';
+    if (window.lucide) lucide.createIcons();
+  });
+</script>
+{% endblock %}

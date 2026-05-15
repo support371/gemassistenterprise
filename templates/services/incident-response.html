@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}Incident Response - GEM Cyber{% endblock %}
+
+{% block content %}
+<section class="relative bg-[#030712] pt-32 pb-24 overflow-hidden">
+    <div class="container mx-auto max-w-screen-xl px-6 relative z-10">
+        <p class="text-sm font-black uppercase text-gemRed tracking-[0.4em] mb-4">RAPID DEPLOYMENT</p>
+        <h1 class="text-5xl lg:text-7xl font-black text-white mb-8 tracking-tighter">Incident <span class="text-gemRed">Response</span></h1>
+        <p class="text-xl text-gray-400 max-w-3xl mb-12 font-medium">When minutes matter, our elite response team provides immediate containment and eradication protocols.</p>
+        
+        <div class="grid gap-12 lg:grid-cols-2 mb-20">
+            <div class="bg-white/5 border border-white/10 p-10 rounded-[3rem]">
+                <h3 class="text-2xl font-black text-white mb-6">Managed Protocol</h3>
+                <ul class="space-y-4">
+                    <li class="flex items-center gap-4 text-gray-300">
+                        <i data-lucide="check-circle" class="text-gemRed h-5 w-5"></i>
+                        <span>Immediate Triage & Intake</span>
+                    </li>
+                    <li class="flex items-center gap-4 text-gray-300">
+                        <i data-lucide="check-circle" class="text-gemRed h-5 w-5"></i>
+                        <span>Isolation & Containment</span>
+                    </li>
+                    <li class="flex items-center gap-4 text-gray-300">
+                        <i data-lucide="check-circle" class="text-gemRed h-5 w-5"></i>
+                        <span>Forensic Investigation</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="bg-gemRed/10 border border-gemRed/20 p-10 rounded-[3rem] flex flex-col justify-center text-center">
+                <h3 class="text-4xl font-black text-white mb-2">120s</h3>
+                <p class="text-gemRed font-bold uppercase tracking-widest">Response SLA</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

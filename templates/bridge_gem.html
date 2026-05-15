@@ -1,0 +1,196 @@
+{% extends "base.html" %}
+
+{% block title %}GEM Cybersecurity - Enterprise Defense{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="relative bg-[#030712] pt-32 pb-24 lg:pt-48 lg:pb-40 overflow-hidden">
+  <div class="absolute inset-0 pointer-events-none">
+    <div class="absolute top-[-10%] right-[-10%] w-[600px] h-[600px] bg-gemLightBlue/20 rounded-full blur-[150px] animate-pulse"></div>
+    <div class="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] bg-gemBlue/10 rounded-full blur-[120px] animate-bounce"></div>
+  </div>
+
+  <div class="container mx-auto max-w-screen-xl px-6 relative z-10 text-center lg:text-left">
+    <div class="lg:w-8/12">
+      <p class="text-[10px] font-black uppercase text-gemLightBlue tracking-[0.3em] mb-4">NEXT-GEN SECURITY OPERATIONS</p>
+      <h1 class="text-5xl lg:text-8xl font-black text-white mb-8 leading-[0.9] tracking-tighter">
+        Precision-Engineered <span class="text-transparent bg-clip-text bg-gradient-to-r from-gemLightBlue to-blue-400">Cyber Defense</span> for Global Enterprises.
+      </h1>
+      
+      <p class="text-xl text-gray-400 leading-relaxed font-medium mb-12 max-w-2xl">
+        High-fidelity monitoring, offensive assessment frameworks, and resilient asset recovery systems trusted by leading institutions in finance, real estate, and technology.
+      </p>
+
+        <div class="flex flex-wrap gap-6">
+          <a href="https://gem-sentinel-trust.lovable.app/" target="_blank" class="inline-flex items-center justify-center h-20 px-12 rounded-2xl bg-gemLightBlue text-white text-2xl font-black hover:bg-white hover:text-gemBlue transition-all shadow-[0_20px_60px_-10px_rgba(0,178,255,0.5)] active:scale-95 group">
+            Enter Platform
+            <i data-lucide="external-link" class="ml-3 h-6 w-6 group-hover:translate-x-1 transition-transform"></i>
+          </a>
+          <a href="#sentinel-x" class="inline-flex items-center justify-center h-20 px-12 rounded-2xl bg-white/5 text-white text-2xl font-black hover:bg-white/10 transition-all border border-white/10">
+            Explore Sentinel-X
+          </a>
+        </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sentinel-X Framework Section -->
+<section id="sentinel-x" class="bg-[#030712] py-24 border-t border-white/5 relative overflow-hidden">
+  <div class="container mx-auto max-w-screen-xl px-6">
+    <div class="grid lg:grid-cols-2 gap-20 items-center">
+      <div>
+        <p class="text-[10px] font-black uppercase text-gemLightBlue tracking-[0.3em] mb-4">PROPRIETARY FRAMEWORK</p>
+        <h2 class="text-4xl lg:text-6xl font-black text-white mb-8 tracking-tighter">
+          Sentinel-X Intelligence
+        </h2>
+        <p class="text-xl text-gray-400 mb-10 leading-relaxed font-medium">
+          Our proprietary cyber risk intelligence framework providing threat realism modeling, control effectiveness analysis, and executive-ready reporting.
+        </p>
+        
+        <ul class="space-y-6">
+          <li class="flex gap-4">
+            <div class="h-8 w-8 rounded-lg bg-gemLightBlue/10 flex items-center justify-center text-gemLightBlue shrink-0">
+              <i data-lucide="target" class="h-4 w-4"></i>
+            </div>
+            <div>
+              <h4 class="text-white font-bold">Threat Realism Modeling</h4>
+              <p class="text-sm text-gray-500">Aligned to enterprise and financial environments.</p>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <div class="h-8 w-8 rounded-lg bg-gemLightBlue/10 flex items-center justify-center text-gemLightBlue shrink-0">
+              <i data-lucide="activity" class="h-4 w-4"></i>
+            </div>
+            <div>
+              <h4 class="text-white font-bold">Control Effectiveness Analysis</h4>
+              <p class="text-sm text-gray-500">Rigorous testing under operational stress scenarios.</p>
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <div class="h-8 w-8 rounded-lg bg-gemLightBlue/10 flex items-center justify-center text-gemLightBlue shrink-0">
+              <i data-lucide="bar-chart-3" class="h-4 w-4"></i>
+            </div>
+            <div>
+              <h4 class="text-white font-bold">Explainable Scoring</h4>
+              <p class="text-sm text-gray-500">Transparent remediation prioritization and rationale.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+      
+      <div class="relative">
+        <div class="bg-white/5 p-8 rounded-[2.5rem] border border-white/10 backdrop-blur-3xl relative z-10">
+          <h3 class="text-white font-black text-2xl mb-6">Enterprise Command Center</h3>
+          <div class="space-y-4">
+            <div class="p-4 bg-gemLightBlue/5 rounded-2xl border border-gemLightBlue/20 flex items-center justify-between">
+              <span class="text-sm font-bold text-gray-300">System Status</span>
+              <span class="text-[10px] font-black text-gemGreen uppercase flex items-center gap-2">
+                <span class="h-2 w-2 rounded-full bg-gemGreen animate-pulse"></span> Active
+              </span>
+            </div>
+            <div class="p-4 bg-white/5 rounded-2xl border border-white/5">
+              <p class="text-[10px] font-black text-gray-500 uppercase tracking-widest mb-2">Recent Incident Feed</p>
+              <div class="space-y-2">
+                <div class="flex justify-between text-[11px]">
+                  <span class="text-gray-400">Unusual login pattern detected</span>
+                  <span class="text-gemRed">15m ago</span>
+                </div>
+                <div class="flex justify-between text-[11px]">
+                  <span class="text-gray-400">Firewall rules updated</span>
+                  <span class="text-gray-500">1h ago</span>
+                </div>
+                <div class="flex justify-between text-[11px]">
+                  <span class="text-gray-400">Brute force attempt blocked</span>
+                  <span class="text-gemGreen">2h ago</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="absolute -inset-10 bg-gemLightBlue/10 rounded-full blur-[100px] -z-10"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Flagship Products Section -->
+<section class="bg-[#030712] py-24 border-t border-white/5 relative">
+  <div class="container mx-auto max-w-screen-xl px-6">
+    <div class="text-center mb-16">
+      <p class="text-[10px] font-black uppercase text-gemLightBlue tracking-[0.3em] mb-4">ENGINEERED CAPABILITIES</p>
+      <h2 class="text-4xl lg:text-6xl font-black text-white tracking-tighter">Flagship Products</h2>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="group bg-white/5 border border-white/10 rounded-[2rem] p-8 hover:bg-white/10 transition-all">
+        <div class="h-14 w-14 bg-gemLightBlue/10 rounded-2xl flex items-center justify-center text-gemLightBlue mb-6">
+          <i data-lucide="shield" class="h-7 w-7"></i>
+        </div>
+        <h3 class="text-xl font-black text-white mb-4">BioVault</h3>
+        <p class="text-sm text-gray-500 leading-relaxed mb-6">Biometric identity anchoring and decentralized authentication for critical systems.</p>
+        <div class="h-px w-full bg-white/5 mb-6"></div>
+        <div class="flex items-center justify-between text-[10px] font-bold uppercase tracking-widest text-gemLightBlue">
+          <span>Identity Security</span>
+          <i data-lucide="chevron-right" class="h-3 w-3"></i>
+        </div>
+      </div>
+
+      <div class="group bg-white/5 border border-white/10 rounded-[2rem] p-8 hover:bg-white/10 transition-all">
+        <div class="h-14 w-14 bg-gemBlue/20 rounded-2xl flex items-center justify-center text-gemLightBlue mb-6">
+          <i data-lucide="cpu" class="h-7 w-7"></i>
+        </div>
+        <h3 class="text-xl font-black text-white mb-4">NeuralNet</h3>
+        <p class="text-sm text-gray-500 leading-relaxed mb-6">Next-gen AI-driven behavioral analysis for proactive threat hunting.</p>
+        <div class="h-px w-full bg-white/5 mb-6"></div>
+        <div class="flex items-center justify-between text-[10px] font-bold uppercase tracking-widest text-gemLightBlue">
+          <span>AI Monitoring</span>
+          <i data-lucide="chevron-right" class="h-3 w-3"></i>
+        </div>
+      </div>
+
+      <div class="group bg-white/5 border border-white/10 rounded-[2rem] p-8 hover:bg-white/10 transition-all">
+        <div class="h-14 w-14 bg-gemGreen/10 rounded-2xl flex items-center justify-center text-gemGreen mb-6">
+          <i data-lucide="lock" class="h-7 w-7"></i>
+        </div>
+        <h3 class="text-xl font-black text-white mb-4">QuantumGuard</h3>
+        <p class="text-sm text-gray-500 leading-relaxed mb-6">Post-quantum encryption layers for enterprise data and communication.</p>
+        <div class="h-px w-full bg-white/5 mb-6"></div>
+        <div class="flex items-center justify-between text-[10px] font-bold uppercase tracking-widest text-gemGreen">
+          <span>Encryption</span>
+          <i data-lucide="chevron-right" class="h-3 w-3"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Governance & Accountability Section -->
+<section class="bg-white py-24 lg:py-32">
+  <div class="container mx-auto max-w-screen-xl px-6">
+    <div class="text-center mb-20">
+      <h2 class="text-4xl lg:text-7xl font-black text-gemBlue tracking-tighter mb-6">Governance-First Execution</h2>
+      <p class="text-xl text-gray-500 max-w-3xl mx-auto font-medium">
+        Defensible decisions and operational accountability built into every security outcome.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-12">
+      <div class="p-8 rounded-3xl bg-gray-50 border border-gray-100">
+        <i data-lucide="shield-check" class="h-12 w-12 text-gemLightBlue mb-6"></i>
+        <h3 class="text-xl font-black text-gemBlue mb-4">Governance-First</h3>
+        <p class="text-gray-500 leading-relaxed">Accountability, auditability, and change control built into the operating model.</p>
+      </div>
+      <div class="p-8 rounded-3xl bg-gray-50 border border-gray-100">
+        <i data-lucide="search" class="h-12 w-12 text-gemLightBlue mb-6"></i>
+        <h3 class="text-xl font-black text-gemBlue mb-4">Explainable Outputs</h3>
+        <p class="text-gray-500 leading-relaxed">Every risk rank and recommendation has traceable logic and rationale.</p>
+      </div>
+      <div class="p-8 rounded-3xl bg-gray-50 border border-gray-100">
+        <i data-lucide="brain" class="h-12 w-12 text-gemLightBlue mb-6"></i>
+        <h3 class="text-xl font-black text-gemBlue mb-4">Responsible AI</h3>
+        <p class="text-gray-500 leading-relaxed">AI augments analysis; final decisions remain human-owned and reviewable.</p>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

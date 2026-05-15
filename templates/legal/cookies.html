@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block title %}Cookie Policy - GEM Enterprise{% endblock %}
+{% block content %}
+<section class="relative min-h-screen pt-32 pb-24 overflow-hidden">
+    <!-- Background Pattern -->
+    <div class="absolute inset-0 -z-10" style="background-image: radial-gradient(circle at 1px 1px, rgb(71, 85, 105) 1px, transparent 0); background-size: 40px 40px; opacity: 0.15"></div>
+
+    <div class="container mx-auto max-w-screen-xl px-6 relative z-10">
+        <div class="text-center mb-24 animate-fade-in">
+            <p class="text-[10px] font-black uppercase text-cyan-500 tracking-[0.3em] mb-4">DATA PREFERENCES</p>
+            <h1 class="text-5xl lg:text-7xl font-black text-white mb-8 tracking-tighter">Cookie <span class="text-cyan-500">Policy</span></h1>
+            <p class="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">Transparency in how we optimize your experience and platform security.</p>
+        </div>
+
+        <div class="max-w-4xl mx-auto bg-slate-900 border border-slate-800 rounded-[3rem] p-12 lg:p-20 text-slate-300 leading-relaxed space-y-12">
+            <div class="space-y-6">
+                <h2 class="text-2xl font-black text-white">1. Essential Security Cookies</h2>
+                <p>These cookies are critical for the security of our platform, enabling authentication and protecting your session against unauthorized access.</p>
+            </div>
+            <div class="space-y-6">
+                <h2 class="text-2xl font-black text-white">2. Performance Analytics</h2>
+                <p>We use minimal tracking to understand how our users interact with the dashboard, allowing us to optimize response times and interface clarity.</p>
+            </div>
+            <div class="space-y-6">
+                <h2 class="text-2xl font-black text-white">3. Functional Preferences</h2>
+                <p>These cookies remember your settings, such as theme preferences and regional parameters for real estate data displays.</p>
+            </div>
+            <div class="pt-12 border-t border-slate-800 text-center">
+                <p class="text-sm font-bold text-slate-500 mb-8">Last Updated: January 2026</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

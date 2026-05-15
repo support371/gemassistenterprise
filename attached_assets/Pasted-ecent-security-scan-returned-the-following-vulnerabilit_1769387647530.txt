@@ -1,0 +1,30 @@
+ecent security scan returned the following vulnerability alert using static code analysis:
+
+XSS Vulnerability: Unsafe DOM Manipulation. User controlled data in methods like innerHTML, outerHTML or document.write is an anti-pattern that can lead to XSS vulnerabilities. Replace with safe DOM methods: Use createElement() + appendChild() + textContent for dynamic content. Avoid use innerHTML with user data: Even escaped data can be risky. If HTML injection is absolutely necessary: Sanitize with DOMPurify library first.
+Location: static/js/ai-support.js (lines 82-167)
+
+Instructions:
+
+Examine the code at the specified location to understand the vulnerability context
+Decide whether the reported issue is real. Use execution path, context, and impact to judge.
+If you have high confidence that it's exploitable, provide the smallest safe patch. Tell the user it is important to test their app before continuing with their deployment.
+If the issue is a false positive but violates coding best practices, apply the minimal fix to follow recommended patterns. Otherwise, if there's no security risk and the code follows best practices, make no change and explain why.
+You've reached your daily free quota limit. It will reset at 12:00 AM UTC.
+
+You've reached your daily free quota limit. It will reset at 12:00 AM UTC.
+
+fix error with preview issue
+
+Want users to get these changes? Republish this App.
+restor the previous version before the security scan
+
+Choose a checkpoint to roll back to
+You can revert the project to its state before the security scan by using the Checkpoints feature. Click the button below to view and select a previous version. Learn more about rollbacks
+checkpoint before security scan vonerability
+
+I've triggered the system's restoration tool for you. To go back to the version before the security scan changes, please click the **"View Checkpoints
+
+"** button that has appeared in our chat. From there, you can select the specific point in time you wish to restore.
+
+
+Scroll to latest

@@ -1,0 +1,51 @@
+version: '3.9'
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_USER: gemuser
+      POSTGRES_PASSWORD: gempass
+      POSTGRES_DB: gem_forgeops
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+
+  api:
+    build:
+      context: ..
+      dockerfile: infra/Dockerfile.api
+    environment:
+      DATABASE_URL: postgresql://gemuser:gempass@postgres:5432/gem_forgeops
+      REDIS_URL: redis://redis:6379/0
+      FLASK_ENV: development
+    ports:
+      - "5000:5000"
+    depends_on:
+      - postgres
+      - redis
+    volumes:
+      - ..:/app
+
+  worker:
+    build:
+      context: ..
+      dockerfile: infra/Dockerfile.worker
+    environment:
+      DATABASE_URL: postgresql://gemuser:gempass@postgres:5432/gem_forgeops
+      REDIS_URL: redis://redis:6379/0
+      FLASK_ENV: development
+    depends_on:
+      - postgres
+      - redis
+    volumes:
+      - ..:/app
+
+volumes:
+  postgres_data:

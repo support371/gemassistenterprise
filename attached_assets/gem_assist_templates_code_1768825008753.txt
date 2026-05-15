@@ -1,0 +1,414 @@
+
+# templates/admin.html
+{% extends "base.html" %}
+
+{% block title %}Admin Panel – Gem Assist{% endblock %}
+
+{% block content %}
+<section class="bg-gradient-to-b from-gray-900 via-black to-gray-900 py-24">
+  <div class="container mx-auto px-4 text-center">
+    <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-4">Admin&nbsp;Panel</h1>
+    <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
+      Manage your organisation, users and services from a single secure console. Configure settings,
+      monitor activity and grow your platform.
+    </p>
+  </div>
+</section>
+
+<section class="bg-black py-20">
+  <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-white">
+    <div class="flex flex-col items-center text-center p-6 border border-gray-800 rounded-lg">
+      <span class="text-4xl mb-4"><i class="fas fa-user-shield"></i></span>
+      <h3 class="text-xl font-semibold mb-2">User Management</h3>
+      <p class="text-gray-400">Create, edit and assign roles to users. Maintain audit trails and
+        permissions easily.</p>
+    </div>
+    <div class="flex flex-col items-center text-center p-6 border border-gray-800 rounded-lg">
+      <span class="text-4xl mb-4"><i class="fas fa-cogs"></i></span>
+      <h3 class="text-xl font-semibold mb-2">System Settings</h3>
+      <p class="text-gray-400">Configure service parameters, update integrations and manage API access
+        directly.</p>
+    </div>
+    <div class="flex flex-col items-center text-center p-6 border border-gray-800 rounded-lg">
+      <span class="text-4xl mb-4"><i class="fas fa-chart-bar"></i></span>
+      <h3 class="text-xl font-semibold mb-2">Analytics & Logs</h3>
+      <p class="text-gray-400">View activity logs, track usage statistics and generate reports to
+        evaluate performance.</p>
+    </div>
+  </div>
+</section>
+
+<section class="bg-gradient-to-b from-gray-900 via-black to-gray-900 py-16">
+  <div class="container mx-auto text-center">
+    <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">Secure access required.</h2>
+    <a href="{{ url_for('admin_login') if 'admin_login' in globals() else '#' }}" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-md font-medium">Admin Login</a>
+  </div>
+</section>
+{% endblock %}
+
+# templates/client.html
+{% extends "base.html" %}
+
+{% block title %}Client Access – Gem Assist{% endblock %}
+
+{% block content %}
+<section class="bg-gradient-to-b from-gray-900 via-black to-gray-900 py-24">
+  <div class="container mx-auto px-4 text-center">
+    <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-4">Client&nbsp;Access</h1>
+    <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
+      Access your personalised dashboard, manage accounts and view transaction histories. Securely log in to
+      take control of your finances and services.
+    </p>
+  </div>
+</section>
+
+<section class="bg-black py-20">
+  <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-white">
+    <div class="flex flex-col items-center text-center p-6 border border-gray-800 rounded-lg">
+      <span class="text-4xl mb-4"><i class="fas fa-tachometer-alt"></i></span>
+      <h3 class="text-xl font-semibold mb-2">Unified Dashboard</h3>
+      <p class="text-gray-400">See all your accounts, cards and portfolios in one place with real‑time
+        updates.</p>
+    </div>
+    <div class="flex flex-col items-center text-center p-6 border border-gray-800 rounded-lg">
+      <span class="text-4xl mb-4"><i class="fas fa-exchange-alt"></i></span>
+      <h3 class="text-xl font-semibold mb-2">Easy Transfers</h3>
+      <p class="text-gray-400">Move funds between your fiat and crypto accounts with a few clicks.
+        Monitor exchange rates and fees transparently.</p>
+    </div>
+    <div class="flex flex-col items-center text-center p-6 border border-gray-800 rounded-lg">
+      <span class="text-4xl mb-4"><i class="fas fa-lock"></i></span>
+      <h3 class="text-xl font-semibold mb-2">Security Controls</h3>
+      <p class="text-gray-400">Enable multi‑factor authentication, manage API keys and set spending
+        limits for your accounts.</p>
+    </div>
+  </div>
+</section>
+
+<section class="bg-gradient-to-b from-gray-900 via-black to-gray-900 py-16">
+  <div class="container mx-auto text-center">
+    <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">Ready to log in?</h2>
+    <a href="{{ url_for('client_login') if 'client_login' in globals() else '#' }}" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-md font-medium">Client Portal</a>
+  </div>
+</section>
+{% endblock %}
+
+# templates/monitoring.html
+{% extends "base.html" %}
+
+{% block title %}Monitoring Threats – Gem Assist{% endblock %}
+
+{% block content %}
+<section class="bg-gradient-to-b from-gray-900 via-black to-gray-900 py-24">
+  <div class="container mx-auto px-4 text-center">
+    <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-4">Threat&nbsp;Monitoring</h1>
+    <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
+      Stay ahead of cyber threats with real‑time monitoring and automated alerts. Our intelligent platform
+      safeguards your assets and data around the clock.
+    </p>
+  </div>
+</section>
+
+<section class="bg-black py-20">
+  <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-white">
+    <div class="flex flex-col items-center text-center p-6 border border-gray-800 rounded-lg">
+      <span class="text-4xl mb-4"><i class="fas fa-eye"></i></span>
+      <h3 class="text-xl font-semibold mb-2">Continuous Surveillance</h3>
+      <p class="text-gray-400">We monitor your systems and applications 24/7 to detect suspicious activity
+        immediately.</p>
+    </div>
+    <div class="flex flex-col items-center text-center p-6 border border-gray-800 rounded-lg">
+      <span class="text-4xl mb-4"><i class="fas fa-bell"></i></span>
+      <h3 class="text-xl font-semibold mb-2">Instant Alerts</h3>
+      <p class="text-gray-400">Receive notifications via email or messaging apps as soon as anomalies
+        arise.</p>
+    </div>
+    <div class="flex flex-col items-center text-center p-6 border border-gray-800 rounded-lg">
+      <span class="text-4xl mb-4"><i class="fas fa-shield-virus"></i></span>
+      <h3 class="text-xl font-semibold mb-2">Actionable Insights</h3>
+      <p class="text-gray-400">Our dashboard helps you understand threats and respond effectively to
+        mitigate risks.</p>
+    </div>
+  </div>
+</section>
+
+<section class="bg-gradient-to-b from-gray-900 via-black to-gray-900 py-16">
+  <div class="container mx-auto text-center">
+    <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">Protect your digital footprint today.</h2>
+    <a href="{{ url_for('contact') }}" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-md font-medium">Learn More</a>
+  </div>
+</section>
+{% endblock %}
+
+# templates/news.html
+{% extends "base.html" %}
+
+{% block title %}News & Newsletter – Gem Assist{% endblock %}
+
+{% block content %}
+<section class="bg-gradient-to-b from-gray-900 via-black to-gray-900 py-24">
+  <div class="container mx-auto px-4 text-center">
+    <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-4">News&nbsp;&amp;&nbsp;Newsletter</h1>
+    <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
+      Stay informed with the latest updates from our team. Read recent announcements, insights and
+      subscribe to our newsletter.
+    </p>
+  </div>
+</section>
+
+<section class="bg-black py-20">
+  <div class="container mx-auto text-white space-y-12">
+    <article class="border border-gray-800 p-6 rounded-lg">
+      <h3 class="text-2xl font-semibold mb-2">Feature Launches & Product Updates</h3>
+      <p class="text-gray-400">Learn about our newest features, improvements and service updates. We share
+        our roadmap and highlight new capabilities.
+      </p>
+    </article>
+    <article class="border border-gray-800 p-6 rounded-lg">
+      <h3 class="text-2xl font-semibold mb-2">Industry Insights</h3>
+      <p class="text-gray-400">Explore articles on fintech trends, cybersecurity news and blockchain
+        developments curated by our experts.</p>
+    </article>
+    <article class="border border-gray-800 p-6 rounded-lg">
+      <h3 class="text-2xl font-semibold mb-2">Event Highlights</h3>
+      <p class="text-gray-400">Get recaps and takeaways from our conferences, webinars and community
+        events.</p>
+    </article>
+  </div>
+</section>
+
+<section class="bg-gradient-to-b from-gray-900 via-black to-gray-900 py-16">
+  <div class="container mx-auto text-center">
+    <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">Subscribe to stay updated</h2>
+    <form method="post" action="{{ url_for('subscribe_newsletter') if 'subscribe_newsletter' in globals() else '#' }}" class="max-w-md mx-auto flex flex-col sm:flex-row gap-4">
+      <input type="email" name="email" placeholder="Your email" required class="w-full px-4 py-3 rounded-md bg-gray-800 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500">
+      <button type="submit" class="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-md font-medium">Subscribe</button>
+    </form>
+  </div>
+</section>
+{% endblock %}
+
+# templates/partners.html
+{% extends "base.html" %}
+
+{% block title %}Partners & Trustees – Gem Assist{% endblock %}
+
+{% block content %}
+<section class="bg-gradient-to-b from-gray-900 via-black to-gray-900 py-24">
+  <div class="container mx-auto px-4 text-center">
+    <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-4">Partners&nbsp;&nbsp;&&nbsp;&nbsp;Trustees</h1>
+    <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
+      We work with industry‑leading organisations to deliver exceptional services. Meet our partners and
+      trustees who strengthen our ecosystem.
+    </p>
+  </div>
+</section>
+
+<section class="bg-black py-20">
+  <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-white">
+    <div class="flex flex-col items-center text-center p-6 border border-gray-800 rounded-lg">
+      <span class="text-5xl mb-4"><i class="fas fa-university"></i></span>
+      <h3 class="text-xl font-semibold mb-2">Financial Institutions</h3>
+      <p class="text-gray-400">Tier‑1 banks and payment networks integrate with our platform to offer
+        seamless fiat‑to‑crypto experiences.</p>
+    </div>
+    <div class="flex flex-col items-center text-center p-6 border border-gray-800 rounded-lg">
+      <span class="text-5xl mb-4"><i class="fas fa-handshake"></i></span>
+      <h3 class="text-xl font-semibold mb-2">Compliance Partners</h3>
+      <p class="text-gray-400">Top‑tier KYC, AML and identity verification providers ensure your account
+        is fully compliant.</p>
+    </div>
+    <div class="flex flex-col items-center text-center p-6 border border-gray-800 rounded-lg">
+      <span class="text-5xl mb-4"><i class="fas fa-users"></i></span>
+      <h3 class="text-xl font-semibold mb-2">Community Allies</h3>
+      <p class="text-gray-400">From developers to security specialists, our network of contributors helps
+        us innovate and improve.</p>
+    </div>
+  </div>
+</section>
+
+<section class="bg-gradient-to-b from-gray-900 via-black to-gray-900 py-16">
+  <div class="container mx-auto text-center">
+    <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">Interested in partnering with us?</h2>
+    <a href="{{ url_for('contact') }}" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-md font-medium">Become a Partner</a>
+  </div>
+</section>
+{% endblock %}
+
+# templates/portfolio.html
+{% extends "base.html" %}
+
+{% block title %}Investment Portfolio – Gem Assist{% endblock %}
+
+{% block content %}
+<section class="bg-gradient-to-b from-gray-900 via-black to-gray-900 py-24">
+  <div class="container mx-auto px-4 text-center">
+    <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-4">Investment&nbsp;Portfolio</h1>
+    <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
+      Build and manage your crypto and fiat investments with ease. Diversify your holdings and track
+      performance in one unified dashboard.
+    </p>
+  </div>
+</section>
+
+<section class="bg-black py-20">
+  <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-white">
+    <div class="flex flex-col items-center text-center p-6 border border-gray-800 rounded-lg">
+      <span class="text-4xl mb-4"><i class="fas fa-coins"></i></span>
+      <h3 class="text-xl font-semibold mb-2">Diversification</h3>
+      <p class="text-gray-400">Allocate assets across multiple cryptocurrencies and traditional markets to
+        balance risk and reward.</p>
+    </div>
+    <div class="flex flex-col items-center text-center p-6 border border-gray-800 rounded-lg">
+      <span class="text-4xl mb-4"><i class="fas fa-chart-line"></i></span>
+      <h3 class="text-xl font-semibold mb-2">Real‑Time Analytics</h3>
+      <p class="text-gray-400">Monitor market movements and performance metrics with up‑to‑date charts and
+        insights.</p>
+    </div>
+    <div class="flex flex-col items-center text-center p-6 border border-gray-800 rounded-lg">
+      <span class="text-4xl mb-4"><i class="fas fa-wallet"></i></span>
+      <h3 class="text-xl font-semibold mb-2">Secure Custody</h3>
+      <p class="text-gray-400">Keep your assets safe with our institutional‑grade custodial solutions and
+        insurance coverage.</p>
+    </div>
+  </div>
+</section>
+
+<section class="bg-gradient-to-b from-gray-900 via-black to-gray-900 py-16">
+  <div class="container mx-auto text-center">
+    <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">Ready to invest?</h2>
+    <a href="{{ url_for('client_access') if 'client_access' in globals() else '#' }}" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-md font-medium">Manage Portfolio</a>
+  </div>
+</section>
+{% endblock %}
+
+# templates/power-of-attorney.html
+{% extends "base.html" %}
+
+{% block title %}Power of Attorney – Gem Assist{% endblock %}
+
+{% block content %}
+<section class="bg-gradient-to-b from-gray-900 via-black to-gray-900 py-24">
+  <div class="container mx-auto px-4 text-center">
+    <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-4">Power&nbsp;of&nbsp;Attorney</h1>
+    <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
+      Empower a trusted individual to act on your behalf. Our secure digital power‑of‑attorney
+      process simplifies authorisations for legal and financial matters, ensuring you remain in control.
+    </p>
+  </div>
+</section>
+
+<section class="bg-black py-20">
+  <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-white">
+    <div class="flex flex-col items-center text-center p-6 border border-gray-800 rounded-lg">
+      <span class="text-4xl mb-4"><i class="fas fa-shield-alt"></i></span>
+      <h3 class="text-xl font-semibold mb-2">Legal Compliance</h3>
+      <p class="text-gray-400">Our templates meet stringent regulatory requirements to ensure your documents are legally
+        recognised.</p>
+    </div>
+    <div class="flex flex-col items-center text-center p-6 border border-gray-800 rounded-lg">
+      <span class="text-4xl mb-4"><i class="fas fa-user-friends"></i></span>
+      <h3 class="text-xl font-semibold mb-2">Trusted Delegation</h3>
+      <p class="text-gray-400">Designate relatives, business partners or attorneys to represent your interests with
+        confidence.</p>
+    </div>
+    <div class="flex flex-col items-center text-center p-6 border border-gray-800 rounded-lg">
+      <span class="text-4xl mb-4"><i class="fas fa-file-signature"></i></span>
+      <h3 class="text-xl font-semibold mb-2">E‑Signature Ready</h3>
+      <p class="text-gray-400">Sign and manage documents digitally for faster turnaround and seamless record‑keeping.</p>
+    </div>
+  </div>
+</section>
+
+<section class="bg-gradient-to-b from-gray-900 via-black to-gray-900 py-16">
+  <div class="container mx-auto text-center">
+    <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">Need assistance drafting your power‑of‑attorney?</h2>
+    <a href="{{ url_for('contact') }}" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-md font-medium">Contact Us</a>
+  </div>
+</section>
+{% endblock %}
+
+# templates/teams.html
+{% extends "base.html" %}
+
+{% block title %}Our Teams – Gem Assist{% endblock %}
+
+{% block content %}
+<section class="bg-gradient-to-b from-gray-900 via-black to-gray-900 py-24">
+  <div class="container mx-auto px-4 text-center">
+    <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-4">Meet&nbsp;Our&nbsp;Team</h1>
+    <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
+      Get to know the people behind Gem Assist. Our diverse team of experts drives innovation and
+      excellence in everything we do.
+    </p>
+  </div>
+</section>
+
+<section class="bg-black py-20">
+  <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 text-white">
+    <!-- Repeat this card for each team member -->
+    <div class="flex flex-col items-center text-center p-6 border border-gray-800 rounded-lg">
+      <img src="{{ url_for('static', filename='images/placeholder-avatar.png') }}" alt="Team member" class="w-24 h-24 rounded-full mb-4" />
+      <h3 class="text-xl font-semibold mb-1">John Doe</h3>
+      <p class="text-blue-400 mb-2">CEO &amp; Founder</p>
+      <p class="text-gray-400 text-sm">Visionary leader with a passion for fintech innovation and customer
+        success.</p>
+    </div>
+    <!-- Add more team member cards as needed -->
+  </div>
+</section>
+
+<section class="bg-gradient-to-b from-gray-900 via-black to-gray-900 py-16">
+  <div class="container mx-auto text-center">
+    <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">Want to join our team?</h2>
+    <a href="{{ url_for('careers') if 'careers' in globals() else '#' }}" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-md font-medium">View Open Roles</a>
+  </div>
+</section>
+{% endblock %}
+
+# templates/telegram.html
+{% extends "base.html" %}
+
+{% block title %}Telegram Bot Automation – Gem Assist{% endblock %}
+
+{% block content %}
+<section class="bg-gradient-to-b from-gray-900 via-black to-gray-900 py-24">
+  <div class="container mx-auto px-4 text-center">
+    <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-4">Telegram&nbsp;Bot Automation</h1>
+    <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto">
+      Streamline customer engagement and operations with our custom Telegram bots. Automate support,
+      marketing and notifications using a secure, AI‑powered assistant designed for modern financial services.
+    </p>
+  </div>
+</section>
+
+<section class="bg-black py-20">
+  <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-white">
+    <div class="flex flex-col items-center text-center p-6 border border-gray-800 rounded-lg">
+      <span class="text-4xl mb-4"><i class="fas fa-comments"></i></span>
+      <h3 class="text-xl font-semibold mb-2">24/7 Assistance</h3>
+      <p class="text-gray-400">Answer customer questions instantly, anytime. Our bot provides reliable
+        assistance around the clock.</p>
+    </div>
+    <div class="flex flex-col items-center text-center p-6 border border-gray-800 rounded-lg">
+      <span class="text-4xl mb-4"><i class="fas fa-robot"></i></span>
+      <h3 class="text-xl font-semibold mb-2">Workflow Automation</h3>
+      <p class="text-gray-400">Automate repetitive tasks like account lookups, balance checks and
+        transaction alerts.</p>
+    </div>
+    <div class="flex flex-col items-center text-center p-6 border border-gray-800 rounded-lg">
+      <span class="text-4xl mb-4"><i class="fas fa-bolt"></i></span>
+      <h3 class="text-xl font-semibold mb-2">Quick Deployment</h3>
+      <p class="text-gray-400">Launch your bot within minutes with our plug‑and‑play templates and
+        configuration tools.</p>
+    </div>
+  </div>
+</section>
+
+<section class="bg-gradient-to-b from-gray-900 via-black to-gray-900 py-16">
+  <div class="container mx-auto text-center">
+    <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">Ready to automate your communications?</h2>
+    <a href="{{ url_for('contact') }}" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-md font-medium">Get in Touch</a>
+  </div>
+</section>
+{% endblock %}

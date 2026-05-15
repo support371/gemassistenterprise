@@ -1,0 +1,438 @@
+{% extends "base.html" %}
+
+{% block title %}Services - GEM Cybersecurity Enterprise Security Platform{% endblock %}
+
+{% block content %}
+<!-- Page 2: SERVICES PAGE (/services) -->
+
+<!-- Section 1: Page Hero -->
+<section class="relative bg-[#030712] pt-32 pb-24 lg:pt-48 lg:pb-40 overflow-hidden" aria-label="Services Hero">
+    <div class="absolute inset-0 pointer-events-none">
+        <div class="absolute top-[-10%] left-[-10%] w-[600px] h-[600px] bg-gemBlue/10 rounded-full blur-[150px]"></div>
+    </div>
+    <div class="container mx-auto max-w-screen-xl px-6 relative z-10 text-center">
+        <h1 class="text-5xl sm:text-6xl lg:text-8xl font-black text-white mb-8 leading-[0.9] tracking-tighter">
+            Enterprise <span class="text-transparent bg-clip-text bg-gradient-to-r from-gemLightBlue to-blue-400">Security & Trust</span> Solutions
+        </h1>
+        <p class="text-xl sm:text-2xl text-gray-400 max-w-3xl mx-auto mb-12 leading-relaxed font-medium">
+            Next-generation cybersecurity monitoring, asset recovery, and real estate services powered by AI-driven threat detection and backed by federal compliance standards.
+        </p>
+        <div class="flex flex-wrap justify-center gap-12 mb-12">
+            <div class="text-center">
+                <div class="text-4xl font-black text-white">$50M+</div>
+                <div class="text-[10px] font-bold text-gray-500 uppercase tracking-widest">Assets Under Management</div>
+            </div>
+            <div class="text-center">
+                <div class="text-4xl font-black text-white">94%</div>
+                <div class="text-[10px] font-bold text-gray-500 uppercase tracking-widest">Recovery Success Rate</div>
+            </div>
+        </div>
+        <a href="{{ url_for('contact_page') }}" class="inline-flex items-center justify-center h-16 px-12 rounded-2xl bg-gemLightBlue text-white text-lg font-black hover:bg-gemBlue transition-all shadow-2xl shadow-gemLightBlue/20">
+            Schedule Security Audit
+        </a>
+    </div>
+</section>
+
+<!-- Section 2: Cybersecurity Solutions -->
+<section class="bg-[#030712] px-6 py-24" aria-label="Cybersecurity Division">
+    <div class="max-w-screen-xl mx-auto mb-16">
+        <h2 class="text-3xl lg:text-5xl font-black text-white tracking-tighter mb-4">Cybersecurity <span class="text-gemLightBlue">Division</span></h2>
+        <p class="text-gray-400 font-medium max-w-2xl">Enterprise-grade protection managed by certified security analysts using multi-step verification and human+system oversight.</p>
+    </div>
+    <div class="max-w-screen-xl mx-auto grid gap-8 lg:grid-cols-3">
+        <!-- Card 1: Threat Monitoring -->
+        <div class="group bg-white/5 border border-white/10 rounded-[2.5rem] p-10 hover:bg-white/10 hover:border-gemLightBlue/30 transition-all duration-500">
+            <div class="h-16 w-16 bg-gemLightBlue/10 rounded-2xl flex items-center justify-center text-gemLightBlue mb-8 group-hover:scale-110 transition-transform">
+                <i data-lucide="shield" class="h-8 w-8"></i>
+            </div>
+            <h3 class="text-2xl font-black text-white mb-6">24/7 Threat Monitoring</h3>
+            <p class="text-gray-400 mb-8 font-medium">Continuous surveillance of your digital landscape with AI-powered detection and expert analyst oversight.</p>
+            <ul class="space-y-4 mb-10 text-gray-500 font-bold text-sm uppercase tracking-wide">
+                <li class="flex items-center gap-3"><i data-lucide="check" class="h-4 w-4 text-gemGreen"></i> Real-time SIEM Analysis</li>
+                <li class="flex items-center gap-3"><i data-lucide="check" class="h-4 w-4 text-gemGreen"></i> AI Behavior Detection</li>
+                <li class="flex items-center gap-3"><i data-lucide="check" class="h-4 w-4 text-gemGreen"></i> Global Threat Intelligence</li>
+            </ul>
+            <a href="{{ url_for('threat_monitoring') }}" class="inline-flex items-center text-gemLightBlue font-black group/link">
+                Explore Service <i data-lucide="arrow-right" class="ml-2 h-4 w-4 group-hover/link:translate-x-1 transition-transform"></i>
+            </a>
+        </div>
+
+        <!-- Card 2: Incident Response -->
+        <div class="group bg-white/5 border border-white/10 rounded-[2.5rem] p-10 hover:bg-white/10 hover:border-gemRed/30 transition-all duration-500">
+            <div class="h-16 w-16 bg-gemRed/10 rounded-2xl flex items-center justify-center text-gemRed mb-8 group-hover:scale-110 transition-transform">
+                <i data-lucide="alert-octagon" class="h-8 w-8"></i>
+            </div>
+            <h3 class="text-2xl font-black text-white mb-6">Incident Response</h3>
+            <p class="text-gray-400 mb-8 font-medium">Rapid containment, investigation, and recovery services to minimize the impact of security breaches.</p>
+            <ul class="space-y-4 mb-10 text-gray-500 font-bold text-sm uppercase tracking-wide">
+                <li class="flex items-center gap-3"><i data-lucide="check" class="h-4 w-4 text-gemGreen"></i> 2-Min Response Guarantee</li>
+                <li class="flex items-center gap-3"><i data-lucide="check" class="h-4 w-4 text-gemGreen"></i> Digital Forensics</li>
+                <li class="flex items-center gap-3"><i data-lucide="check" class="h-4 w-4 text-gemGreen"></i> Malware Analysis</li>
+            </ul>
+            <a href="{{ url_for('incident_response') }}" class="inline-flex items-center text-gemRed font-black group/link">
+                Explore Service <i data-lucide="arrow-right" class="ml-2 h-4 w-4 group-hover/link:translate-x-1 transition-transform"></i>
+            </a>
+        </div>
+
+        <!-- Card 3: Compliance Management -->
+        <div class="group bg-white/5 border border-white/10 rounded-[2.5rem] p-10 hover:bg-white/10 hover:border-gemGreen/30 transition-all duration-500">
+            <div class="h-16 w-16 bg-gemGreen/10 rounded-2xl flex items-center justify-center text-gemGreen mb-8 group-hover:scale-110 transition-transform">
+                <i data-lucide="check-circle" class="h-8 w-8"></i>
+            </div>
+            <h3 class="text-2xl font-black text-white mb-6">Compliance & Risk</h3>
+            <p class="text-gray-400 mb-8 font-medium">Navigating the complex landscape of regulatory requirements with precision and strategic foresight.</p>
+            <ul class="space-y-4 mb-10 text-gray-500 font-bold text-sm uppercase tracking-wide">
+                <li class="flex items-center gap-3"><i data-lucide="check" class="h-4 w-4 text-gemGreen"></i> SOC 2 / ISO 27001 Support</li>
+                <li class="flex items-center gap-3"><i data-lucide="check" class="h-4 w-4 text-gemGreen"></i> HIPAA / PCI Compliance</li>
+                <li class="flex items-center gap-3"><i data-lucide="check" class="h-4 w-4 text-gemGreen"></i> Risk Assessments</li>
+            </ul>
+            <a href="{{ url_for('compliance_management_redirect') }}" class="inline-flex items-center text-gemGreen font-black group/link">
+                Explore Service <i data-lucide="arrow-right" class="ml-2 h-4 w-4 group-hover/link:translate-x-1 transition-transform"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Section 3: Alliance Trust Realty Solutions -->
+<section class="bg-[#030712] px-6 py-24 border-t border-white/5" aria-label="Alliance Trust Realty Division">
+    <div class="max-w-screen-xl mx-auto mb-16">
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gemGreen/10 border border-gemGreen/20 mb-6 backdrop-blur-md">
+            <p class="text-[10px] font-black uppercase text-gemGreen tracking-[0.2em]">
+                Alliance Trust Realty LLC — Powered Partner
+            </p>
+        </div>
+        <h2 class="text-3xl lg:text-5xl font-black text-white tracking-tighter mb-4">Physical Asset & <span class="text-gemGreen">Realty Solutions</span></h2>
+        <p class="text-gray-400 font-medium max-w-2xl">High-value asset recovery, federal regulatory compliance, and strategic real estate portfolio management.</p>
+    </div>
+    <div class="max-w-screen-xl mx-auto grid gap-8 lg:grid-cols-2">
+        <!-- Asset Recovery -->
+        <div class="group bg-white/5 border border-white/10 rounded-[2.5rem] p-10 hover:bg-white/10 hover:border-gemGreen/30 transition-all duration-500">
+            <div class="h-16 w-16 bg-gemGreen/10 rounded-2xl flex items-center justify-center text-gemGreen mb-8 group-hover:scale-110 transition-transform">
+                <i data-lucide="key" class="h-8 w-8"></i>
+            </div>
+            <h3 class="text-2xl font-black text-white mb-6">Asset Recovery</h3>
+            <p class="text-gray-400 mb-8 font-medium">Specialized workflows for identifying, securing, and recovering physical and digital assets under federal oversight.</p>
+            <ul class="space-y-4 mb-10 text-gray-500 font-bold text-sm uppercase tracking-wide">
+                <li class="flex items-center gap-3"><i data-lucide="check" class="h-4 w-4 text-gemGreen"></i> Federal Asset Tracing</li>
+                <li class="flex items-center gap-3"><i data-lucide="check" class="h-4 w-4 text-gemGreen"></i> Regulatory Compliance</li>
+                <li class="flex items-center gap-3"><i data-lucide="check" class="h-4 w-4 text-gemGreen"></i> Documented Intake Process</li>
+            </ul>
+            <a href="{{ url_for('portfolio') }}" class="inline-flex items-center text-gemGreen font-black group/link">
+                View Portfolio <i data-lucide="arrow-right" class="ml-2 h-4 w-4 group-hover/link:translate-x-1 transition-transform"></i>
+            </a>
+        </div>
+
+        <!-- Federal Compliance -->
+        <div class="group bg-white/5 border border-white/10 rounded-[2.5rem] p-10 hover:bg-white/10 hover:border-gemGreen/30 transition-all duration-500">
+            <div class="h-16 w-16 bg-gemGreen/10 rounded-2xl flex items-center justify-center text-gemGreen mb-8 group-hover:scale-110 transition-transform">
+                <i data-lucide="landmark" class="h-8 w-8"></i>
+            </div>
+            <h3 class="text-2xl font-black text-white mb-6">Federal Compliance</h3>
+            <p class="text-gray-400 mb-8 font-medium">Strategic alignment with federal real estate regulations and secure trust documentation management.</p>
+            <ul class="space-y-4 mb-10 text-gray-500 font-bold text-sm uppercase tracking-wide">
+                <li class="flex items-center gap-3"><i data-lucide="check" class="h-4 w-4 text-gemGreen"></i> Power of Attorney Support</li>
+                <li class="flex items-center gap-3"><i data-lucide="check" class="h-4 w-4 text-gemGreen"></i> Governance & Escalation</li>
+                <li class="flex items-center gap-3"><i data-lucide="check" class="h-4 w-4 text-gemGreen"></i> Audit-Ready Reporting</li>
+            </ul>
+            <a href="{{ url_for('power_of_attorney') }}" class="inline-flex items-center text-gemGreen font-black group/link">
+                Legal Services <i data-lucide="arrow-right" class="ml-2 h-4 w-4 group-hover/link:translate-x-1 transition-transform"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Section 3: Specialized Enterprise Solutions -->
+<section class="bg-[#030712] px-6 pb-24" aria-label="Specialized Solutions">
+    <div class="max-w-screen-xl mx-auto mb-12">
+        <h2 class="text-3xl lg:text-5xl font-black text-white tracking-tighter mb-4">Specialized <span class="text-gemLightBlue">Enterprise Solutions</span></h2>
+        <p class="text-gray-400 font-medium max-w-2xl">Tailored professional services for complex asset management and automated communications.</p>
+    </div>
+    <div class="max-w-screen-xl mx-auto grid gap-8 lg:grid-cols-3">
+        <!-- Telegram Automation -->
+        <div class="group bg-white/5 border border-white/10 rounded-[2rem] p-8 hover:bg-white/10 transition-all">
+            <div class="h-12 w-12 bg-gemLightBlue/10 rounded-xl flex items-center justify-center text-gemLightBlue mb-6">
+                <i data-lucide="message-square" class="h-6 w-6"></i>
+            </div>
+            <h3 class="text-xl font-black text-white mb-4">Telegram Bot Automation</h3>
+            <p class="text-gray-500 text-sm mb-6">Custom workflow automation and secure communication bots for enterprise operations.</p>
+            <a href="{{ url_for('telegram_bot') }}" class="text-gemLightBlue font-black text-xs uppercase tracking-widest hover:underline">Configure Bots →</a>
+        </div>
+        
+        <!-- QFS -->
+        <div class="group bg-white/5 border border-white/10 rounded-[2rem] p-8 hover:bg-white/10 transition-all">
+            <div class="h-12 w-12 bg-gemGreen/10 rounded-xl flex items-center justify-center text-gemGreen mb-6">
+                <i data-lucide="landmark" class="h-6 w-6"></i>
+            </div>
+            <h3 class="text-xl font-black text-white mb-4">Quantum Financial (QFS)</h3>
+            <p class="text-gray-500 text-sm mb-6">Advanced financial integration and secure digital asset management services.</p>
+            <a href="{{ url_for('qfs_route') }}" class="text-gemGreen font-black text-xs uppercase tracking-widest hover:underline">QFS Portal →</a>
+        </div>
+
+        <!-- Membership -->
+        <div class="group bg-white/5 border border-white/10 rounded-[2rem] p-8 hover:bg-white/10 transition-all">
+            <div class="h-12 w-12 bg-gemNavy/20 rounded-xl flex items-center justify-center text-white mb-6">
+                <i data-lucide="users" class="h-6 w-6"></i>
+            </div>
+            <h3 class="text-xl font-black text-white mb-4">Executive Membership</h3>
+            <p class="text-gray-500 text-sm mb-6">Exclusive access to GEM premium cybersecurity and real estate investment networks.</p>
+            <a href="{{ url_for('membership') }}" class="text-white font-black text-xs uppercase tracking-widest hover:underline">View Benefits →</a>
+        </div>
+    </div>
+    
+    <div class="max-w-screen-xl mx-auto grid gap-8 lg:grid-cols-2 mt-8">
+        <!-- Portfolio -->
+        <div class="group bg-white/5 border border-white/10 rounded-[2.5rem] p-10 hover:bg-white/10 transition-all flex items-center justify-between">
+            <div>
+                <h3 class="text-2xl font-black text-white mb-2">Portfolio Management</h3>
+                <p class="text-gray-400 text-sm mb-4">Comprehensive oversight of digital and physical assets.</p>
+                <a href="{{ url_for('portfolio') }}" class="inline-flex items-center justify-center h-12 px-6 rounded-xl bg-white/5 text-white text-xs font-black uppercase tracking-widest hover:bg-gemLightBlue transition-all">Access Portfolio</a>
+            </div>
+            <div class="hidden sm:block opacity-20 group-hover:opacity-100 transition-opacity">
+                <i data-lucide="briefcase" class="h-16 w-16 text-gemLightBlue"></i>
+            </div>
+        </div>
+        <!-- Legal -->
+        <div class="group bg-white/5 border border-white/10 rounded-[2.5rem] p-10 hover:bg-white/10 transition-all flex items-center justify-between">
+            <div>
+                <h3 class="text-2xl font-black text-white mb-2">Legal Documentation</h3>
+                <p class="text-gray-400 text-sm mb-4">Power of Attorney and secure trust documentation support.</p>
+                <a href="{{ url_for('power_of_attorney') }}" class="inline-flex items-center justify-center h-12 px-6 rounded-xl bg-white/5 text-white text-xs font-black uppercase tracking-widest hover:bg-gemLightBlue transition-all">Legal Services</a>
+            </div>
+            <div class="hidden sm:block opacity-20 group-hover:opacity-100 transition-opacity">
+                <i data-lucide="file-text" class="h-16 w-16 text-gemLightBlue"></i>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section 3: Extra Services -->
+<section class="bg-[#030712] px-6 pb-24" aria-label="Extra Services">
+    <div class="max-w-screen-xl mx-auto grid gap-8 lg:grid-cols-2">
+        <!-- Portfolio -->
+        <div class="bg-white/5 border border-white/10 rounded-[2.5rem] p-10 hover:bg-white/10 transition-all">
+            <h3 class="text-2xl font-black text-white mb-4">Portfolio Management</h3>
+            <p class="text-gray-400 mb-6">Comprehensive oversight of digital and physical assets.</p>
+            <a href="{{ url_for('portfolio') }}" class="text-gemLightBlue font-black uppercase tracking-widest text-sm">Access Portal →</a>
+        </div>
+        <!-- Legal -->
+        <div class="bg-white/5 border border-white/10 rounded-[2.5rem] p-10 hover:bg-white/10 transition-all">
+            <h3 class="text-2xl font-black text-white mb-4">Legal Services</h3>
+            <p class="text-gray-400 mb-6">Power of Attorney and trust documentation support.</p>
+            <a href="{{ url_for('power_of_attorney') }}" class="text-gemLightBlue font-black uppercase tracking-widest text-sm">Documentation →</a>
+        </div>
+    </div>
+</section>
+
+<!-- Section 3: How It Works -->
+<section class="bg-white px-6 py-24 lg:py-32 overflow-hidden" aria-label="Process Section">
+    <div class="max-w-screen-xl mx-auto">
+        <div class="text-center mb-20">
+            <p class="text-[10px] font-black uppercase text-gemBlue/40 tracking-[0.3em] mb-4">OUR PROCESS</p>
+            <h2 class="text-4xl sm:text-5xl lg:text-7xl font-black text-gemBlue tracking-tighter">
+                How We <span class="text-gemLightBlue">Secure You</span>
+            </h2>
+        </div>
+
+        <div class="relative">
+            <!-- Timeline connection line -->
+            <div class="absolute top-1/2 left-0 w-full h-1 bg-gray-100 -translate-y-1/2 hidden lg:block"></div>
+            
+            <div class="grid gap-12 lg:grid-cols-4 relative z-10">
+                <div class="text-center group">
+                    <div class="h-20 w-20 rounded-full bg-gemBlue text-white flex items-center justify-center mx-auto mb-8 shadow-2xl group-hover:scale-110 transition-transform relative">
+                        <i data-lucide="search" class="h-8 w-8"></i>
+                        <span class="absolute -top-2 -right-2 bg-gemLightBlue text-white text-xs font-black h-8 w-8 rounded-full flex items-center justify-center border-4 border-white">1</span>
+                    </div>
+                    <h4 class="text-xl font-black text-gemBlue mb-4">Assessment</h4>
+                    <p class="text-gray-500 font-medium">Initial deep-dive audit of your existing infrastructure and risk profile.</p>
+                </div>
+                <div class="text-center group">
+                    <div class="h-20 w-20 rounded-full bg-gemBlue text-white flex items-center justify-center mx-auto mb-8 shadow-2xl group-hover:scale-110 transition-transform relative">
+                        <i data-lucide="settings" class="h-8 w-8"></i>
+                        <span class="absolute -top-2 -right-2 bg-gemLightBlue text-white text-xs font-black h-8 w-8 rounded-full flex items-center justify-center border-4 border-white">2</span>
+                    </div>
+                    <h4 class="text-xl font-black text-gemBlue mb-4">Implementation</h4>
+                    <p class="text-gray-500 font-medium">Deploying security controls, SIEM monitoring, and rapid response protocols.</p>
+                </div>
+                <div class="text-center group">
+                    <div class="h-20 w-20 rounded-full bg-gemBlue text-white flex items-center justify-center mx-auto mb-8 shadow-2xl group-hover:scale-110 transition-transform relative">
+                        <i data-lucide="eye" class="h-8 w-8"></i>
+                        <span class="absolute -top-2 -right-2 bg-gemLightBlue text-white text-xs font-black h-8 w-8 rounded-full flex items-center justify-center border-4 border-white">3</span>
+                    </div>
+                    <h4 class="text-xl font-black text-gemBlue mb-4">Monitoring</h4>
+                    <p class="text-gray-500 font-medium">24/7 surveillance by our global SOC with real-time threat detection.</p>
+                </div>
+                <div class="text-center group">
+                    <div class="h-20 w-20 rounded-full bg-gemBlue text-white flex items-center justify-center mx-auto mb-8 shadow-2xl group-hover:scale-110 transition-transform relative">
+                        <i data-lucide="bar-chart-3" class="h-8 w-8"></i>
+                        <span class="absolute -top-2 -right-2 bg-gemLightBlue text-white text-xs font-black h-8 w-8 rounded-full flex items-center justify-center border-4 border-white">4</span>
+                    </div>
+                    <h4 class="text-xl font-black text-gemBlue mb-4">Optimization</h4>
+                    <p class="text-gray-500 font-medium">Continuous refinement based on evolving threats and intelligence.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section 4: Technology Stack -->
+<section class="bg-[#030712] px-6 py-24 lg:py-32" aria-label="Tech Stack">
+    <div class="max-w-screen-xl mx-auto">
+        <div class="text-center mb-20">
+            <p class="text-[10px] font-black uppercase text-gemLightBlue tracking-[0.3em] mb-4">ADVANCED CAPABILITIES</p>
+            <h2 class="text-4xl sm:text-5xl lg:text-7xl font-black text-white mb-6 tracking-tighter">
+                Our Technology <span class="text-transparent bg-clip-text bg-gradient-to-r from-gemLightBlue to-blue-400">Ecosystem</span>
+            </h2>
+        </div>
+
+        <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            <div class="bg-white/5 border border-white/10 rounded-3xl p-8 hover:bg-white/10 transition-all">
+                <h5 class="text-white font-black mb-4 flex items-center gap-3">
+                    <i data-lucide="cloud" class="h-5 w-5 text-gemLightBlue"></i> Cloud Platforms
+                </h5>
+                <p class="text-gray-500 text-sm font-medium">AWS, Azure, and Google Cloud security expertise.</p>
+            </div>
+            <div class="bg-white/5 border border-white/10 rounded-3xl p-8 hover:bg-white/10 transition-all">
+                <h5 class="text-white font-black mb-4 flex items-center gap-3">
+                    <i data-lucide="cpu" class="h-5 w-5 text-gemLightBlue"></i> AI/ML Detection
+                </h5>
+                <p class="text-gray-500 text-sm font-medium">Proprietary behavioral modeling for anomaly detection.</p>
+            </div>
+            <div class="bg-white/5 border border-white/10 rounded-3xl p-8 hover:bg-white/10 transition-all">
+                <h5 class="text-white font-black mb-4 flex items-center gap-3">
+                    <i data-lucide="lock" class="h-5 w-5 text-gemLightBlue"></i> Endpoint Security
+                </h5>
+                <p class="text-gray-500 text-sm font-medium">Advanced XDR integration with real-time isolation.</p>
+            </div>
+            <div class="bg-white/5 border border-white/10 rounded-3xl p-8 hover:bg-white/10 transition-all">
+                <h5 class="text-white font-black mb-4 flex items-center gap-3">
+                    <i data-lucide="network" class="h-5 w-5 text-gemLightBlue"></i> Network SIEM
+                </h5>
+                <p class="text-gray-500 text-sm font-medium">Log aggregation and correlation across global nodes.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section 4: Pricing -->
+<section class="bg-white px-6 py-24 lg:py-32" aria-label="Pricing Overview">
+    <div class="max-w-screen-xl mx-auto">
+        <div class="text-center mb-20">
+            <p class="text-[10px] font-black uppercase text-gemBlue/40 tracking-[0.3em] mb-4">INVESTMENT</p>
+            <h2 class="text-4xl lg:text-7xl font-black text-gemBlue tracking-tighter">Enterprise <span class="text-gemLightBlue">Protection Plans</span></h2>
+        </div>
+        <div class="grid gap-8 lg:grid-cols-3">
+            <div class="bg-[#f9fafb] p-10 rounded-[3rem] border border-gray-100 flex flex-col">
+                <h3 class="text-2xl font-black text-gemBlue mb-2">Startup</h3>
+                <p class="text-gray-500 mb-8">For small businesses (1-50 employees)</p>
+                <div class="mb-8">
+                    <span class="text-5xl font-black text-gemBlue">$2,500</span>
+                    <span class="text-gray-400 font-bold">/mo</span>
+                </div>
+                <ul class="space-y-4 mb-10 flex-1">
+                    <li class="flex items-center gap-3 font-bold text-gray-600"><i data-lucide="check" class="text-gemLightBlue"></i> 24/7 SOC Monitoring</li>
+                    <li class="flex items-center gap-3 font-bold text-gray-600"><i data-lucide="check" class="text-gemLightBlue"></i> AI Behavior Analysis</li>
+                    <li class="flex items-center gap-3 font-bold text-gray-600"><i data-lucide="check" class="text-gemLightBlue"></i> Standard Support</li>
+                </ul>
+                <a href="{{ url_for('contact_page') }}" class="h-16 rounded-2xl bg-gemBlue text-white font-black flex items-center justify-center hover:bg-gemLightBlue transition-all">Get Started</a>
+            </div>
+            <div class="bg-gemBlue p-10 rounded-[3rem] border border-gemBlue shadow-2xl scale-105 relative flex flex-col">
+                <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-gemLightBlue text-white text-[10px] font-black px-4 py-1 rounded-full uppercase tracking-widest">Most Popular</div>
+                <h3 class="text-2xl font-black text-white mb-2">Professional</h3>
+                <p class="text-white/60 mb-8">For mid-market (50-500 employees)</p>
+                <div class="mb-8">
+                    <span class="text-5xl font-black text-white">$7,500</span>
+                    <span class="text-white/40 font-bold">/mo</span>
+                </div>
+                <ul class="space-y-4 mb-10 flex-1 text-white/80">
+                    <li class="flex items-center gap-3 font-bold"><i data-lucide="check" class="text-gemLightBlue"></i> Everything in Startup</li>
+                    <li class="flex items-center gap-3 font-bold"><i data-lucide="check" class="text-gemLightBlue"></i> Incident Response Priority</li>
+                    <li class="flex items-center gap-3 font-bold"><i data-lucide="check" class="text-gemLightBlue"></i> Priority Support</li>
+                </ul>
+                <a href="{{ url_for('contact_page') }}" class="h-16 rounded-2xl bg-gemLightBlue text-white font-black flex items-center justify-center hover:bg-white hover:text-gemBlue transition-all">Get Started</a>
+            </div>
+            <div class="bg-[#f9fafb] p-10 rounded-[3rem] border border-gray-100 flex flex-col">
+                <h3 class="text-2xl font-black text-gemBlue mb-2">Enterprise</h3>
+                <p class="text-gray-500 mb-8">For large-scale institutions</p>
+                <div class="mb-8">
+                    <span class="text-5xl font-black text-gemBlue">Custom</span>
+                </div>
+                <ul class="space-y-4 mb-10 flex-1">
+                    <li class="flex items-center gap-3 font-bold text-gray-600"><i data-lucide="check" class="text-gemLightBlue"></i> Unlimited Endpoints</li>
+                    <li class="flex items-center gap-3 font-bold text-gray-600"><i data-lucide="check" class="text-gemLightBlue"></i> Dedicated SOC Analyst</li>
+                    <li class="flex items-center gap-3 font-bold text-gray-600"><i data-lucide="check" class="text-gemLightBlue"></i> White-glove Support</li>
+                </ul>
+                <a href="{{ url_for('contact_page') }}" class="h-16 rounded-2xl border-2 border-gemBlue text-gemBlue font-black flex items-center justify-center hover:bg-gemBlue hover:text-white transition-all">Contact Sales</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section 5: FAQ -->
+<section class="bg-white px-6 py-24 lg:py-32" aria-label="FAQ Section">
+    <div class="max-w-screen-xl mx-auto lg:flex lg:gap-20">
+        <div class="lg:w-1/3 mb-16 lg:mb-0">
+            <p class="text-[10px] font-black uppercase text-gemBlue/40 tracking-[0.3em] mb-4">FAQ</p>
+            <h2 class="text-4xl lg:text-6xl font-black text-gemBlue tracking-tighter mb-8">Common <br><span class="text-gemLightBlue">Questions</span></h2>
+            <p class="text-gray-500 font-medium">Everything you need to know about our enterprise security platform.</p>
+        </div>
+        <div class="lg:w-2/3">
+            <div class="space-y-6">
+                <!-- FAQ Item 1 -->
+                <div class="border-b border-gray-100 pb-6">
+                    <button class="flex items-center justify-between w-full text-left font-black text-xl text-gemBlue hover:text-gemLightBlue transition-colors group" onclick="this.nextElementSibling.classList.toggle('hidden');">
+                        How quickly can you deploy your monitoring system?
+                        <i data-lucide="chevron-down" class="h-5 w-5 transition-transform"></i>
+                    </button>
+                    <div class="mt-4 text-gray-500 font-medium hidden">
+                        Initial baseline monitoring can be active within 48 hours for standard cloud infrastructures. Full enterprise-wide deployment typically takes 14-30 days depending on complexity.
+                    </div>
+                </div>
+                <!-- FAQ Item 2 -->
+                <div class="border-b border-gray-100 pb-6">
+                    <button class="flex items-center justify-between w-full text-left font-black text-xl text-gemBlue hover:text-gemLightBlue transition-colors group" onclick="this.nextElementSibling.classList.toggle('hidden');">
+                        What industries do you serve?
+                        <i data-lucide="chevron-down" class="h-5 w-5 transition-transform"></i>
+                    </button>
+                    <div class="mt-4 text-gray-500 font-medium hidden">
+                        We specialize in high-stakes industries including Financial Services, Healthcare, Manufacturing, Retail, and Technology (SaaS).
+                    </div>
+                </div>
+                <!-- FAQ Item 3 -->
+                <div class="border-b border-gray-100 pb-6">
+                    <button class="flex items-center justify-between w-full text-left font-black text-xl text-gemBlue hover:text-gemLightBlue transition-colors group" onclick="this.nextElementSibling.classList.toggle('hidden');">
+                        Is your SOC truly 24/7/365?
+                        <i data-lucide="chevron-down" class="h-5 w-5 transition-transform"></i>
+                    </button>
+                    <div class="mt-4 text-gray-500 font-medium hidden">
+                        Yes. We operate a "follow-the-sun" model with globally distributed security operations centers ensuring expert eyes are always on your infrastructure.
+                    </div>
+                </div>
+                <!-- FAQ Item 4 -->
+                <div class="border-b border-gray-100 pb-6">
+                    <button class="flex items-center justify-between w-full text-left font-black text-xl text-gemBlue hover:text-gemLightBlue transition-colors group" onclick="this.nextElementSibling.classList.toggle('hidden');">
+                        Do you offer custom enterprise solutions?
+                        <i data-lucide="chevron-down" class="h-5 w-5 transition-transform"></i>
+                    </button>
+                    <div class="mt-4 text-gray-500 font-medium hidden">
+                        Absolutely. We provide tailored security architectures, custom Telegram bot automations, and specialized asset recovery protocols designed for enterprise-scale operations.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section 6: CTA Banner -->
+<section class="bg-gemBlue px-6 py-24 relative overflow-hidden" aria-label="CTA Section">
+    <div class="absolute top-0 right-0 w-96 h-96 bg-gemLightBlue/10 rounded-full blur-[100px] pointer-events-none"></div>
+    <div class="max-w-screen-xl mx-auto text-center relative z-10">
+        <h2 class="text-4xl lg:text-7xl font-black text-white mb-8 tracking-tighter">Ready to Secure Your Enterprise?</h2>
+        <p class="text-xl text-gray-300 max-w-2xl mx-auto mb-12 font-medium">Join 500+ global leaders who trust GEM for their critical infrastructure security.</p>
+        <a href="{{ url_for('contact') }}" class="inline-flex items-center justify-center h-20 px-12 rounded-2xl bg-gemLightBlue text-white text-2xl font-black hover:bg-white hover:text-gemBlue transition-all shadow-2xl shadow-gemLightBlue/20">
+            Schedule Free Security Assessment
+        </a>
+    </div>
+</section>
+
+{% endblock %}
