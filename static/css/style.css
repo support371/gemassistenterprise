@@ -1306,3 +1306,417 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--text-muted);
     line-height: 1.5;
 }
+
+/* ============================================================
+   GEM Trust Network VideoFlow — PartnersTrusteesVideoFlow
+   ============================================================ */
+
+/* Section wrapper */
+.vf-section {
+  background: #030712;
+  padding: 96px 0 80px;
+  overflow: hidden;
+  position: relative;
+  border-top: 1px solid rgba(255,255,255,0.04);
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+
+/* Section header */
+.vf-header {
+  text-align: center;
+  padding: 0 24px;
+  margin-bottom: 56px;
+}
+
+.vf-eyebrow {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #C9A84C;
+  margin-bottom: 16px;
+}
+
+.vf-title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  margin: 0 0 16px;
+}
+
+.vf-subtitle {
+  font-size: 1.1rem;
+  color: #6b7280;
+  font-weight: 500;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Scrolling mask — hides overflow and adds fade edges */
+.vf-mask {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.vf-mask::before,
+.vf-mask::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 140px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.vf-mask::before {
+  left: 0;
+  background: linear-gradient(to right, #030712 0%, transparent 100%);
+}
+
+.vf-mask::after {
+  right: 0;
+  background: linear-gradient(to left, #030712 0%, transparent 100%);
+}
+
+/* Scrolling track */
+.vf-track {
+  display: flex;
+  width: max-content;
+  gap: 20px;
+  padding: 24px 24px 32px;
+  animation: vf-scroll 45s linear infinite;
+  will-change: transform;
+}
+
+@keyframes vf-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Desktop: pause on hover */
+@media (hover: hover) and (pointer: fine) {
+  .vf-track:hover {
+    animation-play-state: paused;
+  }
+}
+
+/* Reduced motion: slow dramatically or stop */
+@media (prefers-reduced-motion: reduce) {
+  .vf-track {
+    animation-duration: 200s;
+  }
+}
+
+/* ---- Cards ---- */
+.vf-card {
+  position: relative;
+  flex: 0 0 auto;
+  width: 290px;
+  background: rgba(255,255,255,0.03);
+  border-radius: 20px;
+  padding: 28px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  overflow: hidden;
+}
+
+.vf-card:hover {
+  transform: translateY(-4px);
+}
+
+/* Trustee card — gold */
+.vf-card--trustee {
+  border: 1px solid rgba(201,168,76,0.35);
+  box-shadow:
+    0 0 0 1px rgba(201,168,76,0.08),
+    0 8px 32px rgba(201,168,76,0.08),
+    inset 0 1px 0 rgba(201,168,76,0.12);
+}
+
+.vf-card--trustee::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #C9A84C, transparent);
+}
+
+.vf-card--trustee:hover {
+  box-shadow:
+    0 0 0 1px rgba(201,168,76,0.2),
+    0 20px 48px rgba(201,168,76,0.14),
+    inset 0 1px 0 rgba(201,168,76,0.18);
+}
+
+/* Partner card — blue/silver */
+.vf-card--partner {
+  border: 1px solid rgba(0,178,255,0.2);
+  box-shadow:
+    0 0 0 1px rgba(0,178,255,0.05),
+    0 8px 28px rgba(0,178,255,0.06),
+    inset 0 1px 0 rgba(255,255,255,0.05);
+}
+
+.vf-card--partner::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #00b2ff, transparent);
+}
+
+.vf-card--partner:hover {
+  box-shadow:
+    0 0 0 1px rgba(0,178,255,0.15),
+    0 20px 48px rgba(0,178,255,0.10),
+    inset 0 1px 0 rgba(255,255,255,0.08);
+}
+
+/* Business ally card — silver/neutral */
+.vf-card--business-ally {
+  border: 1px solid rgba(148,163,184,0.2);
+  box-shadow:
+    0 0 0 1px rgba(148,163,184,0.05),
+    0 8px 24px rgba(0,0,0,0.2),
+    inset 0 1px 0 rgba(255,255,255,0.05);
+}
+
+.vf-card--business-ally::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #94a3b8, transparent);
+}
+
+.vf-card--business-ally:hover {
+  box-shadow:
+    0 0 0 1px rgba(148,163,184,0.15),
+    0 20px 48px rgba(148,163,184,0.08),
+    inset 0 1px 0 rgba(255,255,255,0.08);
+}
+
+/* Status pill (example / placeholder) */
+.vf-status-pill {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 4px;
+  padding: 2px 6px;
+}
+
+/* Badge */
+.vf-card-badge {
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  border-radius: 6px;
+  padding: 4px 10px;
+  display: inline-block;
+  margin-bottom: 18px;
+  width: fit-content;
+}
+
+.vf-badge--trustee {
+  background: rgba(201,168,76,0.12);
+  border: 1px solid rgba(201,168,76,0.3);
+  color: #C9A84C;
+}
+
+.vf-badge--partner {
+  background: rgba(0,178,255,0.08);
+  border: 1px solid rgba(0,178,255,0.25);
+  color: #00b2ff;
+}
+
+.vf-badge--business-ally {
+  background: rgba(148,163,184,0.08);
+  border: 1px solid rgba(148,163,184,0.2);
+  color: #94a3b8;
+}
+
+/* Icon */
+.vf-icon-wrap {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  margin-bottom: 18px;
+  flex-shrink: 0;
+}
+
+.vf-icon--trustee {
+  background: rgba(201,168,76,0.1);
+  color: #C9A84C;
+  border: 1px solid rgba(201,168,76,0.2);
+}
+
+.vf-icon--partner {
+  background: rgba(0,178,255,0.1);
+  color: #00b2ff;
+  border: 1px solid rgba(0,178,255,0.2);
+}
+
+.vf-icon--business-ally {
+  background: rgba(148,163,184,0.08);
+  color: #94a3b8;
+  border: 1px solid rgba(148,163,184,0.15);
+}
+
+/* Card body */
+.vf-card-body {
+  flex: 1;
+}
+
+.vf-card-name {
+  font-size: 15px;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.3;
+  margin: 0 0 6px;
+  letter-spacing: -0.01em;
+}
+
+.vf-card-segment {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  margin: 0 0 10px;
+}
+
+.vf-card--trustee   .vf-card-segment { color: rgba(201,168,76,0.7); }
+.vf-card--partner   .vf-card-segment { color: rgba(0,178,255,0.7); }
+.vf-card--business-ally .vf-card-segment { color: rgba(148,163,184,0.6); }
+
+.vf-card-role {
+  font-size: 12.5px;
+  font-weight: 500;
+  color: #6b7280;
+  line-height: 1.55;
+  margin: 0 0 20px;
+}
+
+/* CTA link */
+.vf-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  text-decoration: none;
+  border-radius: 8px;
+  padding: 8px 14px;
+  transition: background 0.2s, transform 0.2s;
+  margin-top: auto;
+}
+
+.vf-cta:hover {
+  transform: translateX(3px);
+  text-decoration: none;
+}
+
+.vf-cta--trustee {
+  background: rgba(201,168,76,0.1);
+  color: #C9A84C;
+  border: 1px solid rgba(201,168,76,0.2);
+}
+
+.vf-cta--trustee:hover {
+  background: rgba(201,168,76,0.18);
+  color: #C9A84C;
+}
+
+.vf-cta--partner {
+  background: rgba(0,178,255,0.08);
+  color: #00b2ff;
+  border: 1px solid rgba(0,178,255,0.2);
+}
+
+.vf-cta--partner:hover {
+  background: rgba(0,178,255,0.15);
+  color: #00b2ff;
+}
+
+.vf-cta--business-ally {
+  background: rgba(148,163,184,0.07);
+  color: #94a3b8;
+  border: 1px solid rgba(148,163,184,0.15);
+}
+
+.vf-cta--business-ally:hover {
+  background: rgba(148,163,184,0.13);
+  color: #cbd5e1;
+}
+
+.vf-cta-arrow {
+  font-size: 10px;
+  transition: transform 0.2s;
+}
+
+.vf-cta:hover .vf-cta-arrow {
+  transform: translateX(3px);
+}
+
+/* Footer row dots */
+.vf-footer-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 32px;
+}
+
+.vf-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.12);
+}
+
+.vf-dot--active {
+  background: #C9A84C;
+  width: 20px;
+  border-radius: 3px;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 1024px) {
+  .vf-card { width: 260px; }
+  .vf-mask::before,
+  .vf-mask::after { width: 80px; }
+}
+
+@media (max-width: 640px) {
+  .vf-section { padding: 64px 0 56px; }
+  .vf-header { margin-bottom: 40px; }
+  .vf-card { width: 230px; padding: 22px 18px 18px; }
+  .vf-track { gap: 14px; padding: 16px 16px 24px; }
+  .vf-mask::before,
+  .vf-mask::after { width: 48px; }
+  /* Mobile: always animate regardless of hover */
+  .vf-track { animation-play-state: running !important; }
+}
