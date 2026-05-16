@@ -32,7 +32,7 @@ export default function EmergencySection(_: EmergencySectionProps) {
         {/* CTA buttons */}
         <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
           <a
-            href="tel:+18603054376"
+            href="tel:+14017022460"
             className="inline-flex items-center justify-center h-14 px-10 rounded-md bg-[#EF4444] text-white text-lg font-semibold hover:bg-[#DC2626] transition-all duration-200"
           >
             🚨 Call Emergency Hotline

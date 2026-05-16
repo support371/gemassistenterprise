@@ -10,6 +10,8 @@ from flask import Flask, render_template, request, redirect, url_for, flash, jso
 from werkzeug.utils import secure_filename
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.middleware.proxy_fix import ProxyFix
+from flask_compress import Compress
+from profiles_data import get_profiles_by_view, get_all_profiles, PLATFORM_PRODUCTS
 
 # ─── Rate Limiting (in-memory, per-IP) ────────────────────────────────────────
 _rl_data: dict = defaultdict(list)
@@ -60,6 +62,15 @@ logging.basicConfig(level=logging.INFO)
 app = Flask(__name__)
 app.secret_key = os.environ.get("SESSION_SECRET", "dev-secret-key-change-in-production")
 app.wsgi_app = ProxyFix(app.wsgi_app, x_proto=1, x_host=1)
+
+# ─── Gzip Compression ─────────────────────────────────────────────────────────
+Compress(app)
+app.config['COMPRESS_MIMETYPES'] = [
+    'text/html', 'text/css', 'application/javascript',
+    'application/json', 'image/svg+xml'
+]
+app.config['COMPRESS_LEVEL'] = 6
+app.config['COMPRESS_MIN_SIZE'] = 500
 
 # ─── Session Security ─────────────────────────────────────────────────────────
 app.config['SESSION_COOKIE_HTTPONLY'] = True
@@ -661,9 +672,22 @@ def monitoring():
 
 @app.route('/teams')
 def teams_page():
-    team_members = get_notion_team_data()
-    cyber_team, realty_team = categorize_team_members(team_members)
-    return render_template('teams.html', cyber_team=cyber_team, realty_team=realty_team, all_members=team_members)
+    return render_template('teams.html',
+        executive_profiles=get_profiles_by_view('executive_board'),
+        cyber_profiles=get_profiles_by_view('cybersecurity_team'),
+        realty_profiles=get_profiles_by_view('partners'),
+        agent_profiles=get_profiles_by_view('agent_network'),
+        all_profiles=get_all_profiles(),
+    )
+
+
+@app.route('/leadership')
+@app.route('/leadership-board')
+def leadership():
+    return render_template('leadership.html',
+        executive_profiles=get_profiles_by_view('executive_board'),
+        cyber_profiles=get_profiles_by_view('cybersecurity_team'),
+    )
 
 
 @app.route('/trust-compliance')
@@ -798,11 +822,10 @@ def testimonials_route():
 
 @app.route('/vip-board-members')
 def vip_board():
-    executives = {}
-    if USE_DATABASE and VIPBoardMember:
-        ceo = VIPBoardMember.query.filter_by(position='CEO', is_active=True).first()
-        executives = {'CEO': ceo}
-    return render_template('vip_board.html', executives=executives)
+    return render_template('vip_board.html',
+        vip_profiles=get_profiles_by_view('executive_board'),
+        function_profiles=get_profiles_by_view('vip_visibility'),
+    )
 
 
 @app.route('/service/<slug>')
@@ -868,6 +891,15 @@ def legal_hub():
 @app.route('/threat-assessment')
 def threat_assessment():
     return redirect(url_for('monitoring_route_unified'))
+
+
+@app.route('/partners')
+@app.route('/partners-trustees')
+def partners_trustees():
+    return render_template('partners.html',
+        partner_profiles=get_profiles_by_view('partners'),
+        platform_products=PLATFORM_PRODUCTS,
+    )
 
 
 @app.route('/asset-recovery')

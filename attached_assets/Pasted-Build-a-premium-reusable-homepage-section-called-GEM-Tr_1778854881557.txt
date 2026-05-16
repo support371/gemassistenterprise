@@ -1,0 +1,298 @@
+Build a premium reusable homepage section called “GEM Trust Network VideoFlow” for the new GEM website.
+
+This section must show a slow, steady, right-to-left moving horizontal strip of trustee and partner cards. It should feel like a cinematic video-flow brand wall, not a fast carousel or random logo slider.
+
+The purpose is to visually communicate GEM’s credibility network: trustees people can contact/call, plus business allies and technology partners that support GEM’s cybersecurity, asset recovery, real estate, legal/trust, investment, cloud, and financial infrastructure services.
+
+SECTION TITLE:
+Our Trusted Partners & Business Allies
+
+SECTION SUBTITLE:
+Working with world-class organizations, trustees, and strategic allies to deliver excellence.
+
+PLACEMENT:
+Place this section near the top of the homepage, preferably directly after the hero section and before the core services section. Also make the component reusable for the existing Partners & Trustees page.
+
+COMPONENT NAME:
+PartnersTrusteesVideoFlow
+
+VISUAL STYLE:
+Use a premium dark corporate style aligned with GEM’s brand:
+- Dark navy / black background
+- Gold accents for trustees
+- Blue / silver accents for partners
+- Glassmorphism-style cards
+- Subtle glow
+- Rounded cards
+- Professional enterprise look
+- Smooth, stable, executive motion
+
+MOTION REQUIREMENT:
+The strip must move continuously from right to left.
+It must be slow, steady, and premium, similar to the previous website’s gentle moving logo strip.
+
+Animation behavior:
+- Direction: right to left
+- Speed: slow, around 38–55 seconds per full loop
+- Infinite loop
+- No blank space
+- No visual jump
+- No flicker
+- No hard reset
+- Desktop: pause animation on hover
+- Mobile: keep animation moving continuously
+- Use duplicated track/list for seamless looping
+
+Do not build this as a static section.
+Do not build this as a manual click slider.
+Do not use arrows as the main interaction.
+This should behave like a passive animated VideoFlow.
+
+CARD TYPES:
+The data must support three types:
+1. trustee
+2. partner
+3. business-ally
+
+Trustee cards must be visually stronger than partner cards because users may need to call or contact GEM’s trustees.
+
+TRUSTEE CARD STYLE:
+- Gold border
+- Gold TRUSTEE badge
+- Slightly stronger glow
+- Optional CTA such as “View Trustee” or “Call Trustee”
+- Trustee cards should stand out clearly inside the moving strip
+
+PARTNER CARD STYLE:
+- Blue, silver, or neutral border
+- PARTNER / BUSINESS ALLY / TECH PARTNER badge
+- Logo or placeholder icon
+- Segment label
+- Role description
+- Optional “View Partner” CTA
+
+DATA STRUCTURE:
+Create a data-driven array so future updates only require editing the data, not the component layout.
+
+Use this structure:
+
+{
+  id: string,
+  type: "trustee" | "partner" | "business-ally",
+  name: string,
+  segment: string,
+  role: string,
+  logo: string,
+  link?: string,
+  cta?: string,
+  displayStatus?: "approved" | "example" | "placeholder"
+}
+
+IMPORTANT BRAND RULE:
+Some legacy examples from the old site include:
+- Google Cloud Console
+- Microsoft Azure
+- Microsoft
+- Cisco
+- Cisco Security
+
+Support these as example or approved partner entries, but do not make the component dependent on them. The component must also support role-based placeholders such as:
+- Cloud Infrastructure Partner
+- Cybersecurity Infrastructure Partner
+- Digital Threat Intelligence Partner
+- Enterprise Technology Partner
+- Network Security Partner
+
+If real partner logos are not available or not approved, use clean placeholder icons by segment.
+
+RECOMMENDED DATA ITEMS:
+Include these initial trustee and partner/business ally entries:
+
+1. Asset Recovery Trustee
+Type: trustee
+Segment: Asset Recovery
+Role: Cross-border recovery, escrow support, and asset coordination
+CTA: View Trustee
+
+2. Alliance Trust Realty
+Type: trustee
+Segment: Real Estate
+Role: Real estate brokerage alliance and property support
+CTA: View Alliance
+
+3. Legal & Trust Services Trustee
+Type: trustee
+Segment: Trust & Legal
+Role: Legal documentation, POA, and trustee support
+CTA: View Trustee
+
+4. Investment Portfolio Trustee
+Type: trustee
+Segment: Investment
+Role: Portfolio guidance and investment support
+CTA: View Trustee
+
+5. Google Cloud Console
+Type: partner
+Segment: Cloud Infrastructure
+Role: Cloud operations and infrastructure example
+Display status: example or approved
+
+6. Microsoft Azure
+Type: partner
+Segment: Cloud Infrastructure
+Role: Enterprise cloud infrastructure example
+Display status: example or approved
+
+7. Microsoft
+Type: partner
+Segment: Enterprise Technology
+Role: Business productivity and cloud technology example
+Display status: example or approved
+
+8. Cisco
+Type: partner
+Segment: Network Infrastructure
+Role: Network and enterprise infrastructure example
+Display status: example or approved
+
+9. Cisco Security
+Type: partner
+Segment: Cybersecurity
+Role: Security infrastructure and cyber defense example
+Display status: example or approved
+
+10. Digital Threat Intelligence Partner
+Type: business-ally
+Segment: Threat Monitoring
+Role: Real-time threat monitoring and intelligence support
+Display status: placeholder
+
+11. Quantum Financial Infrastructure Partner
+Type: business-ally
+Segment: Financial & QFS
+Role: Quantum financial system infrastructure ally
+Display status: placeholder
+
+12. Market Intelligence Partner
+Type: business-ally
+Segment: Advisory
+Role: Market insights and strategic advisory support
+Display status: placeholder
+
+RECOMMENDED DISPLAY ORDER:
+Alternate trustees and partners so trustees are not hidden behind technology logos.
+
+Suggested order:
+- Asset Recovery Trustee
+- Cisco Security
+- Legal & Trust Services Trustee
+- Microsoft Azure
+- Alliance Trust Realty
+- Google Cloud Console
+- Investment Portfolio Trustee
+- Cisco
+- Microsoft
+- Digital Threat Intelligence Partner
+- Quantum Financial Infrastructure Partner
+- Market Intelligence Partner
+
+CARD CONTENT:
+Each card should show:
+- Badge: TRUSTEE, PARTNER, BUSINESS ALLY, TECH PARTNER, CLOUD PARTNER, SECURITY PARTNER, etc.
+- Logo or placeholder icon
+- Name
+- Segment
+- Short role description
+- Optional CTA
+
+Example trustee card:
+TRUSTEE
+Asset Recovery Trustee
+Asset Recovery
+Cross-border recovery, escrow support, and asset coordination
+View Trustee
+
+Example partner card:
+PARTNER
+Microsoft Azure
+Cloud Infrastructure
+Enterprise cloud infrastructure example
+View Partner
+
+Example business ally card:
+BUSINESS ALLY
+Digital Threat Intelligence Partner
+Threat Monitoring
+Real-time threat monitoring and intelligence support
+View Details
+
+IMPLEMENTATION APPROACH:
+Use custom CSS animation with duplicated items for a seamless marquee loop.
+
+Recommended structure:
+<section className="partners-video-flow">
+  <div className="section-header">
+    <span>GEM Trust Network</span>
+    <h2>Our Trusted Partners & Business Allies</h2>
+    <p>Working with world-class organizations, trustees, and strategic allies to deliver excellence.</p>
+  </div>
+
+  <div className="video-flow-mask">
+    <div className="video-flow-track">
+      Render all cards once
+      Render all cards again for seamless loop
+    </div>
+  </div>
+</section>
+
+CSS behavior:
+- .video-flow-mask uses overflow: hidden
+- .video-flow-track uses display: flex
+- .video-flow-track width should be max-content
+- Animate transform from translateX(0) to translateX(-50%)
+- Duplicate the data array in render
+- Add gradient fade on left and right edges
+- Pause animation on hover only for desktop
+
+RESPONSIVE REQUIREMENTS:
+Desktop:
+- Multiple cards visible at once
+- Cards around 270–320px wide
+- Slow motion, premium spacing
+
+Tablet:
+- Cards around 240–280px wide
+- Maintain readability
+
+Mobile:
+- Cards around 220–250px wide
+- Animation keeps moving
+- No hover pause
+- Text remains readable
+- Section should not cause horizontal page overflow
+
+ACCESSIBILITY:
+- Use semantic section markup
+- Add aria-label for the carousel region
+- Logo images must have alt text
+- Links must be keyboard accessible
+- Respect reduced motion where possible by slowing or disabling animation for users with prefers-reduced-motion
+
+ACCEPTANCE CRITERIA:
+The final build is successful only if:
+1. The section appears near the top of the homepage.
+2. The title and subtitle match exactly.
+3. The cards move right to left automatically.
+4. The animation is slow, steady, and seamless.
+5. Trustees are visually highlighted more strongly than partners.
+6. Trustee cards support “View Trustee” or “Call Trustee” CTA.
+7. Partner cards support legacy/example entries such as Google Cloud Console, Microsoft Azure, Microsoft, Cisco, and Cisco Security.
+8. The component is data-driven and not hard-coded into the JSX layout.
+9. The component can be reused on the Partners & Trustees page.
+10. The layout works on desktop, tablet, and mobile.
+11. The carousel does not jump, flicker, reset visibly, or leave blank space.
+12. The section feels premium, credible, and aligned with GEM’s security/trust positioning.
+
+FINAL GOAL:
+Deliver a polished GEM Trust Network VideoFlow that clearly highlights both trustees and business partners, preserves the slow moving feel of the previous website, and gives GEM a stronger credibility layer on the new homepage.

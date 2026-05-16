@@ -7,32 +7,18 @@
     <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='images/favicon.svg') }}">
     <link rel="shortcut icon" type="image/svg+xml" href="{{ url_for('static', filename='images/favicon.svg') }}">
 
-    <!-- DNS prefetch for all CDN origins -->
+    <!-- DNS prefetch / preconnect for all origins -->
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://upload.wikimedia.org">
     <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
     <link rel="dns-prefetch" href="https://unpkg.com">
-    <link rel="dns-prefetch" href="https://cdn.tailwindcss.com">
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
 
-    <!-- Typography: Inter (only preconnect what's actually used) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=optional" rel="stylesheet">
-    <style>
-    :root { font-family: 'Inter', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif; }
-    </style>
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <!-- Custom CSS -->
+    <!-- Critical: custom CSS loads first (blocking is fine — it's local & cached) -->
     <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
-    <link href="{{ url_for('static', filename='css/ai-support.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='css/modern-enterprise.css') }}" rel="stylesheet">
-    <link href="{{ url_for('static', filename='css/animations.css') }}" rel="stylesheet">
-    <link href="{{ url_for('static', filename='css/performance.css') }}" rel="stylesheet">
 
     <!-- Tailwind (must be synchronous — scans DOM to generate utility CSS) -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -53,6 +39,24 @@
     </script>
     <!-- Lucide Icons — async, initialized on load -->
     <script async src="https://unpkg.com/lucide@latest" onload="if(window.lucide)lucide.createIcons()"></script>
+
+    <!-- Non-critical CSS: deferred via print media trick (no render blocking) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/ai-support.css') }}" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/animations.css') }}" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/performance.css') }}" media="print" onload="this.media='all'">
+    <!-- Fallback for no-JS -->
+    <noscript>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    </noscript>
+    <style>
+      :root { font-family: 'Inter', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif; }
+      /* Prevent FOUC for dark bg before CSS loads */
+      body { background-color: #030712; color: #f8fafc; }
+    </style>
 </head>
 <body>
     <!-- Global Dark Theme Background -->
@@ -125,6 +129,43 @@
               </div>
             </div>
             <a href="{{ url_for('news_feed') }}" class="text-[11px] font-black uppercase tracking-[0.3em] text-white/70 hover:text-gemLightBlue transition-all">Intelligence</a>
+            <!-- Community Dropdown -->
+            <div class="relative group/community">
+              <button class="text-[11px] font-black uppercase tracking-[0.3em] text-white/70 hover:text-gemLightBlue transition-all flex items-center gap-1">
+                Community <i data-lucide="chevron-down" class="h-3 w-3 group-hover/community:rotate-180 transition-transform duration-300"></i>
+              </button>
+              <div class="absolute top-full left-1/2 -translate-x-1/2 pt-4 opacity-0 invisible group-hover/community:opacity-100 group-hover/community:visible transition-all duration-300 z-50">
+                <div class="bg-[#030712] border border-white/10 rounded-2xl p-5 w-56 shadow-2xl backdrop-blur-xl">
+                  <div class="space-y-1">
+                    <a href="{{ url_for('about_page') }}#testimonials" class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-white/5 transition-all group/item">
+                      <i data-lucide="message-square-quote" class="h-4 w-4 text-gemLightBlue/60 group-hover/item:text-gemLightBlue transition-colors"></i>
+                      <span class="text-xs font-bold text-gray-400 group-hover/item:text-white transition-colors">Testimonials</span>
+                    </a>
+                    <a href="{{ url_for('partners_trustees') }}" class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-white/5 transition-all group/item">
+                      <i data-lucide="handshake" class="h-4 w-4 text-gemLightBlue/60 group-hover/item:text-gemLightBlue transition-colors"></i>
+                      <span class="text-xs font-bold text-gray-400 group-hover/item:text-white transition-colors">Partners & Trustees</span>
+                    </a>
+                    <a href="{{ url_for('teams_page') }}" class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-white/5 transition-all group/item">
+                      <i data-lucide="users" class="h-4 w-4 text-gemLightBlue/60 group-hover/item:text-gemLightBlue transition-colors"></i>
+                      <span class="text-xs font-bold text-gray-400 group-hover/item:text-white transition-colors">Our Teams</span>
+                    </a>
+                    <a href="{{ url_for('vip_board') }}" class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-white/5 transition-all group/item">
+                      <i data-lucide="crown" class="h-4 w-4 text-yellow-500/60 group-hover/item:text-yellow-400 transition-colors"></i>
+                      <span class="text-xs font-bold text-gray-400 group-hover/item:text-white transition-colors">Executive Board (VIP)</span>
+                    </a>
+                    <a href="{{ url_for('leadership') }}" class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-white/5 transition-all group/item">
+                      <i data-lucide="star" class="h-4 w-4 text-gemLightBlue/60 group-hover/item:text-gemLightBlue transition-colors"></i>
+                      <span class="text-xs font-bold text-gray-400 group-hover/item:text-white transition-colors">Leadership & Board</span>
+                    </a>
+                    <div class="h-px bg-white/5 mx-2 my-1"></div>
+                    <a href="{{ url_for('news_feed') }}" class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-white/5 transition-all group/item">
+                      <i data-lucide="newspaper" class="h-4 w-4 text-gemLightBlue/60 group-hover/item:text-gemLightBlue transition-colors"></i>
+                      <span class="text-xs font-bold text-gray-400 group-hover/item:text-white transition-colors">News & Newsletter</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
             <a href="{{ url_for('sentinel_trust') }}" class="text-[11px] font-black uppercase tracking-[0.3em] text-white/70 hover:text-gemLightBlue transition-all">Sentinel Trust</a>
             <a href="{{ url_for('about_page') }}" class="text-[11px] font-black uppercase tracking-[0.3em] text-white/70 hover:text-gemLightBlue transition-all">About</a>
           </div>
@@ -165,6 +206,21 @@
             </div>
           </div>
           <a href="{{ url_for('news_feed') }}" class="mobile-nav-link text-2xl font-black uppercase tracking-[0.4em] text-white hover:text-gemLightBlue">Intelligence</a>
+          <!-- Mobile Community Section -->
+          <div class="w-full">
+            <button id="mobile-community-toggle" class="w-full flex items-center justify-between text-2xl font-black uppercase tracking-[0.4em] text-white hover:text-gemLightBlue transition-all">
+              Community <i data-lucide="chevron-down" class="h-6 w-6"></i>
+            </button>
+            <div id="mobile-community-list" class="hidden flex flex-col items-center space-y-3 mt-5 bg-white/5 rounded-3xl p-5">
+              <a href="{{ url_for('about_page') }}#testimonials" class="mobile-nav-link text-sm font-black uppercase tracking-widest text-white/50 hover:text-gemLightBlue">Testimonials</a>
+              <a href="{{ url_for('partners_trustees') }}" class="mobile-nav-link text-sm font-black uppercase tracking-widest text-white/50 hover:text-gemLightBlue">Partners & Trustees</a>
+              <a href="{{ url_for('teams_page') }}" class="mobile-nav-link text-sm font-black uppercase tracking-widest text-white/50 hover:text-gemLightBlue">Our Teams</a>
+              <a href="{{ url_for('vip_board') }}" class="mobile-nav-link text-sm font-black uppercase tracking-widest text-white/50 hover:text-yellow-400">Executive Board (VIP)</a>
+              <a href="{{ url_for('about_page') }}" class="mobile-nav-link text-sm font-black uppercase tracking-widest text-white/50 hover:text-gemLightBlue">Leadership & Board</a>
+              <div class="h-px w-12 bg-white/10 my-1"></div>
+              <a href="{{ url_for('news_feed') }}" class="mobile-nav-link text-sm font-black uppercase tracking-widest text-white/50 hover:text-gemLightBlue">News & Newsletter</a>
+            </div>
+          </div>
           <a href="{{ url_for('about_page') }}" class="mobile-nav-link text-2xl font-black uppercase tracking-[0.4em] text-white hover:text-gemLightBlue">About</a>
           <a href="{{ url_for('contact_page') }}" class="mobile-nav-link text-2xl font-black uppercase tracking-[0.4em] text-white hover:text-gemLightBlue">Contact</a>
           <div class="h-px w-20 bg-white/10"></div>
@@ -186,6 +242,8 @@
       const mobileLinks = document.querySelectorAll('.mobile-nav-link');
       const mobileSolutionsToggle = document.getElementById('mobile-solutions-toggle');
       const mobileSolutionsList = document.getElementById('mobile-solutions-list');
+      const mobileCommunityToggle = document.getElementById('mobile-community-toggle');
+      const mobileCommunityList = document.getElementById('mobile-community-list');
 
       function toggleMenu() {
         const isHidden = mobileMenu.classList.contains('hidden');
@@ -200,6 +258,7 @@
           closeIcon.classList.add('hidden');
           document.body.style.overflow = '';
           mobileSolutionsList.classList.add('hidden');
+          mobileCommunityList.classList.add('hidden');
         }
       }
 
@@ -211,6 +270,11 @@
       mobileSolutionsToggle.addEventListener('click', (e) => {
         e.stopPropagation();
         mobileSolutionsList.classList.toggle('hidden');
+      });
+
+      mobileCommunityToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        mobileCommunityList.classList.toggle('hidden');
       });
 
       mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
@@ -227,7 +291,7 @@
     </script>
 
     <!-- Main Content -->
-    <main class="main-content">
+    <main class="main-content" style="overflow-x: hidden;">
         {% block content %}{% endblock %}
     </main>
 
@@ -240,7 +304,7 @@
             Enterprise Threat Detection & 24/7 SOC Monitoring. Protecting digital assets globally.
           </p>
           <div class="space-y-4">
-            <a href="tel:+18603054376" class="flex items-center gap-4 text-gray-400 hover:text-gemLightBlue transition-colors group">
+            <a href="tel:+14017022460" class="flex items-center gap-4 text-gray-400 hover:text-gemLightBlue transition-colors group">
               <div class="h-10 w-10 rounded-xl bg-white/5 flex items-center justify-center group-hover:bg-gemLightBlue/10 transition-colors">
                 <i data-lucide="phone" class="h-5 w-5"></i>
               </div>
@@ -380,8 +444,8 @@
                         </h6>
                         <p class="mb-2">For immediate security threats or active incidents:</p>
                         <div class="d-flex gap-2">
-                            <a href="tel:+18603054376" class="btn btn-danger btn-sm">
-                                <i class="fas fa-phone me-1"></i>Call: +1 (860) 305-4376
+                            <a href="tel:+14017022460" class="btn btn-danger btn-sm">
+                                <i class="fas fa-phone me-1"></i>Call: +1 (401) 702-2460
                             </a>
                             <a href="mailto:Admin@gemcybersecurityassist.com" class="btn btn-outline-danger btn-sm">
                                 <i class="fas fa-envelope me-1"></i>Emergency Email

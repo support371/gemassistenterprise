@@ -57,7 +57,7 @@ export default function Hero(_: HeroProps) {
     setSecondaryLoading(true);
     setTimeout(() => {
       setSecondaryLoading(false);
-      window.location.href = "tel:+18603054376";
+      window.location.href = "tel:+14017022460";
     }, 100);
   };
 
@@ -117,7 +117,7 @@ export default function Hero(_: HeroProps) {
                   Calling...
                 </>
               ) : (
-                "24/7 Emergency: (860) 305-4376"
+                "24/7 Emergency: (401) 702-2460"
               )}
             </button>
           </div>

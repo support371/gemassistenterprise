@@ -1,378 +1,220 @@
 {% extends "base.html" %}
+{% from "partials/profile_card.html" import profile_card %}
 
-{% block title %}Partners & Trustees - Gem Assist Enterprise{% endblock %}
+{% block title %}Partners & Trustees - GEM Assist Enterprise{% endblock %}
 
 {% block content %}
-<section class="page-header">
-    <div class="container">
-        <div class="row">
-            <div class="col-12 text-center">
-                <h1><i class="fas fa-handshake me-3"></i>Partners & Trustees</h1>
-                <p class="lead">Strategic partnerships and trusted relationships</p>
+<!-- Hero -->
+<section class="relative min-h-[44vh] pt-40 pb-20 overflow-hidden">
+  <div class="absolute inset-0 -z-10" style="background-image:radial-gradient(circle at 1px 1px,rgb(71,85,105) 1px,transparent 0);background-size:40px 40px;opacity:0.12"></div>
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-blue-500/5 rounded-full blur-[120px] -z-10"></div>
+  <div class="max-w-screen-xl mx-auto px-6 text-center">
+    <p class="text-[10px] font-black uppercase text-blue-400 tracking-[0.35em] mb-4">TRUST NETWORK & ALLIANCES</p>
+    <h1 class="text-5xl lg:text-7xl font-black text-white mb-6 leading-[0.9] tracking-tighter">
+      Partners &amp; <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Trustees</span>
+    </h1>
+    <p class="text-lg text-slate-400 max-w-3xl mx-auto leading-relaxed">
+      Strategic partnerships and trusted relationships powering GEM enterprise security and Alliance Trust Realty services.
+    </p>
+  </div>
+</section>
+
+<!-- ── PRIMARY PARTNER ─────────────────────────────────────────────── -->
+<section class="py-20 border-t border-white/5">
+  <div class="max-w-screen-xl mx-auto px-6">
+    <div class="grid lg:grid-cols-2 gap-8 items-center">
+      <div>
+        <p class="text-[10px] font-black uppercase text-green-400 tracking-[0.35em] mb-4">PRIMARY REAL ESTATE PARTNER</p>
+        <h2 class="text-4xl font-black text-white tracking-tighter mb-4">Alliance Trust Realty LLC</h2>
+        <p class="text-slate-400 leading-relaxed mb-6">
+          Our primary real estate partnership providing comprehensive property services, investment opportunities, and asset management solutions. Alliance Trust Realty operates as the real estate backbone of GEM's integrated security and trust services model.
+        </p>
+        <ul class="space-y-3 mb-8">
+          {% for item in ["Real Estate Investment Advisory","Property Management & Oversight","Asset Recovery Coordination","Legal Trust Documentation","Compliance-First Transaction Handling"] %}
+          <li class="flex items-center gap-3 text-sm text-slate-300">
+            <div class="w-5 h-5 rounded-full bg-green-500/20 border border-green-500/30 flex items-center justify-center flex-shrink-0">
+              <i data-lucide="check" class="h-3 w-3 text-green-400"></i>
             </div>
+            {{ item }}
+          </li>
+          {% endfor %}
+        </ul>
+        <div class="flex flex-wrap gap-2 mb-8">
+          <span class="text-[10px] font-black px-3 py-1.5 rounded-full bg-green-500/10 text-green-400 border border-green-500/30">Verified Partner</span>
+          <span class="text-[10px] font-black px-3 py-1.5 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/30">Evidence Required</span>
+          <span class="text-[10px] font-black px-3 py-1.5 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/30">CEO Approval Pending</span>
         </div>
-    </div>
-</section>
-
-<section class="py-5">
-    <div class="container">
-        <h1 class="text-center mb-5">
-            <i class="fas fa-handshake me-3"></i>
-            Partners & Trustees
-        </h1>
-
-        <!-- Partners & Trustees Slider Section -->
-        <section id="partners-trustees-slider" class="mb-5">
-            <div class="section-header text-center mb-4">
-                <h2>Our Trusted Partners & Strategic Trustees</h2>
-                <p class="text-muted">Building trust through world-class partnerships and governance</p>
-            </div>
-            <div class="swiper-container partners-swiper">
-                <div class="swiper-wrapper" id="company-slider">
-                    <!-- Slides will be injected dynamically -->
-                </div>
-                <!-- Navigation Arrows -->
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-                <!-- Pagination -->
-                <div class="swiper-pagination"></div>
-            </div>
-        </section>
-    </div>
-</section>
-
-<section class="py-5">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 mx-auto">
-                <div class="content-card">
-                    <h2>Our Strategic Partnerships</h2>
-                    <p class="lead">GEM Enterprise collaborates with trusted partners and serves as trustees to provide comprehensive security and trust services to our clients.</p>
-
-                    <div class="partnership-highlight mt-5">
-                        <div class="row align-items-center">
-                            <div class="col-md-6">
-                                <h3>Alliance Trust Realty LLC</h3>
-                                <p>Our primary real estate partnership providing comprehensive property services, investment opportunities, and asset management solutions.</p>
-                                <ul class="partnership-benefits">
-                                    <li><i class="fas fa-check text-success me-2"></i>Real Estate Investment</li>
-                                    <li><i class="fas fa-check text-success me-2"></i>Property Management</li>
-                                    <li><i class="fas fa-check text-success me-2"></i>Asset Recovery</li>
-                                    <li><i class="fas fa-check text-success me-2"></i>Legal Documentation</li>
-                                </ul>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="partnership-visual">
-                                    <i class="fas fa-building fa-5x text-primary mb-3"></i>
-                                    <h5>Trusted Real Estate Partner</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <h3 class="mt-5">Partnership Benefits</h3>
-                    <div class="benefits-grid">
-                        <div class="benefit-card">
-                            <i class="fas fa-shield-alt text-primary fa-2x mb-3"></i>
-                            <h4>Enhanced Security</h4>
-                            <p>Combined cybersecurity and physical asset protection through integrated services.</p>
-                        </div>
-                        <div class="benefit-card">
-                            <i class="fas fa-users text-success fa-2x mb-3"></i>
-                            <h4>Expert Team</h4>
-                            <p>Access to specialized professionals across cybersecurity, real estate, and legal domains.</p>
-                        </div>
-                        <div class="benefit-card">
-                            <i class="fas fa-chart-growth text-info fa-2x mb-3"></i>
-                            <h4>Growth Opportunities</h4>
-                            <p>Strategic investment and expansion opportunities through our partner network.</p>
-                        </div>
-                        <div class="benefit-card">
-                            <i class="fas fa-handshake text-warning fa-2x mb-3"></i>
-                            <h4>Trusted Relationships</h4>
-                            <p>Long-term partnerships built on transparency, reliability, and mutual success.</p>
-                        </div>
-                    </div>
-
-                    <h3 class="mt-5">Trustee Services</h3>
-                    <div class="trustee-services">
-                        <div class="trustee-service">
-                            <i class="fas fa-gavel text-primary me-3"></i>
-                            <div>
-                                <h5>Legal Trustee Services</h5>
-                                <p>Professional trustee services for estate planning, asset protection, and legal compliance management.</p>
-                            </div>
-                        </div>
-                        <div class="trustee-service">
-                            <i class="fas fa-coins text-success me-3"></i>
-                            <div>
-                                <h5>Financial Trust Management</h5>
-                                <p>Secure management of financial assets, investments, and trust fund administration.</p>
-                            </div>
-                        </div>
-                        <div class="trustee-service">
-                            <i class="fas fa-home text-info me-3"></i>
-                            <div>
-                                <h5>Real Estate Trust Services</h5>
-                                <p>Specialized real estate trust management for property holdings and investment portfolios.</p>
-                            </div>
-                        </div>
-                        <div class="trustee-service">
-                            <i class="fas fa-shield-check text-warning me-3"></i>
-                            <div>
-                                <h5>Asset Protection Trusts</h5>
-                                <p>Advanced asset protection strategies and trust structures for wealth preservation.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <h3 class="mt-5">Partnership Process</h3>
-                    <div class="process-flow">
-                        <div class="process-step">
-                            <div class="step-icon">
-                                <i class="fas fa-comments"></i>
-                            </div>
-                            <h5>Initial Consultation</h5>
-                            <p>Discuss partnership opportunities and mutual objectives</p>
-                        </div>
-                        <div class="process-arrow">
-                            <i class="fas fa-arrow-right"></i>
-                        </div>
-                        <div class="process-step">
-                            <div class="step-icon">
-                                <i class="fas fa-search"></i>
-                            </div>
-                            <h5>Due Diligence</h5>
-                            <p>Comprehensive evaluation and compatibility assessment</p>
-                        </div>
-                        <div class="process-arrow">
-                            <i class="fas fa-arrow-right"></i>
-                        </div>
-                        <div class="process-step">
-                            <div class="step-icon">
-                                <i class="fas fa-file-contract"></i>
-                            </div>
-                            <h5>Agreement</h5>
-                            <p>Formal partnership documentation and legal agreements</p>
-                        </div>
-                        <div class="process-arrow">
-                            <i class="fas fa-arrow-right"></i>
-                        </div>
-                        <div class="process-step">
-                            <div class="step-icon">
-                                <i class="fas fa-rocket"></i>
-                            </div>
-                            <h5>Activation</h5>
-                            <p>Partnership launch and ongoing relationship management</p>
-                        </div>
-                    </div>
-
-                    <div class="alert alert-info mt-5">
-                        <i class="fas fa-info-circle me-2"></i>
-                        <strong>Partnership Opportunities:</strong> We are always seeking qualified partners in cybersecurity, real estate, legal services, and related fields. Contact us to explore mutual opportunities.
-                    </div>
-
-                    <div class="cta-section mt-5 text-center">
-                        <h4>Interested in Partnership?</h4>
-                        <p>Explore partnership opportunities and trustee services with GEM Enterprise.</p>
-                        <a href="{{ url_for('contact') }}" class="btn btn-primary btn-lg me-3">
-                            <i class="fas fa-handshake me-2"></i>Partner With Us
-                        </a>
-                        <a href="{{ url_for('services') }}" class="btn btn-outline-primary btn-lg">
-                            <i class="fas fa-cogs me-2"></i>Our Services
-                        </a>
-                    </div>
-                </div>
-            </div>
+        <a href="{{ url_for('contact_page') }}"
+           class="inline-flex items-center gap-2 h-12 px-7 rounded-2xl bg-green-500 hover:bg-green-400 text-[#030712] font-black text-sm uppercase tracking-wider transition-all">
+          <i data-lucide="handshake" class="h-4 w-4"></i> Partner With Us
+        </a>
+      </div>
+      <div class="bg-[#0a0f1e] border border-green-500/20 rounded-3xl p-8 flex flex-col gap-6">
+        <div class="flex items-center gap-4">
+          <div class="w-16 h-16 rounded-2xl bg-green-500/10 border border-green-500/30 flex items-center justify-center">
+            <i data-lucide="building-2" class="h-8 w-8 text-green-400"></i>
+          </div>
+          <div>
+            <h3 class="text-white font-black text-lg">Alliance Trust Realty LLC</h3>
+            <p class="text-green-400 text-xs font-bold uppercase tracking-wide">Real Estate Trust Partner</p>
+          </div>
         </div>
+        {% set atr_stats = [
+          {"label": "Partnership Status", "value": "Active Alliance"},
+          {"label": "Service Region",     "value": "National"},
+          {"label": "Integration",        "value": "Full GEM + ATR Integration"},
+          {"label": "Primary Contact",    "value": "via GEM Enterprise"},
+        ] %}
+        {% for s in atr_stats %}
+        <div class="flex justify-between items-center border-b border-white/5 pb-3">
+          <span class="text-slate-500 text-xs">{{ s.label }}</span>
+          <span class="text-white text-xs font-bold">{{ s.value }}</span>
+        </div>
+        {% endfor %}
+        <p class="text-slate-500 text-xs">Gregor Stewart — Owner / Principal Consultant — serves as the managing bridge between GEM cybersecurity operations and Alliance Trust Realty LLC.</p>
+      </div>
     </div>
+  </div>
 </section>
 
-<!-- Swiper JS -->
-<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+<!-- ── TRUSTEE SERVICES ───────────────────────────────────────────── -->
+<section class="py-20 border-t border-white/5">
+  <div class="max-w-screen-xl mx-auto px-6">
+    <div class="flex items-center gap-4 mb-12">
+      <div class="h-px flex-1 bg-gradient-to-r from-transparent to-blue-500/30"></div>
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center">
+          <i data-lucide="landmark" class="h-4 w-4 text-blue-400"></i>
+        </div>
+        <h2 class="text-lg font-black text-white uppercase tracking-[0.3em]">Trustee Services</h2>
+      </div>
+      <div class="h-px flex-1 bg-gradient-to-l from-transparent to-blue-500/30"></div>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {% set services = [
+        {"icon": "gavel",         "name": "Legal Trustee Services",      "color": "blue",   "desc": "Professional trustee services for estate planning, asset protection, and legal compliance management."},
+        {"icon": "coins",         "name": "Financial Trust Management",  "color": "yellow", "desc": "Secure management of financial assets, investments, and trust fund administration."},
+        {"icon": "home",          "name": "Real Estate Trust Services",  "color": "green",  "desc": "Specialized real estate trust management for property holdings and investment portfolios."},
+        {"icon": "shield-check",  "name": "Asset Protection Trusts",    "color": "cyan",   "desc": "Advanced asset protection strategies and trust structures for wealth preservation."},
+      ] %}
+      {% for s in services %}
+      <div class="group bg-[#0a0f1e] border border-white/8 rounded-3xl p-6 hover:border-{{ s.color }}-500/40 transition-all flex flex-col gap-4">
+        <div class="w-12 h-12 rounded-2xl bg-{{ s.color }}-500/10 border border-{{ s.color }}-500/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+          <i data-lucide="{{ s.icon }}" class="h-5 w-5 text-{{ s.color }}-400"></i>
+        </div>
+        <div>
+          <h3 class="text-white font-black text-sm">{{ s.name }}</h3>
+          <p class="text-slate-400 text-xs mt-2 leading-relaxed">{{ s.desc }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
 
-<style>
-#partners-trustees-slider {
-    padding: 40px 20px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    border-radius: 16px;
-    margin-bottom: 3rem;
-}
-#partners-trustees-slider h2 {
-    color: #fff;
-    margin-bottom: 10px;
-    font-size: 32px;
-    font-weight: 700;
-}
-#partners-trustees-slider .text-muted {
-    color: rgba(255,255,255,0.8) !important;
-    font-size: 16px;
-}
-.partners-swiper {
-    padding: 40px 0;
-}
-.partners-swiper .swiper-slide {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 30px 20px;
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    transition: all 0.3s ease;
-    min-height: 280px;
-}
-.partners-swiper .swiper-slide:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-}
-.company-logo {
-    max-width: 140px;
-    max-height: 80px;
-    margin-bottom: 20px;
-    object-fit: contain;
-}
-.company-type {
-    font-weight: 700;
-    font-size: 14px;
-    margin-bottom: 10px;
-    color: #667eea;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-.company-name {
-    font-size: 20px;
-    font-weight: 600;
-    margin-bottom: 10px;
-    color: #333;
-}
-.company-description {
-    font-size: 14px;
-    color: #666;
-    text-align: center;
-    line-height: 1.6;
-}
-.partners-swiper .swiper-button-next,
-.partners-swiper .swiper-button-prev {
-    color: #fff;
-    background: rgba(255,255,255,0.2);
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-}
-.partners-swiper .swiper-button-next:after,
-.partners-swiper .swiper-button-prev:after {
-    font-size: 20px;
-}
-.partners-swiper .swiper-pagination-bullet {
-    background: #fff;
-    opacity: 0.5;
-}
-.partners-swiper .swiper-pagination-bullet-active {
-    opacity: 1;
-    background: #fff;
-}
-</style>
+<!-- ── TECHNOLOGY PARTNERS ────────────────────────────────────────── -->
+<section class="py-20 border-t border-white/5">
+  <div class="max-w-screen-xl mx-auto px-6">
+    <div class="flex items-center gap-4 mb-12">
+      <div class="h-px flex-1 bg-gradient-to-r from-transparent to-cyan-500/30"></div>
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center">
+          <i data-lucide="cpu" class="h-4 w-4 text-cyan-400"></i>
+        </div>
+        <h2 class="text-lg font-black text-white uppercase tracking-[0.3em]">Technology Partners</h2>
+      </div>
+      <div class="h-px flex-1 bg-gradient-to-l from-transparent to-cyan-500/30"></div>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {% set tech_partners = [
+        {"name": "Amazon Web Services",    "type": "Cloud Infrastructure",          "logo": "https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg",   "desc": "Enterprise cloud infrastructure powering GEM's security monitoring and data operations.", "status": "Technology Partner"},
+        {"name": "Microsoft Azure",        "type": "Enterprise Cloud & Compliance", "logo": "https://upload.wikimedia.org/wikipedia/commons/a/a8/Microsoft_Azure_Logo.svg",       "desc": "Enterprise cloud computing, AI services, and compliance frameworks.", "status": "Technology Partner"},
+        {"name": "Google Cloud Platform",  "type": "AI & Data Analytics",          "logo": "https://upload.wikimedia.org/wikipedia/commons/5/5f/Google_Cloud_logo.svg",          "desc": "Advanced data analytics, AI/ML capabilities, and security services.", "status": "Technology Partner"},
+        {"name": "IBM Security",           "type": "Enterprise Security",           "logo": "https://upload.wikimedia.org/wikipedia/commons/5/51/IBM_logo.svg",                   "desc": "Enterprise-grade security consulting and threat intelligence infrastructure.", "status": "Technology Partner"},
+        {"name": "Cisco",                  "type": "Network Security",              "logo": "https://upload.wikimedia.org/wikipedia/commons/0/08/Cisco_logo_blue_2016.svg",       "desc": "Network security, firewall infrastructure, and enterprise connectivity.", "status": "Technology Partner"},
+        {"name": "Deloitte Digital",       "type": "Strategic Trustee",             "logo": "https://upload.wikimedia.org/wikipedia/commons/7/7b/Deloitte.svg",                  "desc": "Digital transformation advisory, risk management, and cybersecurity governance.", "status": "Strategic Trustee"},
+        {"name": "PwC Advisory",           "type": "Compliance Trustee",            "logo": "https://upload.wikimedia.org/wikipedia/commons/5/5e/PwC_logo.svg",                  "desc": "Independent audit, compliance verification, and trust assurance services.", "status": "Compliance Trustee"},
+        {"name": "Oracle",                 "type": "Enterprise Data Platform",      "logo": "https://upload.wikimedia.org/wikipedia/commons/5/50/Oracle_logo.svg",               "desc": "Enterprise data management, cloud applications, and cybersecurity tooling.", "status": "Technology Partner"},
+        {"name": "KPMG",                   "type": "Audit & Compliance",            "logo": "https://upload.wikimedia.org/wikipedia/commons/9/9d/KPMG_logo.svg",                 "desc": "Audit, tax, and advisory services supporting GEM compliance frameworks.", "status": "Compliance Trustee"},
+      ] %}
+      {% for p in tech_partners %}
+      <div class="group bg-[#0a0f1e] border border-white/8 rounded-2xl p-6 hover:border-cyan-500/30 transition-all flex flex-col gap-4">
+        <div class="flex items-center gap-4">
+          <div class="w-14 h-10 flex items-center justify-start flex-shrink-0">
+            <img src="{{ p.logo }}" alt="{{ p.name }}"
+                 class="max-h-8 max-w-[90px] object-contain opacity-50 group-hover:opacity-80 grayscale group-hover:grayscale-0 transition-all"
+                 onerror="this.style.display='none'">
+          </div>
+          <div class="flex-1 min-w-0">
+            <h3 class="text-white font-black text-sm truncate">{{ p.name }}</h3>
+            <p class="text-cyan-400 text-[10px] font-bold uppercase tracking-wide">{{ p.type }}</p>
+          </div>
+        </div>
+        <p class="text-slate-400 text-xs leading-relaxed flex-1">{{ p.desc }}</p>
+        <span class="text-[10px] font-bold px-2 py-0.5 rounded-full self-start
+          {% if 'Trustee' in p.status %}text-yellow-400 bg-yellow-500/10 border border-yellow-500/30
+          {% else %}text-cyan-400 bg-cyan-500/10 border border-cyan-500/30{% endif %}">
+          {{ p.status }}
+        </span>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
 
-<script>
-// List of verified partners and trustees
-const companies = [
-    {
-        name: "AWS",
-        type: "Technology Partner",
-        description: "Cloud infrastructure & enterprise security solutions powering our global operations",
-        logo: "https://logos-world.net/wp-content/uploads/2021/04/Amazon-AWS-Logo.png",
-        link: "https://aws.amazon.com"
-    },
-    {
-        name: "Microsoft Azure",
-        type: "Technology Partner",
-        description: "Enterprise cloud computing, AI services, and compliance frameworks",
-        logo: "https://logos-world.net/wp-content/uploads/2020/04/Microsoft-Azure-Logo.png",
-        link: "https://azure.microsoft.com"
-    },
-    {
-        name: "Google Cloud",
-        type: "Technology Partner",
-        description: "Advanced data analytics, AI/ML capabilities, and security services",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/5/5f/Google_Cloud_logo.svg",
-        link: "https://cloud.google.com"
-    },
-    {
-        name: "Deloitte Digital",
-        type: "Strategic Trustee",
-        description: "Digital transformation advisory, risk management, and cybersecurity governance",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Deloitte.svg",
-        link: "https://www.deloitte.com"
-    },
-    {
-        name: "PwC Advisory",
-        type: "Compliance Trustee",
-        description: "Independent audit, compliance verification, and trust assurance services",
-        logo: "https://upload.wikimedia.org/wikipedia/commons/5/5e/PwC_logo.svg",
-        link: "https://www.pwc.com"
-    },
-    {
-        name: "Alliance Trust Realty LLC",
-        type: "Real Estate Partner",
-        description: "Professional real estate services, asset management, and property investment solutions",
-        logo: "https://via.placeholder.com/140x60/764ba2/ffffff?text=Alliance+Trust",
-        link: "#"
-    }
-];
+<!-- ── PARTNER INTAKE CTA ─────────────────────────────────────────── -->
+<section class="py-24 border-t border-white/5">
+  <div class="max-w-screen-xl mx-auto px-6">
+    <div class="bg-gradient-to-r from-blue-500/10 via-cyan-500/5 to-blue-500/10 border border-blue-500/20 rounded-3xl p-12 text-center">
+      <div class="w-16 h-16 rounded-3xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center mx-auto mb-6">
+        <i data-lucide="handshake" class="h-8 w-8 text-blue-400"></i>
+      </div>
+      <h2 class="text-3xl lg:text-4xl font-black text-white tracking-tighter mb-4">Partnership Opportunities</h2>
+      <p class="text-slate-400 max-w-2xl mx-auto mb-8 leading-relaxed">
+        We are always seeking qualified partners in cybersecurity, real estate, legal services, compliance, and related fields. Contact us to explore mutual opportunities and strategic alignment.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="{{ url_for('contact_page') }}"
+           class="inline-flex items-center gap-2 h-13 px-8 py-3.5 rounded-2xl bg-blue-500 hover:bg-blue-400 text-white font-black text-sm uppercase tracking-wider transition-all">
+          <i data-lucide="handshake" class="h-4 w-4"></i> Become a Partner
+        </a>
+        <a href="{{ url_for('services_page') }}"
+           class="inline-flex items-center gap-2 h-13 px-8 py-3.5 rounded-2xl bg-white/5 border border-white/10 text-white font-black text-sm uppercase tracking-wider hover:bg-white/10 transition-all">
+          <i data-lucide="grid" class="h-4 w-4"></i> View Services
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
 
-// Inject slides dynamically
-document.addEventListener('DOMContentLoaded', function() {
-    const sliderWrapper = document.getElementById("company-slider");
-
-    companies.forEach(c => {
-        const slide = document.createElement("div");
-        slide.className = "swiper-slide";
-        slide.innerHTML = `
-            <a href="${c.link}" target="_blank" style="text-decoration: none; width: 100%; text-align: center;">
-                <img src="${c.logo}" alt="${c.name}" class="company-logo" onerror="this.src='https://via.placeholder.com/140x60/667eea/ffffff?text=${encodeURIComponent(c.name)}'">
-                <div class="company-type">${c.type}</div>
-                <div class="company-name">${c.name}</div>
-                <div class="company-description">${c.description}</div>
-            </a>
-        `;
-        sliderWrapper.appendChild(slide);
-    });
-
-    // Initialize Swiper
-    new Swiper('.partners-swiper', {
-        loop: true,
-        slidesPerView: 1,
-        spaceBetween: 30,
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
-        autoplay: {
-            delay: 4000,
-            disableOnInteraction: false,
-        },
-        breakpoints: {
-            640: { 
-                slidesPerView: 1,
-                spaceBetween: 20
-            },
-            768: { 
-                slidesPerView: 2,
-                spaceBetween: 25
-            },
-            1024: { 
-                slidesPerView: 3,
-                spaceBetween: 30
-            },
-        }
-    });
-});
-</script>
-
+<!-- Partnership Process -->
+<section class="py-20 border-t border-white/5">
+  <div class="max-w-screen-xl mx-auto px-6">
+    <div class="flex items-center gap-4 mb-12">
+      <div class="h-px flex-1 bg-gradient-to-r from-transparent to-white/10"></div>
+      <h2 class="text-lg font-black text-white uppercase tracking-[0.3em]">Partnership Process</h2>
+      <div class="h-px flex-1 bg-gradient-to-l from-transparent to-white/10"></div>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {% set steps = [
+        {"icon": "message-circle", "n": "01", "title": "Initial Consultation", "desc": "Discuss partnership opportunities and mutual objectives with our team."},
+        {"icon": "search",         "n": "02", "title": "Due Diligence",        "desc": "Comprehensive evaluation, compatibility assessment, and verification."},
+        {"icon": "file-text",      "n": "03", "title": "Agreement",            "desc": "Formal partnership documentation, legal agreements, and CEO approval."},
+        {"icon": "rocket",         "n": "04", "title": "Activation",           "desc": "Partnership launch, integration, and ongoing relationship management."},
+      ] %}
+      {% for s in steps %}
+      <div class="relative bg-[#0a0f1e] border border-white/8 rounded-3xl p-6 flex flex-col gap-4">
+        <div class="flex items-center justify-between">
+          <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center">
+            <i data-lucide="{{ s.icon }}" class="h-4 w-4 text-blue-400"></i>
+          </div>
+          <span class="text-4xl font-black text-white/5">{{ s.n }}</span>
+        </div>
+        <h3 class="text-white font-black text-sm">{{ s.title }}</h3>
+        <p class="text-slate-400 text-xs leading-relaxed">{{ s.desc }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
 {% endblock %}

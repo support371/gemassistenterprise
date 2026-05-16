@@ -1,789 +1,259 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
+{% from "partials/profile_card.html" import profile_card %}
 
-{% block title %}Leadership & Board - Gem Assist Enterprise{% endblock %}
+{% block title %}Leadership & Board - GEM Assist Enterprise{% endblock %}
 
 {% block content %}
-<!-- Leadership Hero Section -->
-<section class="leadership-hero">
-    <div class="container">
-        <div class="hero-content">
-            <h1 class="hero-title">Leadership & Board</h1>
-            <p class="hero-description">
-                Guiding GEM Enterprise with Vision, Integrity, and Excellence
-            </p>
-            <div class="header-actions mt-4">
-                <a href="{{ url_for('vip_board') }}" class="btn btn-warning btn-lg me-3">
-                    <i class="fas fa-crown me-2"></i>Executive Board
-                </a>
-                <a href="{{ url_for('membership') }}" class="btn btn-primary btn-lg">
-                    <i class="fas fa-users me-2"></i>Membership Portal
-                </a>
-            </div>
-        </div>
+<!-- Hero -->
+<section class="relative min-h-[44vh] pt-40 pb-20 overflow-hidden">
+  <div class="absolute inset-0 -z-10" style="background-image:radial-gradient(circle at 1px 1px,rgb(71,85,105) 1px,transparent 0);background-size:40px 40px;opacity:0.12"></div>
+  <div class="absolute top-0 left-0 w-[600px] h-[600px] bg-yellow-400/5 rounded-full blur-[120px] -z-10"></div>
+  <div class="max-w-screen-xl mx-auto px-6 text-center">
+    <p class="text-[10px] font-black uppercase text-yellow-400 tracking-[0.35em] mb-4">GOVERNANCE & EXECUTIVE BOARD</p>
+    <h1 class="text-5xl lg:text-7xl font-black text-white mb-6 leading-[0.9] tracking-tighter">
+      Leadership <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-amber-300">&amp; Board</span>
+    </h1>
+    <p class="text-lg text-slate-400 max-w-3xl mx-auto leading-relaxed">
+      Guiding GEM Enterprise and Alliance Trust Realty with vision, integrity, and compliance excellence.
+    </p>
+    <div class="flex flex-wrap justify-center gap-3 mt-8">
+      <a href="{{ url_for('vip_board') }}"
+         class="inline-flex items-center gap-2 h-11 px-6 rounded-xl bg-yellow-400 text-[#030712] font-black text-sm uppercase tracking-widest hover:bg-yellow-300 transition-all">
+        <i data-lucide="crown" class="h-4 w-4"></i> Executive Board
+      </a>
+      <a href="{{ url_for('membership') }}"
+         class="inline-flex items-center gap-2 h-11 px-6 rounded-xl bg-white/5 border border-white/10 text-white font-black text-sm uppercase tracking-widest hover:bg-white/10 transition-all">
+        <i data-lucide="users" class="h-4 w-4"></i> Membership
+      </a>
     </div>
+  </div>
 </section>
 
-<!-- Executive Leadership Section -->
-<section class="executive-leadership py-5 bg-darker">
-    <div class="container">
-        <div class="section-header text-center mb-5">
-            <h2 class="display-5 fw-bold">Executive Leadership</h2>
-            <p class="lead text-muted">Our C-Suite executives driving strategic initiatives</p>
+<!-- ── EXECUTIVE LEADERSHIP ───────────────────────────────────────── -->
+<section class="py-20 border-t border-white/5">
+  <div class="max-w-screen-xl mx-auto px-6">
+    <div class="flex items-center gap-4 mb-12">
+      <div class="h-px flex-1 bg-gradient-to-r from-transparent to-yellow-400/30"></div>
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-xl bg-yellow-400/10 border border-yellow-400/30 flex items-center justify-center">
+          <i data-lucide="crown" class="h-4 w-4 text-yellow-400"></i>
         </div>
-        
-        <div class="row g-4">
-            {% if executives.CEO %}
-            <div class="col-lg-3 col-md-6">
-                <div class="executive-card-compact">
-                    <div class="executive-image-compact">
-                        {% if executives.CEO.headshot_url %}
-                        <img src="{{ executives.CEO.headshot_url }}" alt="{{ executives.CEO.name }}">
-                        {% else %}
-                        <div class="executive-placeholder">
-                            <i class="fas fa-user-tie"></i>
-                        </div>
-                        {% endif %}
-                    </div>
-                    <div class="executive-info-compact">
-                        <h4>{{ executives.CEO.name }}</h4>
-                        <p class="text-warning fw-bold">Chief Executive Officer</p>
-                        <div class="executive-links">
-                            {% if executives.CEO.email %}
-                            <a href="mailto:{{ executives.CEO.email }}" class="me-2"><i class="fas fa-envelope"></i></a>
-                            {% endif %}
-                            {% if executives.CEO.alignable_url %}
-                            <a href="{{ executives.CEO.alignable_url }}" target="_blank"><i class="fas fa-link"></i></a>
-                            {% endif %}
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {% endif %}
-            
-            {% if executives.CFO %}
-            <div class="col-lg-3 col-md-6">
-                <div class="executive-card-compact">
-                    <div class="executive-image-compact">
-                        {% if executives.CFO.headshot_url %}
-                        <img src="{{ executives.CFO.headshot_url }}" alt="{{ executives.CFO.name }}">
-                        {% else %}
-                        <div class="executive-placeholder">
-                            <i class="fas fa-user-tie"></i>
-                        </div>
-                        {% endif %}
-                    </div>
-                    <div class="executive-info-compact">
-                        <h4>{{ executives.CFO.name }}</h4>
-                        <p class="text-primary fw-bold">Chief Financial Officer</p>
-                        <div class="executive-links">
-                            {% if executives.CFO.email %}
-                            <a href="mailto:{{ executives.CFO.email }}" class="me-2"><i class="fas fa-envelope"></i></a>
-                            {% endif %}
-                            {% if executives.CFO.alignable_url %}
-                            <a href="{{ executives.CFO.alignable_url }}" target="_blank"><i class="fas fa-link"></i></a>
-                            {% endif %}
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {% endif %}
-            
-            {% if executives.COO %}
-            <div class="col-lg-3 col-md-6">
-                <div class="executive-card-compact">
-                    <div class="executive-image-compact">
-                        {% if executives.COO.headshot_url %}
-                        <img src="{{ executives.COO.headshot_url }}" alt="{{ executives.COO.name }}">
-                        {% else %}
-                        <div class="executive-placeholder">
-                            <i class="fas fa-user-tie"></i>
-                        </div>
-                        {% endif %}
-                    </div>
-                    <div class="executive-info-compact">
-                        <h4>{{ executives.COO.name }}</h4>
-                        <p class="text-success fw-bold">Chief Operations Officer</p>
-                        <div class="executive-links">
-                            {% if executives.COO.email %}
-                            <a href="mailto:{{ executives.COO.email }}" class="me-2"><i class="fas fa-envelope"></i></a>
-                            {% endif %}
-                            {% if executives.COO.alignable_url %}
-                            <a href="{{ executives.COO.alignable_url }}" target="_blank"><i class="fas fa-link"></i></a>
-                            {% endif %}
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {% endif %}
-            
-            {% if executives.LEGAL %}
-            <div class="col-lg-3 col-md-6">
-                <div class="executive-card-compact">
-                    <div class="executive-image-compact">
-                        {% if executives.LEGAL.headshot_url %}
-                        <img src="{{ executives.LEGAL.headshot_url }}" alt="{{ executives.LEGAL.name }}">
-                        {% else %}
-                        <div class="executive-placeholder">
-                            <i class="fas fa-user-tie"></i>
-                        </div>
-                        {% endif %}
-                    </div>
-                    <div class="executive-info-compact">
-                        <h4>{{ executives.LEGAL.name }}</h4>
-                        <p class="text-danger fw-bold">Chief Legal Officer</p>
-                        <div class="executive-links">
-                            {% if executives.LEGAL.email %}
-                            <a href="mailto:{{ executives.LEGAL.email }}" class="me-2"><i class="fas fa-envelope"></i></a>
-                            {% endif %}
-                            {% if executives.LEGAL.alignable_url %}
-                            <a href="{{ executives.LEGAL.alignable_url }}" target="_blank"><i class="fas fa-link"></i></a>
-                            {% endif %}
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {% endif %}
-        </div>
+        <h2 class="text-lg font-black text-white uppercase tracking-[0.3em]">Executive Leadership</h2>
+      </div>
+      <div class="h-px flex-1 bg-gradient-to-l from-transparent to-yellow-400/30"></div>
     </div>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {% for p in executive_profiles %}
+        {{ profile_card(p) }}
+      {% endfor %}
+    </div>
+  </div>
 </section>
 
-<!-- Board Members Section -->
-<section class="board-members-section">
-    <div class="container">
-        <h2 class="section-title">Board of Directors</h2>
-        
-        <!-- Notion Integration Notice -->
-        <div class="content-notice">
-            <i class="fas fa-database"></i>
-            <p><strong>Leadership data will be loaded from your Notion database.</strong></p>
-            {% if not leadership_data %}
-            <div class="alert alert-warning">
-                <strong>Notion Setup Required:</strong> Your database needs to be shared with the integration.
-                <br>Go to your Notion database → "..." → Connections → Add your integration.
-            </div>
-            {% else %}
-            <div class="alert alert-success">
-                <strong>Connected!</strong> Displaying {{ leadership_data|length }} board members from Notion.
-            </div>
-            {% endif %}
+<!-- ── CYBERSECURITY LEADERSHIP ───────────────────────────────────── -->
+<section class="py-20 border-t border-white/5">
+  <div class="max-w-screen-xl mx-auto px-6">
+    <div class="flex items-center gap-4 mb-12">
+      <div class="h-px flex-1 bg-gradient-to-r from-transparent to-cyan-500/30"></div>
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center">
+          <i data-lucide="shield" class="h-4 w-4 text-cyan-400"></i>
         </div>
-
-        <div class="leadership-grid">
-            {% if leadership_data %}
-                {% for leader in leadership_data %}
-                <div class="leader-card {% if leader.featured %}featured{% endif %}">
-                    <div class="leader-image">
-                        {% if leader.photo_url %}
-                            <img src="{{ leader.photo_url }}" alt="{{ leader.name }}" class="responsive-image loaded">
-                        {% else %}
-                            <div class="image-placeholder" data-type="leader-photo">
-                                <i class="fas fa-user-tie"></i>
-                                <span>Add {{ leader.name }} Photo</span>
-                            </div>
-                        {% endif %}
-                    </div>
-                    <div class="leader-info">
-                        <h3 class="leader-name">{{ leader.name }}</h3>
-                        <p class="leader-title">{{ leader.position }}</p>
-                        {% if leader.bio %}
-                        <p class="leader-bio">{{ leader.bio }}</p>
-                        {% endif %}
-                        {% if leader.expertise %}
-                        <div class="leader-credentials">
-                            {% for skill in leader.expertise %}
-                            <span class="credential">{{ skill }}</span>
-                            {% endfor %}
-                        </div>
-                        {% endif %}
-                        <div class="leader-social">
-                            {% if leader.alignable %}
-                            <a href="{{ leader.alignable }}" class="social-link" target="_blank">
-                                <i class="fas fa-link"></i>
-                            </a>
-                            {% endif %}
-                            {% if leader.email %}
-                            <a href="mailto:{{ leader.email }}" class="social-link">
-                                <i class="fas fa-envelope"></i>
-                            </a>
-                            {% endif %}
-                        </div>
-                    </div>
-                </div>
-                {% endfor %}
-            {% else %}
-            <!-- Fallback content when Notion data is not available -->
-            <div class="leader-card featured">
-                <div class="leader-image">
-                    <div class="image-placeholder" data-type="ceo-photo">
-                        <i class="fas fa-user-tie"></i>
-                        <span>CEO Photo</span>
-                    </div>
-                </div>
-                <div class="leader-info">
-                    <h3 class="leader-name">Leadership Team</h3>
-                    <p class="leader-title">Your Board Members</p>
-                    <p class="leader-bio">
-                        Connect your Notion database to display your leadership team automatically. Your database should include fields for Name, Position, Bio, Email, LinkedIn, and Photo.
-                    </p>
-                    <div class="leader-credentials">
-                        <span class="credential">Database: Connected</span>
-                        <span class="credential">Permissions: Setup Required</span>
-                    </div>
-                    <div class="leader-social">
-                        <a href="https://notion.so" class="social-link" target="_blank">
-                            <i class="fas fa-external-link-alt"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            {% endif %}
-
-        </div>
+        <h2 class="text-lg font-black text-white uppercase tracking-[0.3em]">Cybersecurity Leadership</h2>
+      </div>
+      <div class="h-px flex-1 bg-gradient-to-l from-transparent to-cyan-500/30"></div>
     </div>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {% for p in cyber_profiles %}
+        {{ profile_card(p) }}
+      {% endfor %}
+    </div>
+  </div>
 </section>
 
-<!-- Rest of page content -->
-            <div class="leader-card">
-                <div class="leader-image">
-                    <!-- Add real photo here -->
-                    <div class="image-placeholder">
-                        <i class="fas fa-user-tie"></i>
-                        <span>Add CFO Photo</span>
-                    </div>
-                </div>
-                <div class="leader-info">
-                    <h3 class="leader-name">[CFO Name]</h3>
-                    <p class="leader-title">Chief Financial Officer</p>
-                    <p class="leader-bio">
-                        [Add CFO biography - financial expertise, strategic planning]
-                    </p>
-                    <div class="leader-social">
-                        <a href="#" class="social-link">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- COO -->
-            <div class="leader-card">
-                <div class="leader-image">
-                    <!-- Add real photo here -->
-                    <div class="image-placeholder">
-                        <i class="fas fa-user-tie"></i>
-                        <span>Add COO Photo</span>
-                    </div>
-                </div>
-                <div class="leader-info">
-                    <h3 class="leader-name">[COO Name]</h3>
-                    <p class="leader-title">Chief Operating Officer</p>
-                    <p class="leader-bio">
-                        [Add COO biography - operational excellence, process optimization]
-                    </p>
-                    <div class="leader-social">
-                        <a href="#" class="social-link">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Additional Board Members -->
-            <div class="leader-card">
-                <div class="leader-image">
-                    <!-- Add real photo here -->
-                    <div class="image-placeholder">
-                        <i class="fas fa-user"></i>
-                        <span>Add Photo</span>
-                    </div>
-                </div>
-                <div class="leader-info">
-                    <h3 class="leader-name">[Board Member Name]</h3>
-                    <p class="leader-title">Board Member</p>
-                    <p class="leader-bio">
-                        [Add board member biography]
-                    </p>
-                    <div class="leader-social">
-                        <a href="#" class="social-link">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="leader-card">
-                <div class="leader-image">
-                    <!-- Add real photo here -->
-                    <div class="image-placeholder">
-                        <i class="fas fa-user"></i>
-                        <span>Add Photo</span>
-                    </div>
-                </div>
-                <div class="leader-info">
-                    <h3 class="leader-name">[Board Member Name]</h3>
-                    <p class="leader-title">Board Member</p>
-                    <p class="leader-bio">
-                        [Add board member biography]
-                    </p>
-                    <div class="leader-social">
-                        <a href="#" class="social-link">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
+<!-- ── BOARD OF DIRECTORS ─────────────────────────────────────────── -->
+<section class="py-20 border-t border-white/5">
+  <div class="max-w-screen-xl mx-auto px-6">
+    <div class="flex items-center gap-4 mb-12">
+      <div class="h-px flex-1 bg-gradient-to-r from-transparent to-slate-500/30"></div>
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-xl bg-slate-500/10 border border-slate-500/30 flex items-center justify-center">
+          <i data-lucide="landmark" class="h-4 w-4 text-slate-400"></i>
         </div>
+        <h2 class="text-lg font-black text-white uppercase tracking-[0.3em]">Board of Directors</h2>
+      </div>
+      <div class="h-px flex-1 bg-gradient-to-l from-transparent to-slate-500/30"></div>
     </div>
+    <div class="grid lg:grid-cols-2 gap-8">
+      <!-- Board Notice -->
+      <div class="col-span-full bg-[#0a0f1e] border border-yellow-500/20 rounded-3xl p-8 flex flex-col lg:flex-row items-start gap-6">
+        <div class="w-14 h-14 rounded-2xl bg-yellow-400/10 border border-yellow-400/30 flex items-center justify-center flex-shrink-0">
+          <i data-lucide="info" class="h-6 w-6 text-yellow-400"></i>
+        </div>
+        <div>
+          <h3 class="text-white font-black text-lg mb-2">Board Formation In Progress</h3>
+          <p class="text-slate-400 text-sm leading-relaxed mb-4">
+            The GEM + ATR Board of Directors is being formally established. CEO Leonard Diana leads the governance process. Board member profiles will be published upon completion of verification, credential evidence submission, and CEO approval.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span class="text-[10px] font-black px-3 py-1 rounded-full bg-yellow-400/10 text-yellow-400 border border-yellow-400/30 uppercase tracking-wider">Evidence Collection Active</span>
+            <span class="text-[10px] font-black px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/30 uppercase tracking-wider">CEO Review In Progress</span>
+            <span class="text-[10px] font-black px-3 py-1 rounded-full bg-slate-500/10 text-slate-400 border border-slate-500/20 uppercase tracking-wider">Profiles Pending Publication</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Gregor Stewart board-level card -->
+      <div class="bg-[#0a0f1e] border border-blue-500/20 rounded-3xl p-8 flex flex-col gap-4">
+        <div class="flex items-start gap-4">
+          <div class="w-16 h-16 rounded-2xl bg-blue-500/10 ring-2 ring-blue-500/30 flex items-center justify-center flex-shrink-0">
+            <span class="text-blue-400 text-xl font-black">GS</span>
+          </div>
+          <div>
+            <h3 class="text-white font-black text-lg">Gregor Stewart</h3>
+            <p class="text-blue-400 text-xs font-bold uppercase tracking-wide mt-0.5">Owner · Principal Consultant · Broker & Managing Partner</p>
+            <p class="text-slate-500 text-xs mt-1">GEM + Alliance Trust Realty</p>
+          </div>
+        </div>
+        <p class="text-slate-400 text-sm leading-relaxed">Principal Consultant and Managing Partner bridging cybersecurity governance with real estate asset management. CISM certified. Currently in verification review; credential evidence submission required.</p>
+        <div class="flex flex-wrap gap-1.5">
+          <span class="text-[10px] font-black px-2 py-0.5 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/30">CISM</span>
+          <span class="text-[10px] font-black px-2 py-0.5 rounded-full bg-yellow-500/10 text-yellow-400 border border-yellow-500/30">In Review</span>
+          <span class="text-[10px] font-black px-2 py-0.5 rounded-full bg-red-500/10 text-red-400 border border-red-500/30">Evidence Required</span>
+        </div>
+      </div>
+
+      <!-- Leonard Diana board-level card -->
+      <div class="bg-[#0a0f1e] border border-cyan-500/20 rounded-3xl p-8 flex flex-col gap-4">
+        <div class="flex items-start gap-4">
+          <div class="w-16 h-16 rounded-2xl bg-cyan-500/10 ring-2 ring-cyan-500/30 flex items-center justify-center flex-shrink-0">
+            <span class="text-cyan-400 text-xl font-black">LD</span>
+          </div>
+          <div>
+            <h3 class="text-white font-black text-lg">Leonard Diana</h3>
+            <p class="text-cyan-400 text-xs font-bold uppercase tracking-wide mt-0.5">CEO / Founder · Board Chair</p>
+            <p class="text-slate-500 text-xs mt-1">GEM Cybersecurity-Monitoring Assist + ATR</p>
+          </div>
+        </div>
+        <p class="text-slate-400 text-sm leading-relaxed">CEO, Founder, and Board Chairperson of GEM + ATR. Leads all executive approvals, strategic governance, and operational oversight across both company entities.</p>
+        <div class="flex flex-wrap gap-1.5">
+          <span class="text-[10px] font-black px-2 py-0.5 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/30">Verified Executive</span>
+          <span class="text-[10px] font-black px-2 py-0.5 rounded-full bg-green-500/10 text-green-400 border border-green-500/30">CEO Approved</span>
+          <span class="text-[10px] font-black px-2 py-0.5 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/30">Review Active</span>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- Advisory Board Section -->
-<section class="advisory-board-section">
-    <div class="container">
-        <h2 class="section-title">Advisory Board</h2>
-        <div class="advisors-grid">
-            <div class="advisor-card">
-                <div class="advisor-image">
-                    <div class="image-placeholder">
-                        <i class="fas fa-user-graduate"></i>
-                        <span>Add Advisor Photo</span>
-                    </div>
-                </div>
-                <div class="advisor-info">
-                    <h4>[Advisor Name]</h4>
-                    <p class="advisor-title">Security Expert</p>
-                    <p class="advisor-company">[Company/Institution]</p>
-                </div>
-            </div>
-            
-            <div class="advisor-card">
-                <div class="advisor-image">
-                    <div class="image-placeholder">
-                        <i class="fas fa-user-graduate"></i>
-                        <span>Add Advisor Photo</span>
-                    </div>
-                </div>
-                <div class="advisor-info">
-                    <h4>[Advisor Name]</h4>
-                    <p class="advisor-title">Technology Advisor</p>
-                    <p class="advisor-company">[Company/Institution]</p>
-                </div>
-            </div>
-            
-            <div class="advisor-card">
-                <div class="advisor-image">
-                    <div class="image-placeholder">
-                        <i class="fas fa-user-graduate"></i>
-                        <span>Add Advisor Photo</span>
-                    </div>
-                </div>
-                <div class="advisor-info">
-                    <h4>[Advisor Name]</h4>
-                    <p class="advisor-title">Business Strategy</p>
-                    <p class="advisor-company">[Company/Institution]</p>
-                </div>
-            </div>
+<!-- ── ADVISORY BOARD ─────────────────────────────────────────────── -->
+<section class="py-20 border-t border-white/5">
+  <div class="max-w-screen-xl mx-auto px-6">
+    <div class="flex items-center gap-4 mb-12">
+      <div class="h-px flex-1 bg-gradient-to-r from-transparent to-purple-500/30"></div>
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center">
+          <i data-lucide="user-check" class="h-4 w-4 text-purple-400"></i>
         </div>
+        <h2 class="text-lg font-black text-white uppercase tracking-[0.3em]">Advisory Board</h2>
+      </div>
+      <div class="h-px flex-1 bg-gradient-to-l from-transparent to-purple-500/30"></div>
     </div>
+    <div class="grid md:grid-cols-3 gap-6">
+      {% set advisors = [
+        {"title": "Cybersecurity Expert", "focus": "Enterprise Threat Defense, SOC Operations"},
+        {"title": "Technology Advisor",   "focus": "AI / ML Security Systems, Platform Architecture"},
+        {"title": "Business Strategy",    "focus": "Real Estate Investment, Trust Governance"}
+      ] %}
+      {% for a in advisors %}
+      <div class="bg-[#0a0f1e] border border-white/8 rounded-3xl p-6 flex flex-col gap-4">
+        <div class="w-14 h-14 rounded-2xl bg-purple-500/10 ring-2 ring-purple-500/20 flex items-center justify-center">
+          <i data-lucide="user-check" class="h-6 w-6 text-purple-400"></i>
+        </div>
+        <div>
+          <h3 class="text-white font-black text-base">Advisory Role</h3>
+          <p class="text-purple-400 text-xs font-bold uppercase tracking-wide mt-0.5">{{ a.title }}</p>
+        </div>
+        <p class="text-slate-500 text-xs">Focus: {{ a.focus }}</p>
+        <span class="text-[10px] font-black px-2 py-0.5 rounded-full bg-slate-500/10 text-slate-400 border border-slate-500/20 self-start">Position Open</span>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
 </section>
 
-<!-- Company Values -->
-<section class="company-values-section">
-    <div class="container">
-        <h2 class="section-title">Our Core Values</h2>
-        <div class="values-grid">
-            <div class="value-card">
-                <div class="value-icon">
-                    <i class="fas fa-shield-alt"></i>
-                </div>
-                <h3>Integrity</h3>
-                <p>Maintaining the highest ethical standards in all business operations</p>
-            </div>
-            <div class="value-card">
-                <div class="value-icon">
-                    <i class="fas fa-lightbulb"></i>
-                </div>
-                <h3>Innovation</h3>
-                <p>Continuously advancing technology and solutions for our clients</p>
-            </div>
-            <div class="value-card">
-                <div class="value-icon">
-                    <i class="fas fa-users"></i>
-                </div>
-                <h3>Excellence</h3>
-                <p>Delivering exceptional quality in every service and interaction</p>
-            </div>
-            <div class="value-card">
-                <div class="value-icon">
-                    <i class="fas fa-handshake"></i>
-                </div>
-                <h3>Trust</h3>
-                <p>Building lasting relationships through transparency and reliability</p>
-            </div>
-        </div>
+<!-- ── LICENSE & VERIFICATION STATUS ─────────────────────────────── -->
+<section class="py-20 border-t border-white/5">
+  <div class="max-w-screen-xl mx-auto px-6">
+    <div class="mb-10">
+      <p class="text-[10px] font-black uppercase text-red-400 tracking-[0.35em] mb-3">COMPLIANCE STATUS</p>
+      <h2 class="text-3xl font-black text-white tracking-tighter">License & Verification Status</h2>
+      <p class="text-slate-400 mt-2 text-sm">Evidence and credential tracking for all executive profiles.</p>
     </div>
+    <div class="grid md:grid-cols-2 gap-4">
+      {% set compliance_items = [
+        {"name": "Leonard Diana",           "role": "CEO / Founder",                    "status": "Review Active",             "risk": "medium", "action": "Attach business authority records"},
+        {"name": "Gregor Stewart",          "role": "Principal Consultant · CISM",      "status": "Evidence Required",         "risk": "high",   "action": "Attach CISM proof and realty license evidence"},
+        {"name": "Sarah Johnson",           "role": "CISO · CISSP · CISM",              "status": "Credential Evidence Req.",  "risk": "medium", "action": "Confirm GEM + ATR assignment and credential proof"},
+        {"name": "Michael Chen",            "role": "Compliance Manager · CISSP · CFA", "status": "Credential Evidence Req.",  "risk": "medium", "action": "Confirm GEM + ATR assignment and credential proof"},
+      ] %}
+      {% for item in compliance_items %}
+      <div class="bg-[#0a0f1e] border border-white/8 rounded-2xl p-5 flex gap-4">
+        <div class="flex-shrink-0 w-10 h-10 rounded-xl flex items-center justify-center
+          {% if item.risk == 'high' %}bg-red-500/10 border border-red-500/30{% elif item.risk == 'medium' %}bg-yellow-500/10 border border-yellow-500/30{% else %}bg-green-500/10 border border-green-500/30{% endif %}">
+          <i data-lucide="{% if item.risk == 'high' %}alert-triangle{% elif item.risk == 'medium' %}clock{% else %}check-circle{% endif %}"
+             class="h-4 w-4 {% if item.risk == 'high' %}text-red-400{% elif item.risk == 'medium' %}text-yellow-400{% else %}text-green-400{% endif %}"></i>
+        </div>
+        <div class="flex-1 min-w-0">
+          <div class="flex items-start justify-between gap-2">
+            <div>
+              <p class="text-white font-bold text-sm">{{ item.name }}</p>
+              <p class="text-slate-500 text-xs">{{ item.role }}</p>
+            </div>
+            <span class="text-[10px] font-black px-2 py-0.5 rounded-full flex-shrink-0
+              {% if 'Required' in item.status %}text-red-400 bg-red-500/10 border border-red-500/30
+              {% elif 'Review' in item.status %}text-blue-400 bg-blue-500/10 border border-blue-500/30
+              {% else %}text-amber-400 bg-amber-500/10 border border-amber-500/30{% endif %}">
+              {{ item.status }}
+            </span>
+          </div>
+          <p class="text-slate-500 text-xs mt-2 flex items-center gap-1">
+            <i data-lucide="arrow-right" class="h-3 w-3 flex-shrink-0"></i> {{ item.action }}
+          </p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
 </section>
 
-<style>
-/* Leadership Page Styles */
-.leadership-hero {
-    background: linear-gradient(135deg, #1a1a2e 0%, #0f0f1e 100%);
-    padding: 120px 0 80px;
-    color: white;
-    position: relative;
-    overflow: hidden;
-}
-
-.leadership-hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path fill="%23ffd700" fill-opacity="0.05" d="M1200 120L0 16V0h1200v120z"/></svg>');
-    background-size: cover;
-}
-
-.hero-content {
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.hero-title {
-    font-size: 3rem;
-    font-weight: 800;
-    margin-bottom: 1.5rem;
-}
-
-.hero-description {
-    font-size: 1.2rem;
-    opacity: 0.95;
-}
-
-/* Content Notice */
-.content-notice {
-    background: rgba(255, 193, 7, 0.1);
-    border: 1px solid var(--warning-color);
-    border-radius: 8px;
-    padding: 1.5rem;
-    margin-bottom: 3rem;
-    color: var(--warning-color);
-}
-
-.content-notice i {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-}
-
-.content-notice ul {
-    margin-top: 1rem;
-    padding-left: 1.5rem;
-}
-
-/* Board Members Section */
-.board-members-section {
-    padding: 80px 0;
-    background: var(--bg-secondary);
-}
-
-.leadership-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
-}
-
-.leader-card {
-    background: var(--bg-card);
-    border-radius: 16px;
-    overflow: hidden;
-    border: 1px solid var(--border-color);
-    transition: all 0.3s ease;
-}
-
-.leader-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-    border-color: var(--primary-color);
-}
-
-.leader-card.featured {
-    grid-column: span 2;
-    display: grid;
-    grid-template-columns: 300px 1fr;
-}
-
-.leader-image {
-    position: relative;
-    height: 300px;
-    overflow: hidden;
-}
-
-.leader-card.featured .leader-image {
-    height: 100%;
-}
-
-.image-placeholder {
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, rgba(17, 24, 39, 0.8) 0%, rgba(31, 41, 55, 0.6) 100%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: var(--text-muted);
-}
-
-.image-placeholder i {
-    font-size: 4rem;
-    margin-bottom: 1rem;
-    opacity: 0.5;
-}
-
-.image-placeholder span {
-    font-size: 0.9rem;
-    opacity: 0.7;
-}
-
-.leader-info {
-    padding: 2rem;
-}
-
-.leader-name {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--text-primary);
-    margin-bottom: 0.5rem;
-}
-
-.leader-title {
-    color: var(--primary-color);
-    font-weight: 600;
-    margin-bottom: 1rem;
-}
-
-.leader-bio {
-    color: var(--text-secondary);
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-}
-
-.leader-credentials {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: 1.5rem;
-}
-
-.credential {
-    padding: 0.25rem 0.75rem;
-    background: rgba(6, 102, 204, 0.1);
-    border-radius: 20px;
-    font-size: 0.85rem;
-    color: var(--primary-color);
-}
-
-.leader-social {
-    display: flex;
-    gap: 1rem;
-}
-
-.social-link {
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 50%;
-    color: var(--text-muted);
-    transition: all 0.3s ease;
-}
-
-.social-link:hover {
-    background: var(--primary-color);
-    color: white;
-}
-
-/* Advisory Board */
-.advisory-board-section {
-    padding: 80px 0;
-}
-
-.advisors-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
-}
-
-.advisor-card {
-    text-align: center;
-    padding: 2rem;
-    background: var(--bg-card);
-    border-radius: 12px;
-    border: 1px solid var(--border-color);
-}
-
-.advisor-image {
-    width: 120px;
-    height: 120px;
-    margin: 0 auto 1.5rem;
-    border-radius: 50%;
-    overflow: hidden;
-}
-
-.advisor-info h4 {
-    color: var(--text-primary);
-    margin-bottom: 0.5rem;
-}
-
-.advisor-title {
-    color: var(--primary-color);
-    font-weight: 600;
-    margin-bottom: 0.25rem;
-}
-
-.advisor-company {
-    color: var(--text-muted);
-    font-size: 0.9rem;
-}
-
-/* Company Values */
-.company-values-section {
-    padding: 80px 0;
-    background: var(--bg-secondary);
-}
-
-.values-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
-}
-
-.value-card {
-    text-align: center;
-    padding: 2rem;
-}
-
-.value-icon {
-    width: 80px;
-    height: 80px;
-    margin: 0 auto 1.5rem;
-    background: linear-gradient(135deg, rgba(6, 102, 204, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2rem;
-    color: var(--primary-color);
-}
-
-.value-card h3 {
-    color: var(--text-primary);
-    margin-bottom: 1rem;
-}
-
-.value-card p {
-    color: var(--text-secondary);
-    line-height: 1.6;
-}
-
-/* Executive Cards */
-.executive-card-compact {
-    background: var(--bg-card);
-    border-radius: 15px;
-    padding: 2rem;
-    text-align: center;
-    transition: all 0.3s ease;
-    height: 100%;
-}
-
-.executive-card-compact:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-}
-
-.executive-image-compact {
-    width: 150px;
-    height: 150px;
-    margin: 0 auto 1.5rem;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 3px solid rgba(255, 215, 0, 0.3);
-}
-
-.executive-image-compact img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.executive-placeholder {
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, #2a2a4a, #1a1a3a);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 3rem;
-    color: rgba(255, 255, 255, 0.3);
-}
-
-.executive-links {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-top: 1rem;
-}
-
-.executive-links a {
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--text-primary);
-    transition: all 0.3s ease;
-}
-
-.executive-links a:hover {
-    background: var(--primary-color);
-    transform: translateY(-3px);
-}
-
-.header-actions {
-    position: relative;
-    z-index: 1;
-    margin-top: 2rem;
-}
-
-.bg-darker {
-    background-color: var(--bg-darker);
-}
-
-@media (max-width: 768px) {
-    .hero-title {
-        font-size: 2rem;
-    }
-    
-    .leader-card.featured {
-        grid-column: span 1;
-        grid-template-columns: 1fr;
-    }
-    
-    .leadership-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .executive-image-compact {
-        width: 120px;
-        height: 120px;
-    }
-}
-</style>
+<!-- ── CORE VALUES ─────────────────────────────────────────────────── -->
+<section class="py-20 border-t border-white/5">
+  <div class="max-w-screen-xl mx-auto px-6">
+    <div class="flex items-center gap-4 mb-12">
+      <div class="h-px flex-1 bg-gradient-to-r from-transparent to-white/10"></div>
+      <h2 class="text-lg font-black text-white uppercase tracking-[0.3em]">Our Core Values</h2>
+      <div class="h-px flex-1 bg-gradient-to-l from-transparent to-white/10"></div>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {% set values = [
+        {"icon": "shield",    "name": "Integrity",   "color": "cyan",   "desc": "Maintaining the highest ethical standards in all business operations and client relationships."},
+        {"icon": "zap",       "name": "Innovation",  "color": "blue",   "desc": "Continuously advancing technology and solutions to stay ahead of evolving threats."},
+        {"icon": "star",      "name": "Excellence",  "color": "yellow", "desc": "Delivering exceptional quality in every service, interaction, and client outcome."},
+        {"icon": "handshake", "name": "Trust",       "color": "green",  "desc": "Building lasting relationships through transparency, reliability, and accountability."},
+      ] %}
+      {% for v in values %}
+      <div class="group bg-[#0a0f1e] border border-white/8 rounded-3xl p-6 hover:border-{{ v.color }}-500/40 transition-all flex flex-col gap-4">
+        <div class="w-12 h-12 rounded-2xl bg-{{ v.color }}-500/10 border border-{{ v.color }}-500/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+          <i data-lucide="{{ v.icon }}" class="h-5 w-5 text-{{ v.color }}-400"></i>
+        </div>
+        <div>
+          <h3 class="text-white font-black text-base">{{ v.name }}</h3>
+          <p class="text-slate-400 text-sm mt-2 leading-relaxed">{{ v.desc }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
 {% endblock %}

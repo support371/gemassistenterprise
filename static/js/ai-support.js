@@ -37,14 +37,14 @@ class GEMAISupport {
                 "Your security is paramount to us. We maintain the highest industry standards with encrypted communications, secure data handling, federal compliance, and 24/7 monitoring by certified cybersecurity experts."
             ],
             contact: [
-                "You can reach us at (860) 305-4376 for immediate assistance, email legal@gemcybersecurityassist.com for legal inquiries, or support@gemcybersecurityassist.com for technical support. Would you like me to schedule a direct consultation?",
-                "Our main contact number is (860) 305-4376. For specific inquiries: Legal matters - legal@gemcybersecurityassist.com, Technical support - support@gemcybersecurityassist.com. We also offer WhatsApp support upon request.",
-                "To speak directly with our team, call (860) 305-4376. For written communication: legal@gemcybersecurityassist.com for legal/compliance matters, support@gemcybersecurityassist.com for technical questions. I can also connect you with a live agent right now if needed."
+                "You can reach us at (401) 702-2460 for immediate assistance, email legal@gemcybersecurityassist.com for legal inquiries, or support@gemcybersecurityassist.com for technical support. Would you like me to schedule a direct consultation?",
+                "Our main contact number is (401) 702-2460. For specific inquiries: Legal matters - legal@gemcybersecurityassist.com, Technical support - support@gemcybersecurityassist.com. We also offer WhatsApp support upon request.",
+                "To speak directly with our team, call (401) 702-2460. For written communication: legal@gemcybersecurityassist.com for legal/compliance matters, support@gemcybersecurityassist.com for technical questions. I can also connect you with a live agent right now if needed."
             ],
             emergency: [
-                "For cybersecurity emergencies, immediately call our 24/7 hotline at (860) 305-4376. Our incident response team provides <2 hour response times for critical threats. I'm also alerting our emergency response team now.",
-                "This sounds urgent! Please call (860) 305-4376 immediately for emergency support. Our federal response protocol provides rapid assistance within 2 hours. I'm escalating this to our emergency team as we speak.",
-                "Emergency support is available 24/7 at (860) 305-4376. For immediate cyber threats, our response time is under 2 hours with federal coordination. I'm connecting you to emergency support now."
+                "For cybersecurity emergencies, immediately call our 24/7 hotline at (401) 702-2460. Our incident response team provides <2 hour response times for critical threats. I'm also alerting our emergency response team now.",
+                "This sounds urgent! Please call (401) 702-2460 immediately for emergency support. Our federal response protocol provides rapid assistance within 2 hours. I'm escalating this to our emergency team as we speak.",
+                "Emergency support is available 24/7 at (401) 702-2460. For immediate cyber threats, our response time is under 2 hours with federal coordination. I'm connecting you to emergency support now."
             ],
             recovery: [
                 "Our asset recovery services have a 98% success rate with over $50M in recovered assets. We handle cryptocurrency theft, identity theft, fraud cases, and digital asset recovery with full legal support and forensic analysis.",

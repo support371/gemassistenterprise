@@ -1,0 +1,29 @@
+{# VideoFlow card partial — called inside the for loops in partners_videoflow.html
+   Variables available: card (dict with id, type, name, segment, role, icon, link, cta, badge, status)
+#}
+<div class="vf-card vf-card--{{ card.type }}" role="listitem">
+
+  {% if card.get('status') %}
+    <span class="vf-status-pill">{{ card.status | upper }}</span>
+  {% endif %}
+
+  <div class="vf-card-badge vf-badge--{{ card.type }}">{{ card.badge }}</div>
+
+  <div class="vf-icon-wrap vf-icon--{{ card.type }}" aria-hidden="true">
+    <i class="{{ card.icon }}"></i>
+  </div>
+
+  <div class="vf-card-body">
+    <h3 class="vf-card-name">{{ card.name }}</h3>
+    <p class="vf-card-segment">{{ card.segment }}</p>
+    <p class="vf-card-role">{{ card.role }}</p>
+  </div>
+
+  {% if card.get('cta') and card.get('link') %}
+    <a href="{{ card.link }}" class="vf-cta vf-cta--{{ card.type }}" aria-label="{{ card.cta }}: {{ card.name }}">
+      {{ card.cta }}
+      <i class="fa-solid fa-arrow-right-long vf-cta-arrow" aria-hidden="true"></i>
+    </a>
+  {% endif %}
+
+</div>

@@ -30,7 +30,7 @@ export default function Footer(_: FooterProps) {
             Hartford, CT 06103
           </address>
           <p className="text-sm mb-2">
-            <a href="tel:+18603054376" className="text-[#D1D5DB] hover:text-[#00B2FF] transition-colors">
+            <a href="tel:+14017022460" className="text-[#D1D5DB] hover:text-[#00B2FF] transition-colors">
               (860) 305‑4376
             </a>
           </p>

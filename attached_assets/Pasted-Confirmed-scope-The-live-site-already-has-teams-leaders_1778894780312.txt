@@ -1,0 +1,627 @@
+Confirmed scope
+
+The live site already has /teams, /leadership, /vip-board-members, and /partners-and-trustees as the main company/team surfaces. The /teams page contains Cybersecurity, Real Estate, Technology & Automation, and a Notion dashboard area currently stuck at “Loading team dashboard…”  ￼ The /leadership page is still placeholder-driven and explicitly expects a Notion database with Name, Position, Bio, Email, LinkedIn, and Photo fields.  ￼ The VIP board page already contains executive cards for CEO, CFO, COO/Executive Manager, and Legal Counsel.  ￼
+
+The Notion side has two dashboard databases: GEM + ATR Master Dashboard (1) and Who are we!! (1). Both are available as Notion databases, while Professional Bios is the structured bio database with fields such as Name, Role, Company, Bio Draft, Bio Status, Certifications, Specialization, Years of Experience, Email Address, and Last Updated.  ￼
+
+The uploaded implementation pack defines the Company Profile Gallery, Executive Leadership, Cybersecurity + Compliance, Agents + Operations, CEO Executive Command Center, and License & Verification Registry.  ￼
+
+Agent Instruction: Build GEM + ATR Full Company Gallery System
+
+Mission
+
+Build a unified GEM + ATR Company Gallery and Dashboard System that connects the public website, Notion dashboards, Professional Bios database, and uploaded implementation files into one operational identity layer.
+
+The agent must extract, normalize, and render all company profiles, leadership records, board roles, support functions, VIP functions, agent records, cybersecurity professionals, and platform-service cards across the site.
+
+The result must feel like a real enterprise command layer, not a static team page.
+
+⸻
+
+Primary source hierarchy
+
+Use this data priority order:
+
+1. Professional Bios Notion database
+    Use as the structured source for individual bios, credentials, roles, bio status, specialization, and experience.
+2. Uploaded implementation pack and workbook
+    Use for the full profile taxonomy, dashboard build plan, image briefs, license registry, gallery views, and platform gallery.
+3. Live website routes
+    Use as current frontend placement targets and fallback content.
+4. Static placeholders
+    Replace placeholders with real profile records or mark them as Pending, Draft, or Evidence Required.
+
+⸻
+
+1. Required platform pages
+
+A. /teams
+
+Purpose: operational team gallery.
+
+Must include:
+
+* Cybersecurity Division
+* Real Estate Division
+* Technology & Automation
+* Live Team Management Dashboard
+* Notion sync status
+* Profile card grid
+* Filter by division
+* Search by role, name, credential, or specialization
+
+Current /teams source roles:
+
+Division	Profiles / Roles
+Cybersecurity	Senior Security Analyst, Compliance Manager, Forensics Investigator
+Real Estate	Investment Advisor, Property Manager, Market Analyst
+Technology & Automation	Automation Engineer, Integration Architect
+
+Fix the existing Notion dashboard embed issue where the page remains stuck at “Loading team dashboard…”.
+
+⸻
+
+B. /leadership
+
+Purpose: executive leadership, board, and advisory governance.
+
+Replace all placeholder blocks:
+
+* [CFO Name]
+* [COO Name]
+* [Board Member Name]
+* [Advisor Name]
+* “Add Photo”
+* “Add CFO Photo”
+* “Add COO Photo”
+
+Use actual records from Notion and the implementation files.
+
+Target sections:
+
+Executive Leadership
+Board of Directors
+Advisory Board
+Governance / Core Values
+License & Verification Status
+
+⸻
+
+C. /vip-board-members
+
+Purpose: executive/VIP board gallery.
+
+Current VIP board cards must be upgraded into the same reusable profile-card system:
+
+Existing Card	Target Profile Type
+Executive CEO	Executive
+Executive CFO	Executive / Finance
+Executive Manager	Operations / COO
+Executive Legal Counsel	Legal / Compliance
+
+Add badge logic:
+
+Active
+Verified
+Pending Evidence
+Restricted
+CEO Approved
+In Review
+
+⸻
+
+D. /partners-and-trustees
+
+Purpose: partners, trustees, real estate alliance, and external functions.
+
+Must include:
+
+* Alliance Trust Realty LLC
+* Legal Trustee Services
+* Financial Trust Management
+* Real Estate Trust Services
+* Asset Protection Trusts
+* Partner intake CTA
+* Verification/evidence status
+
+Use business or office-level contact data only. Do not publish residential addresses.
+
+⸻
+
+2. Required Notion dashboard pages
+
+Create or complete these pages inside GEM + ATR Master Dashboard (1):
+
+Priority	Page	Purpose
+P0	CEO Executive Command Center	CEO approvals, evidence queue, strategic command center
+P0	Company Profile Gallery	Full company/team/agent/function profile gallery
+P0	License & Verification Registry	Credential, license, evidence, and approval tracking
+P1	GEM Agent OS	Agent operating board for Ck and future agents
+P1	Support & Escalation Desk	Client intake, routing, escalation, and response workflows
+P1	VIP Relationship Board	Restricted VIP and stakeholder relationship board
+P1	Financial Support Operations	Affiliate finance-support workflow and evidence visibility
+P2	Platform Product Gallery	GEM cybersecurity, ATR, support, VIP, and AI-service gallery
+
+Create or complete these pages inside Who are we!! (1):
+
+Priority	Page	Purpose
+P0	Who We Are	Public company identity and positioning
+P0	Leadership	Public-facing leadership profile collection
+P1	Trust, License & Verification	Public trust and verification overview
+P1	Agent Network	Public/internal agent gallery
+P1	Contact & Support	Support, sales, and escalation access layer
+
+⸻
+
+3. Full company profile taxonomy
+
+Build these profiles as the initial canonical gallery.
+
+Executive Leadership
+
+Leonard Diana
+
+Name: Leonard Diana
+Title: CEO / Founder
+Company: GEM Cybersecurity-Monitoring Assist + ATR
+Role Category: Executive Leadership
+Verification: Verified Executive
+License Status: Review Active / Evidence Required
+CEO Approval: Approved
+Card Badge: CEO / Founder · Verified Executive · GEM + ATR
+Image: CEO executive portrait required
+Placement:
+- Company Profile Gallery
+- CEO Executive Command Center
+- Leadership
+- VIP / CEO Visibility
+
+Gregor Stewart
+
+Name: Gregor Stewart
+Title: Owner / Principal Consultant / Broker & Managing Partner
+Company: GEM + Alliance Trust Realty
+Role Category: Executive / Realty / Security Governance
+Credentials: CISM
+Verification: In Review
+License Status: Evidence Required
+CEO Approval: Pending
+Card Badge: Principal Consultant · CISM · Realty Governance
+Image: Executive realty/security portrait required
+Placement:
+- Company Profile Gallery
+- Leadership
+- Partners & Trustees
+- License & Verification Registry
+
+⸻
+
+Cybersecurity + Compliance
+
+Sarah Johnson
+
+Title: Chief Information Security Officer
+Company: Global Financial Partners
+Credentials: CISSP · CISM
+Experience: 15 Years
+Specialization: Cybersecurity · Financial Services
+Verification: Verified Bio
+License Status: Credential Evidence Required
+CEO Approval: Pending GEM + ATR Assignment Approval
+Placement:
+- Company Profile Gallery
+- Cybersecurity Team
+- Professional Bios
+- License & Verification Registry
+
+Michael Chen
+
+Title: Security Compliance Manager
+Company: Secure Banking Solutions
+Credentials: CISSP · CFA
+Experience: 8 Years
+Specialization: Cybersecurity · Financial Services · Risk Management
+Verification: Verified Bio
+License Status: Credential Evidence Required
+CEO Approval: Pending GEM + ATR Assignment Approval
+Placement:
+- Company Profile Gallery
+- Cybersecurity Team
+- Compliance View
+- Professional Bios
+
+Aisha Patel
+
+Title: Threat Intelligence Analyst
+Company: FinSecure Technologies
+Credentials: CISSP · CISM
+Experience: 6 Years
+Specialization: Cybersecurity · Financial Services · Data Analytics
+Verification: Verified Bio
+License Status: Credential Evidence Required
+CEO Approval: Pending GEM + ATR Assignment Approval
+Placement:
+- Company Profile Gallery
+- Cybersecurity Team
+- Threat Intelligence View
+- Professional Bios
+
+⸻
+
+Agents + Operations
+
+Ck
+
+Title: Sale Manager / Agent
+Company: GEM + ATR
+Verification: Modified Profile
+License Status: Pending Review
+CEO Approval: Pending
+Image: Sales agent portrait required
+Placement:
+- Agent Network
+- GEM Agent OS
+- Company Profile Gallery
+- License & Verification Registry
+Required next actions:
+- Confirm legal name
+- Upload headshot
+- Confirm role scope
+- Confirm license requirement
+
+Financial Team Supports
+
+Title: Affiliate Financial Support Function
+Company: GEM + ATR
+Verification: Verified Function
+License Status: Evidence Required
+CEO Approval: Pending
+Image: Secure finance operations visual
+Placement:
+- Financial Support Operations
+- VIP / CEO Visibility
+- Company Profile Gallery
+- License & Verification Registry
+Required next actions:
+- Attach affiliate proof
+- Define service scope
+- Define financial-support boundaries
+
+Support Operations Desk
+
+Title: Client Support & Escalation Desk
+Company: GEM + ATR
+Verification: Verified Function
+License Status: Not Required / Conditional
+CEO Approval: Approved
+Image: Support command-center visual
+Placement:
+- Support & Escalation Desk
+- Contact & Support
+- Company Profile Gallery
+Required next actions:
+- Attach SOP
+- Add escalation matrix
+- Add support-routing rules
+
+VIP Board Desk
+
+Title: VIP Client Relationship Management
+Company: GEM + ATR
+Verification: Verified Function
+License Status: Conditional
+CEO Approval: Approved
+Visibility: Restricted
+Image: Premium executive concierge visual
+Placement:
+- VIP Relationship Board
+- VIP / CEO Visibility
+- Company Profile Gallery
+Required next actions:
+- Define restricted access policy
+- Assign internal owners
+- Add VIP handling workflow
+
+AI Agent Overseer
+
+Title: Automation Governance Agent
+Company: GEM Platform
+Verification: Pending Approval
+License Status: Not Required
+CEO Approval: Pending
+Image: AI automation visual
+Placement:
+- AI Agent / Workflow Automation
+- Platform Product Gallery
+- Support & Escalation Desk
+- Company Profile Gallery
+Required next actions:
+- Approve automation rules
+- Add audit workflow
+- Add governance boundaries
+
+⸻
+
+4. Reusable frontend component
+
+Build one centralized ProfileCard component.
+
+type ProfileCard = {
+  id: string;
+  name: string;
+  displayTitle: string;
+  professionalTitle: string;
+  company: string;
+  division: string;
+  roleCategory: string;
+  profileType:
+    | "executive"
+    | "board"
+    | "advisor"
+    | "cybersecurity"
+    | "compliance"
+    | "real_estate"
+    | "agent"
+    | "support"
+    | "finance"
+    | "vip"
+    | "ai_agent"
+    | "partner"
+    | "function";
+  credentials?: string[];
+  yearsExperience?: number;
+  specialization?: string[];
+  verificationStatus: string;
+  licenseStatus: string;
+  bioStatus: string;
+  ceoApproval: string;
+  publicBio: string;
+  photoUrl?: string;
+  fallbackInitials: string;
+  cardBadge: string;
+  contactEmail?: string;
+  contactPhone?: string;
+  linkedinUrl?: string;
+  notionUrl?: string;
+  sourceUrl?: string;
+  visibility: "public" | "internal" | "restricted";
+  riskLevel?: "low" | "medium" | "high";
+  nextAction?: string;
+  sortOrder: number;
+};
+
+⸻
+
+5. Profile card UI requirements
+
+Each card must render:
+
+Profile image or fallback initials
+Name / function name
+Professional title
+Company / division
+Role category
+Credential chips
+Verification badge
+License status badge
+CEO approval badge
+Bio summary
+Specialization tags
+Contact button
+View profile button
+Notion source link for admin users
+Next action for internal users
+
+Public cards must never expose residential addresses. Use only verified business contact fields, service region, office location, or professional contact channels.
+
+⸻
+
+6. Gallery views to build
+
+Executive Board View
+
+Members:
+- Leonard Diana
+- Gregor Stewart
+- Sarah Johnson
+- Michael Chen
+Sort:
+1. CEO
+2. Executive / Realty / Security Governance
+3. Cybersecurity Leadership
+4. Compliance / Risk
+Badges:
+CEO, CISO, Compliance, CISM
+
+Cybersecurity Team View
+
+Members:
+- Sarah Johnson
+- Michael Chen
+- Aisha Patel
+- AI Agent Overseer
+Sort:
+1. Leadership
+2. Compliance
+3. Intelligence
+4. Automation
+Badges:
+CISSP, CISM, CFA, AI Agent
+
+Agent Network View
+
+Members:
+- Ck
+- Support Operations Desk
+- Financial Team Supports
+Sort:
+1. Agent
+2. Support
+3. Finance
+Badges:
+Agent, Support, Finance
+
+VIP / CEO Visibility View
+
+Members:
+- Leonard Diana
+- VIP Board Desk
+- Financial Team Supports
+- Support Operations Desk
+Sort:
+1. CEO
+2. VIP
+3. Finance
+4. Support
+Badges:
+CEO, VIP, Restricted, Approved
+
+⸻
+
+7. License & verification registry
+
+Build a registry table with these columns:
+
+Profile / Function
+Type
+Verification
+License Status
+Evidence Needed
+CEO Approval
+Risk Level
+Next Control Action
+
+Initial high-risk items:
+
+Gregor Stewart — Evidence Required — Attach CISM proof and realty/license evidence
+Ck — Pending Review — Confirm legal name, headshot, agent terms, license requirement
+Financial Team Supports — Evidence Required — Attach affiliate proof and define service scope
+
+Medium-risk items:
+
+Leonard Diana — Review Active / Evidence Required — Attach ID/profile evidence and business authority records
+Sarah Johnson — Credential Evidence Required — Confirm assignment role and credential proof
+Michael Chen — Credential Evidence Required — Confirm assignment role and credential proof
+Aisha Patel — Credential Evidence Required — Confirm assignment role and credential proof
+VIP Board Desk — Conditional — Define restricted access policy
+AI Agent Overseer — Pending Approval — Approve governance rules
+
+Low-risk item:
+
+Support Operations Desk — Approved — Attach SOP and escalation matrix
+
+⸻
+
+8. Image and asset instructions
+
+Create image slots for every profile and function.
+
+Required ratio: 1:1 square for human profiles
+Optional cover ratio: 16:9 for function/service visuals
+Fallback: initials or branded function icon
+Storage path: /public/images/team/
+
+Suggested filenames:
+
+leonard-diana-ceo.jpg
+gregor-stewart-principal-consultant.jpg
+sarah-johnson-ciso.jpg
+michael-chen-compliance-manager.jpg
+aisha-patel-threat-intelligence.jpg
+ck-sales-agent.jpg
+financial-team-supports.jpg
+support-operations-desk.jpg
+vip-board-desk.jpg
+ai-agent-overseer.jpg
+
+⸻
+
+9. Platform product gallery
+
+Build these service/product cards:
+
+Service / Product	Division	Status	Verification	Owner
+GEM Security Operations Dashboard	GEM Cybersecurity	Active	Approved	Cyber Ops
+Compliance Vault	GEM Cybersecurity	Active	Approved	Compliance
+Vulnerability Scan Package	GEM Cybersecurity	Active	Approved	Cyber Ops
+Financial Shield	GEM Financial Support	Review	Evidence Required	Financial Support
+ATR Property Trust	ATR Realty	Review	Evidence Required	ATR
+VIP Client Desk	GEM + ATR	Active	Approved	CEO Office
+AI Agent Overseer	GEM Platform	Draft	Pending Approval	Platform Ops
+License Evidence Registry	GEM + ATR	Active	Approved	CEO Office
+
+⸻
+
+10. Agent execution sequence
+
+Phase 1 — Inventory and normalization
+
+1. Read Professional Bios database schema.
+2. Read GEM + ATR Master Dashboard.
+3. Read Who are we!! dashboard.
+4. Parse uploaded implementation pack and workbook.
+5. Normalize all profiles into one canonical ProfileCard model.
+6. Flag missing fields, missing photos, license gaps, and placeholder content.
+
+Phase 2 — Notion deployment
+
+1. Create CEO Executive Command Center.
+2. Create Company Profile Gallery.
+3. Create License & Verification Registry.
+4. Create GEM Agent OS.
+5. Create Support & Escalation Desk.
+6. Create VIP Relationship Board.
+7. Create Financial Support Operations.
+8. Create Platform Product Gallery.
+9. Create Who We Are.
+10. Create Leadership.
+11. Create Trust, License & Verification.
+12. Create Agent Network.
+13. Create Contact & Support.
+
+Phase 3 — Frontend integration
+
+1. Build reusable ProfileCard component.
+2. Replace /teams static blocks with dynamic profile cards.
+3. Replace /leadership placeholders with Notion-powered leadership records.
+4. Upgrade /vip-board-members to use the same ProfileCard component.
+5. Add /partners-and-trustees partner/trust profile cards.
+6. Add filters by division, role, verification status, license status, and visibility.
+7. Fix the Notion dashboard embed/loading state.
+
+Phase 4 — Admin controls
+
+1. Add profile create/edit workflow.
+2. Add image upload.
+3. Add CEO approval toggle.
+4. Add verification status control.
+5. Add license/evidence status control.
+6. Add restricted visibility control.
+7. Add Notion sync button.
+8. Add stale-data warning when Notion sync fails.
+
+⸻
+
+11. Acceptance criteria
+
+The build is complete only when:
+
+All 10 canonical GEM + ATR profiles are represented.
+All current /teams role cards are mapped or replaced.
+All /leadership placeholders are removed.
+VIP board cards use the same profile-card system.
+Company Profile Gallery exists in Notion.
+CEO Executive Command Center exists in Notion.
+License & Verification Registry exists in Notion.
+Professional Bios data can render on the website.
+The /teams Notion dashboard no longer stalls at Loading team dashboard.
+Every card has image, fallback initials, badge, bio, role, status, and CTA.
+Restricted cards do not expose sensitive details publicly.
+Public cards expose only professional contact information.
+Admin users can see source URL, next action, evidence status, and sync state.
+
+⸻
+
+Final directive for the implementation agent
+
+Build this as a single enterprise identity and trust-management layer across GEM + ATR. The website should render the public-facing company gallery, while Notion remains the operational source for bios, approvals, evidence, status, and restricted governance. The priority is to remove placeholder content, fix the dashboard embed, normalize all profiles, and make every person/function card visually complete, operationally traceable, and ready for CEO review.
