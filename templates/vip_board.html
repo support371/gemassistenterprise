@@ -1,563 +1,167 @@
 {% extends "base.html" %}
+{% from "partials/profile_card.html" import profile_card %}
 
-{% block title %}Executive Board - Gem Assist Enterprise{% endblock %}
+{% block title %}Executive Board - GEM Assist Enterprise{% endblock %}
 
 {% block content %}
-<section class="vip-header">
-    <div class="container">
-        <div class="row">
-            <div class="col-12 text-center">
-                <div class="vip-badge">
-                    <i class="fas fa-crown"></i>
-                </div>
-                <h1 class="display-3 fw-bold mb-3">Executive Board</h1>
-                <p class="lead text-gold">The Strategic Leadership of GEM Enterprise</p>
-                <div class="divider-gold mx-auto"></div>
-            </div>
-        </div>
+<!-- Hero -->
+<section class="relative min-h-[44vh] pt-40 pb-20 overflow-hidden">
+  <div class="absolute inset-0 -z-10 bg-gradient-to-b from-yellow-400/5 via-transparent to-transparent"></div>
+  <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-yellow-400/5 rounded-full blur-[120px] -z-10"></div>
+  <div class="max-w-screen-xl mx-auto px-6 text-center">
+    <div class="inline-flex items-center justify-center w-16 h-16 rounded-3xl bg-yellow-400/10 border border-yellow-400/30 mb-6 mx-auto">
+      <i data-lucide="crown" class="h-8 w-8 text-yellow-400"></i>
     </div>
+    <p class="text-[10px] font-black uppercase text-yellow-400 tracking-[0.35em] mb-4">STRATEGIC LEADERSHIP</p>
+    <h1 class="text-5xl lg:text-7xl font-black text-white mb-6 leading-[0.9] tracking-tighter">
+      Executive <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-amber-300">Board</span>
+    </h1>
+    <p class="text-lg text-slate-400 max-w-2xl mx-auto">The strategic leadership and governance authority of GEM Enterprise and Alliance Trust Realty.</p>
+    <div class="flex flex-wrap justify-center gap-3 mt-8">
+      <span class="inline-flex items-center gap-2 text-xs font-bold px-4 py-2 rounded-full bg-yellow-400/10 border border-yellow-400/30 text-yellow-400">
+        <span class="w-2 h-2 rounded-full bg-yellow-400 animate-pulse"></span> CEO Oversight Active
+      </span>
+      <span class="inline-flex items-center gap-2 text-xs font-bold px-4 py-2 rounded-full bg-green-500/10 border border-green-500/30 text-green-400">
+        <i data-lucide="shield-check" class="h-3.5 w-3.5"></i> Verification In Progress
+      </span>
+    </div>
+  </div>
 </section>
 
-<section class="vip-members py-5">
-    <div class="container">
-        <div class="row g-5">
-            <!-- CEO Profile -->
-            <div class="col-lg-6">
-                <div class="executive-card ceo-card">
-                    <div class="executive-badge">Chief Executive Officer</div>
-                    <div class="executive-content">
-                        <div class="executive-image-wrapper">
-                            <div class="executive-image">
-                                {% if executives.CEO and executives.CEO.headshot_url %}
-                                <img src="{{ executives.CEO.headshot_url }}" alt="{{ executives.CEO.name }}" class="executive-photo">
-                                {% else %}
-                                <div class="placeholder-executive">
-                                    <i class="fas fa-user-tie"></i>
-                                </div>
-                                {% endif %}
-                            </div>
-                            <div class="executive-status">
-                                <span class="status-indicator active"></span>
-                                Active
-                            </div>
-                        </div>
-                        <div class="executive-info">
-                            <h2 class="executive-name">{{ executives.CEO.name if executives.CEO else 'Executive CEO' }}</h2>
-                            <p class="executive-title text-gold">{{ executives.CEO.title if executives.CEO else 'Chief Executive Officer' }}</p>
-                            <div class="executive-bio">
-                                <p>{{ executives.CEO.bio if executives.CEO else 'Leading GEM Enterprise with over 20 years of experience in cybersecurity and strategic business development. Pioneering innovative security solutions and driving company growth through strategic partnerships and technological advancement.' }}</p>
-                                <div class="executive-specialties">
-                                    {% if executives.CEO and executives.CEO.specialties %}
-                                        {% for specialty in executives.CEO.specialties.split(',') %}
-                                        <span class="specialty-tag">{{ specialty.strip() }}</span>
-                                        {% endfor %}
-                                    {% else %}
-                                    <span class="specialty-tag">Strategic Leadership</span>
-                                    <span class="specialty-tag">Cybersecurity</span>
-                                    <span class="specialty-tag">Business Development</span>
-                                    <span class="specialty-tag">Innovation</span>
-                                    {% endif %}
-                                </div>
-                            </div>
-                            <div class="executive-contact">
-                                {% if executives.CEO and executives.CEO.email %}
-                                <a href="mailto:{{ executives.CEO.email }}" class="btn btn-gold btn-sm">
-                                    <i class="fas fa-envelope me-2"></i>Contact CEO
-                                </a>
-                                {% else %}
-                                <a href="#" class="btn btn-gold btn-sm">
-                                    <i class="fas fa-envelope me-2"></i>Contact CEO
-                                </a>
-                                {% endif %}
-                                {% if executives.CEO and executives.CEO.alignable_url %}
-                                <a href="{{ executives.CEO.alignable_url }}" target="_blank" class="btn btn-outline-light btn-sm">
-                                    <i class="fas fa-link me-2"></i>Alignable
-                                </a>
-                                {% else %}
-                                <a href="#" class="btn btn-outline-light btn-sm">
-                                    <i class="fas fa-link me-2"></i>Alignable
-                                </a>
-                                {% endif %}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- CFO Profile -->
-            <div class="col-lg-6">
-                <div class="executive-card cfo-card">
-                    <div class="executive-badge">Chief Financial Officer</div>
-                    <div class="executive-content">
-                        <div class="executive-image-wrapper">
-                            <div class="executive-image">
-                                {% if executives.CFO and executives.CFO.headshot_url %}
-                                <img src="{{ executives.CFO.headshot_url }}" alt="{{ executives.CFO.name }}" class="executive-photo">
-                                {% else %}
-                                <div class="placeholder-executive">
-                                    <i class="fas fa-user-tie"></i>
-                                </div>
-                                {% endif %}
-                            </div>
-                            <div class="executive-status">
-                                <span class="status-indicator active"></span>
-                                Active
-                            </div>
-                        </div>
-                        <div class="executive-info">
-                            <h2 class="executive-name">{{ executives.CFO.name if executives.CFO else 'Executive CFO' }}</h2>
-                            <p class="executive-title text-gold">{{ executives.CFO.title if executives.CFO else 'Chief Financial Officer' }}</p>
-                            <div class="executive-bio">
-                                <p>{{ executives.CFO.bio if executives.CFO else 'Overseeing financial operations with expertise in investment portfolio management and strategic financial planning. Ensuring fiscal responsibility while driving profitable growth across all business divisions.' }}</p>
-                                <div class="executive-specialties">
-                                    {% if executives.CFO and executives.CFO.specialties %}
-                                        {% for specialty in executives.CFO.specialties.split(',') %}
-                                        <span class="specialty-tag">{{ specialty.strip() }}</span>
-                                        {% endfor %}
-                                    {% else %}
-                                    <span class="specialty-tag">Financial Strategy</span>
-                                    <span class="specialty-tag">Investment Management</span>
-                                    <span class="specialty-tag">Risk Assessment</span>
-                                    <span class="specialty-tag">M&A</span>
-                                    {% endif %}
-                                </div>
-                            </div>
-                            <div class="executive-contact">
-                                {% if executives.CFO and executives.CFO.email %}
-                                <a href="mailto:{{ executives.CFO.email }}" class="btn btn-gold btn-sm">
-                                    <i class="fas fa-envelope me-2"></i>Contact CFO
-                                </a>
-                                {% else %}
-                                <a href="#" class="btn btn-gold btn-sm">
-                                    <i class="fas fa-envelope me-2"></i>Contact CFO
-                                </a>
-                                {% endif %}
-                                {% if executives.CFO and executives.CFO.alignable_url %}
-                                <a href="{{ executives.CFO.alignable_url }}" target="_blank" class="btn btn-outline-light btn-sm">
-                                    <i class="fas fa-link me-2"></i>Alignable
-                                </a>
-                                {% else %}
-                                <a href="#" class="btn btn-outline-light btn-sm">
-                                    <i class="fas fa-link me-2"></i>Alignable
-                                </a>
-                                {% endif %}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Operations Manager Profile -->
-            <div class="col-lg-6">
-                <div class="executive-card manager-card">
-                    <div class="executive-badge">Chief Operations Officer</div>
-                    <div class="executive-content">
-                        <div class="executive-image-wrapper">
-                            <div class="executive-image">
-                                {% if executives.COO and executives.COO.headshot_url %}
-                                <img src="{{ executives.COO.headshot_url }}" alt="{{ executives.COO.name }}" class="executive-photo">
-                                {% else %}
-                                <div class="placeholder-executive">
-                                    <i class="fas fa-user-tie"></i>
-                                </div>
-                                {% endif %}
-                            </div>
-                            <div class="executive-status">
-                                <span class="status-indicator active"></span>
-                                Active
-                            </div>
-                        </div>
-                        <div class="executive-info">
-                            <h2 class="executive-name">{{ executives.COO.name if executives.COO else 'Executive Manager' }}</h2>
-                            <p class="executive-title text-gold">{{ executives.COO.title if executives.COO else 'Chief Operations Officer' }}</p>
-                            <div class="executive-bio">
-                                <p>{{ executives.COO.bio if executives.COO else 'Managing day-to-day operations across all business units. Implementing operational excellence initiatives and ensuring seamless service delivery to our global client base.' }}</p>
-                                <div class="executive-specialties">
-                                    {% if executives.COO and executives.COO.specialties %}
-                                        {% for specialty in executives.COO.specialties.split(',') %}
-                                        <span class="specialty-tag">{{ specialty.strip() }}</span>
-                                        {% endfor %}
-                                    {% else %}
-                                    <span class="specialty-tag">Operations Management</span>
-                                    <span class="specialty-tag">Process Optimization</span>
-                                    <span class="specialty-tag">Team Leadership</span>
-                                    <span class="specialty-tag">Quality Assurance</span>
-                                    {% endif %}
-                                </div>
-                            </div>
-                            <div class="executive-contact">
-                                {% if executives.COO and executives.COO.email %}
-                                <a href="mailto:{{ executives.COO.email }}" class="btn btn-gold btn-sm">
-                                    <i class="fas fa-envelope me-2"></i>Contact COO
-                                </a>
-                                {% else %}
-                                <a href="#" class="btn btn-gold btn-sm">
-                                    <i class="fas fa-envelope me-2"></i>Contact COO
-                                </a>
-                                {% endif %}
-                                {% if executives.COO and executives.COO.alignable_url %}
-                                <a href="{{ executives.COO.alignable_url }}" target="_blank" class="btn btn-outline-light btn-sm">
-                                    <i class="fas fa-link me-2"></i>Alignable
-                                </a>
-                                {% else %}
-                                <a href="#" class="btn btn-outline-light btn-sm">
-                                    <i class="fas fa-link me-2"></i>Alignable
-                                </a>
-                                {% endif %}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Legal Compliance Officer Profile -->
-            <div class="col-lg-6">
-                <div class="executive-card legal-card">
-                    <div class="executive-badge">Chief Legal & Compliance Officer</div>
-                    <div class="executive-content">
-                        <div class="executive-image-wrapper">
-                            <div class="executive-image">
-                                {% if executives.LEGAL and executives.LEGAL.headshot_url %}
-                                <img src="{{ executives.LEGAL.headshot_url }}" alt="{{ executives.LEGAL.name }}" class="executive-photo">
-                                {% else %}
-                                <div class="placeholder-executive">
-                                    <i class="fas fa-user-tie"></i>
-                                </div>
-                                {% endif %}
-                            </div>
-                            <div class="executive-status">
-                                <span class="status-indicator active"></span>
-                                Active
-                            </div>
-                        </div>
-                        <div class="executive-info">
-                            <h2 class="executive-name">{{ executives.LEGAL.name if executives.LEGAL else 'Executive Legal Counsel' }}</h2>
-                            <p class="executive-title text-gold">{{ executives.LEGAL.title if executives.LEGAL else 'Chief Legal & Compliance Officer' }}</p>
-                            <div class="executive-bio">
-                                <p>{{ executives.LEGAL.bio if executives.LEGAL else 'Ensuring regulatory compliance and managing legal affairs across all jurisdictions. Specializing in cybersecurity law, real estate regulations, and international business compliance.' }}</p>
-                                <div class="executive-specialties">
-                                    {% if executives.LEGAL and executives.LEGAL.specialties %}
-                                        {% for specialty in executives.LEGAL.specialties.split(',') %}
-                                        <span class="specialty-tag">{{ specialty.strip() }}</span>
-                                        {% endfor %}
-                                    {% else %}
-                                    <span class="specialty-tag">Legal Compliance</span>
-                                    <span class="specialty-tag">Regulatory Affairs</span>
-                                    <span class="specialty-tag">Contract Law</span>
-                                    <span class="specialty-tag">Risk Management</span>
-                                    {% endif %}
-                                </div>
-                            </div>
-                            <div class="executive-contact">
-                                {% if executives.LEGAL and executives.LEGAL.email %}
-                                <a href="mailto:{{ executives.LEGAL.email }}" class="btn btn-gold btn-sm">
-                                    <i class="fas fa-envelope me-2"></i>Contact Legal
-                                </a>
-                                {% else %}
-                                <a href="#" class="btn btn-gold btn-sm">
-                                    <i class="fas fa-envelope me-2"></i>Contact Legal
-                                </a>
-                                {% endif %}
-                                {% if executives.LEGAL and executives.LEGAL.alignable_url %}
-                                <a href="{{ executives.LEGAL.alignable_url }}" target="_blank" class="btn btn-outline-light btn-sm">
-                                    <i class="fas fa-link me-2"></i>Alignable
-                                </a>
-                                {% else %}
-                                <a href="#" class="btn btn-outline-light btn-sm">
-                                    <i class="fas fa-link me-2"></i>Alignable
-                                </a>
-                                {% endif %}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+<!-- ── EXECUTIVE PROFILE CARDS ─────────────────────────────────────── -->
+<section class="py-20 border-t border-white/5">
+  <div class="max-w-screen-xl mx-auto px-6">
+    <div class="flex items-center gap-4 mb-12">
+      <div class="h-px flex-1 bg-gradient-to-r from-transparent to-yellow-400/30"></div>
+      <h2 class="text-lg font-black text-white uppercase tracking-[0.3em]">Executive Gallery</h2>
+      <div class="h-px flex-1 bg-gradient-to-l from-transparent to-yellow-400/30"></div>
     </div>
+    <div class="grid md:grid-cols-2 gap-8">
+      {% for p in vip_profiles %}
+      <!-- Premium executive card -->
+      <div class="group relative bg-gradient-to-b from-[#0d1220] to-[#080c16] border-2 border-yellow-400/20 rounded-[2rem] overflow-hidden hover:border-yellow-400/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-yellow-400/10">
+        <!-- Gold accent bar -->
+        <div class="h-1 w-full bg-gradient-to-r from-transparent via-yellow-400/60 to-transparent"></div>
+        <!-- Badge -->
+        <div class="absolute top-5 right-5 z-10">
+          <span class="text-[10px] font-black uppercase tracking-wider px-3 py-1.5 rounded-full bg-yellow-400 text-[#030712]">
+            {{ p.role_category }}
+          </span>
+        </div>
+        <div class="p-8 flex gap-6">
+          <!-- Avatar -->
+          <div class="flex-shrink-0 flex flex-col items-center gap-3">
+            {% if p.photo_url %}
+            <img src="{{ p.photo_url }}" alt="{{ p.name }}" class="w-24 h-24 rounded-2xl object-cover ring-2 ring-yellow-400/30">
+            {% else %}
+            <div class="w-24 h-24 rounded-2xl bg-gradient-to-br from-yellow-400/20 to-amber-400/10 ring-2 ring-yellow-400/30 flex items-center justify-center">
+              <span class="text-yellow-400 text-2xl font-black">{{ p.initials }}</span>
+            </div>
+            {% endif %}
+            <div class="flex items-center gap-1.5 text-[10px] font-bold text-green-400">
+              <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span> Active
+            </div>
+          </div>
+          <!-- Info -->
+          <div class="flex-1 min-w-0 pr-16">
+            <h2 class="text-2xl font-black text-white tracking-tight">{{ p.name }}</h2>
+            <p class="text-yellow-400 font-bold text-sm mt-1">{{ p.professional_title }}</p>
+            <p class="text-slate-500 text-xs mt-1">{{ p.company }}</p>
+
+            <p class="text-slate-400 text-sm leading-relaxed mt-4">{{ p.public_bio }}</p>
+
+            <div class="flex flex-wrap gap-1.5 mt-4">
+              {% for tag in p.specialization %}
+              <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-yellow-400/10 text-yellow-400 border border-yellow-400/20">{{ tag }}</span>
+              {% endfor %}
+              {% for cred in p.credentials %}
+              <span class="text-[10px] font-black px-2 py-0.5 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/30">{{ cred }}</span>
+              {% endfor %}
+            </div>
+
+            <!-- Status row -->
+            <div class="flex flex-wrap gap-2 mt-4">
+              {% set vs = p.verification_status %}
+              {% if vs in ["Verified Executive", "Verified Bio", "Verified Function"] %}
+              <span class="inline-flex items-center gap-1 text-[10px] font-bold px-2 py-1 rounded-lg border text-green-400 bg-green-500/10 border-green-500/30">
+                <i data-lucide="check-circle" class="h-3 w-3"></i> {{ vs }}
+              </span>
+              {% else %}
+              <span class="inline-flex items-center gap-1 text-[10px] font-bold px-2 py-1 rounded-lg border text-yellow-400 bg-yellow-500/10 border-yellow-500/30">
+                <i data-lucide="clock" class="h-3 w-3"></i> {{ vs }}
+              </span>
+              {% endif %}
+
+              {% if p.ceo_approval == "Approved" %}
+              <span class="inline-flex items-center gap-1 text-[10px] font-bold px-2 py-1 rounded-lg border text-green-400 bg-green-500/10 border-green-500/30">
+                <i data-lucide="badge-check" class="h-3 w-3"></i> CEO Approved
+              </span>
+              {% else %}
+              <span class="inline-flex items-center gap-1 text-[10px] font-bold px-2 py-1 rounded-lg border text-amber-400 bg-amber-500/10 border-amber-500/30">
+                <i data-lucide="clock" class="h-3 w-3"></i> CEO Pending
+              </span>
+              {% endif %}
+            </div>
+
+            <!-- CTA -->
+            <div class="flex gap-3 mt-6">
+              {% if p.contact_email %}
+              <a href="mailto:{{ p.contact_email }}" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-yellow-400 text-[#030712] text-xs font-black uppercase tracking-wider hover:bg-yellow-300 transition-all">
+                <i data-lucide="mail" class="h-3.5 w-3.5"></i> Contact
+              </a>
+              {% else %}
+              <a href="{{ url_for('contact_page') }}" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-yellow-400 text-[#030712] text-xs font-black uppercase tracking-wider hover:bg-yellow-300 transition-all">
+                <i data-lucide="mail" class="h-3.5 w-3.5"></i> Enquire
+              </a>
+              {% endif %}
+              <a href="{{ url_for('leadership') }}" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white/5 border border-white/10 text-white text-xs font-black uppercase tracking-wider hover:bg-white/10 transition-all">
+                <i data-lucide="external-link" class="h-3.5 w-3.5"></i> Full Profile
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
 </section>
 
-<section class="board-statistics py-5">
-    <div class="container">
-        <div class="row text-center">
-            <div class="col-md-3">
-                <div class="stat-card">
-                    <i class="fas fa-globe fa-3x text-gold mb-3"></i>
-                    <h3 class="counter">50+</h3>
-                    <p>Countries Served</p>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="stat-card">
-                    <i class="fas fa-building fa-3x text-gold mb-3"></i>
-                    <h3 class="counter">500+</h3>
-                    <p>Enterprise Clients</p>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="stat-card">
-                    <i class="fas fa-shield-alt fa-3x text-gold mb-3"></i>
-                    <h3 class="counter">1M+</h3>
-                    <p>Threats Prevented</p>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="stat-card">
-                    <i class="fas fa-trophy fa-3x text-gold mb-3"></i>
-                    <h3 class="counter">25+</h3>
-                    <p>Industry Awards</p>
-                </div>
-            </div>
-        </div>
+<!-- ── FUNCTION DESKS ─────────────────────────────────────────────── -->
+<section class="py-20 border-t border-white/5">
+  <div class="max-w-screen-xl mx-auto px-6">
+    <div class="flex items-center gap-4 mb-12">
+      <div class="h-px flex-1 bg-gradient-to-r from-transparent to-white/10"></div>
+      <h2 class="text-lg font-black text-white uppercase tracking-[0.3em]">Operational Functions</h2>
+      <div class="h-px flex-1 bg-gradient-to-l from-transparent to-white/10"></div>
     </div>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {% for p in function_profiles %}
+        {{ profile_card(p) }}
+      {% endfor %}
+    </div>
+  </div>
 </section>
 
-<style>
-.vip-header {
-    background: linear-gradient(135deg, #1a1a2e 0%, #0f0f1e 100%);
-    padding: 6rem 0 4rem;
-    position: relative;
-    overflow: hidden;
-}
-
-.vip-header::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120"><path fill="%23ffd700" fill-opacity="0.1" d="M1200 120L0 16V0h1200v120z"/></svg>');
-    background-size: cover;
-}
-
-.vip-badge {
-    font-size: 4rem;
-    color: #ffd700;
-    margin-bottom: 1rem;
-    animation: float 3s ease-in-out infinite;
-}
-
-@keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-}
-
-.text-gold {
-    color: #ffd700;
-}
-
-.divider-gold {
-    width: 100px;
-    height: 3px;
-    background: linear-gradient(90deg, transparent, #ffd700, transparent);
-    margin-top: 1.5rem;
-}
-
-.executive-card {
-    background: linear-gradient(135deg, var(--bg-card) 0%, rgba(255, 215, 0, 0.05) 100%);
-    border: 2px solid rgba(255, 215, 0, 0.2);
-    border-radius: 20px;
-    padding: 0;
-    position: relative;
-    transition: all 0.5s ease;
-    height: 100%;
-    overflow: hidden;
-}
-
-.executive-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(255, 215, 0, 0.2);
-    border-color: #ffd700;
-}
-
-.executive-badge {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background: linear-gradient(135deg, #ffd700, #ffed4e);
-    color: #000;
-    padding: 8px 20px;
-    border-radius: 30px;
-    font-size: 0.75rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    z-index: 10;
-}
-
-.executive-content {
-    display: flex;
-    padding: 3rem;
-    gap: 2rem;
-}
-
-.executive-image-wrapper {
-    position: relative;
-    flex-shrink: 0;
-}
-
-.executive-image {
-    width: 200px;
-    height: 200px;
-    border-radius: 20px;
-    overflow: hidden;
-    border: 3px solid rgba(255, 215, 0, 0.3);
-    position: relative;
-}
-
-.executive-photo {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.placeholder-executive {
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, #2a2a4a, #1a1a3a);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 5rem;
-    color: rgba(255, 215, 0, 0.5);
-}
-
-.executive-status {
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--bg-card);
-    padding: 5px 15px;
-    border-radius: 20px;
-    border: 2px solid #ffd700;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 0.85rem;
-    font-weight: bold;
-}
-
-.status-indicator {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    display: inline-block;
-}
-
-.status-indicator.active {
-    background: #00ff00;
-    box-shadow: 0 0 10px #00ff00;
-    animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.5; }
-}
-
-.executive-info {
-    flex: 1;
-}
-
-.executive-name {
-    color: var(--text-primary);
-    font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-}
-
-.executive-title {
-    font-size: 1.1rem;
-    margin-bottom: 1.5rem;
-    font-weight: 500;
-}
-
-.executive-bio {
-    margin-bottom: 1.5rem;
-}
-
-.executive-bio p {
-    color: var(--text-secondary);
-    line-height: 1.8;
-    margin-bottom: 1rem;
-}
-
-.executive-specialties {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-top: 1rem;
-}
-
-.specialty-tag {
-    background: rgba(255, 215, 0, 0.1);
-    color: #ffd700;
-    padding: 5px 12px;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    border: 1px solid rgba(255, 215, 0, 0.3);
-}
-
-.executive-contact {
-    display: flex;
-    gap: 1rem;
-    margin-top: 1.5rem;
-}
-
-.btn-gold {
-    background: linear-gradient(135deg, #ffd700, #ffed4e);
-    color: #000;
-    border: none;
-    font-weight: bold;
-    transition: all 0.3s ease;
-}
-
-.btn-gold:hover {
-    background: linear-gradient(135deg, #ffed4e, #ffd700);
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
-}
-
-.board-statistics {
-    background: var(--bg-darker);
-    border-top: 1px solid rgba(255, 215, 0, 0.2);
-}
-
-.stat-card {
-    padding: 2rem;
-    background: var(--bg-card);
-    border-radius: 15px;
-    transition: all 0.3s ease;
-}
-
-.stat-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.2);
-}
-
-.stat-card h3 {
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: #ffd700;
-    margin-bottom: 0.5rem;
-}
-
-@media (max-width: 991px) {
-    .executive-content {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-    
-    .executive-contact {
-        justify-content: center;
-    }
-    
-    .executive-badge {
-        position: static;
-        display: inline-block;
-        margin-bottom: 1rem;
-    }
-}
-</style>
+<!-- ── BOARD STATISTICS ───────────────────────────────────────────── -->
+<section class="py-20 border-t border-white/5">
+  <div class="max-w-screen-xl mx-auto px-6">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {% set stats = [
+        {"icon": "globe",      "value": "50+",  "label": "Countries Served",     "color": "yellow"},
+        {"icon": "building-2", "value": "500+", "label": "Enterprise Clients",   "color": "cyan"},
+        {"icon": "shield",     "value": "1M+",  "label": "Threats Prevented",    "color": "blue"},
+        {"icon": "trophy",     "value": "$50B+","label": "Assets Under Coverage","color": "green"},
+      ] %}
+      {% for s in stats %}
+      <div class="group bg-[#0a0f1e] border border-white/8 rounded-3xl p-6 text-center hover:border-{{ s.color }}-500/40 transition-all">
+        <div class="w-12 h-12 rounded-2xl bg-{{ s.color }}-400/10 border border-{{ s.color }}-400/20 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+          <i data-lucide="{{ s.icon }}" class="h-5 w-5 text-{{ s.color }}-400"></i>
+        </div>
+        <p class="text-3xl font-black text-white">{{ s.value }}</p>
+        <p class="text-slate-400 text-sm mt-1">{{ s.label }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
 {% endblock %}
