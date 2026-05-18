@@ -119,21 +119,30 @@ ServiceType = TestimonialStatus = VIPBoardMember = None
 BoardMember = Membership = User = OAuth = None
 
 if USE_DATABASE:
-    from models import (db, Testimonial, ContactSubmission, NewsletterSubscriber,
-                        ServiceType, TestimonialStatus, VIPBoardMember,
-                        BoardMember, Membership, User, OAuth)
-    db.init_app(app)
-    with app.app_context():
-        try:
-            import replit_auth as replit_auth_module
+    try:
+        from models import (db, Testimonial, ContactSubmission, NewsletterSubscriber,
+                            ServiceType, TestimonialStatus, VIPBoardMember,
+                            BoardMember, Membership, User, OAuth)
+        db.init_app(app)
+        with app.app_context():
             try:
-                app.register_blueprint(replit_auth_module.replit_auth_blueprint(), url_prefix="/auth")
-            except AttributeError:
-                app.register_blueprint(replit_auth_module.make_replit_blueprint(), url_prefix="/auth")
-        except Exception as e:
-            logging.warning(f"Replit auth blueprint not registered: {e}")
-        db.create_all()
-        logging.info("Database tables created")
+                import replit_auth as replit_auth_module
+                try:
+                    app.register_blueprint(replit_auth_module.replit_auth_blueprint(), url_prefix="/auth")
+                except AttributeError:
+                    app.register_blueprint(replit_auth_module.make_replit_blueprint(), url_prefix="/auth")
+            except Exception as e:
+                logging.warning(f"Replit auth blueprint not registered: {e}")
+            try:
+                db.create_all()
+                logging.info("Database tables created")
+            except Exception as e:
+                logging.warning(f"Database table creation failed (running without DB): {e}")
+                USE_DATABASE = False
+    except Exception as e:
+        logging.warning(f"Database initialization failed (running without DB): {e}")
+        USE_DATABASE = False
+        db = None
 
 # Import replit_auth for login decorators
 try:
