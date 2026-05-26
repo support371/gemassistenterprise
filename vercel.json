@@ -10,15 +10,8 @@
       }
     }
   ],
-  "routes": [
-    {
-      "src": "/static/(.*)",
-      "dest": "/static/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/wsgi.py"
-    }
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/wsgi.py" }
   ],
   "headers": [
     {
