@@ -617,13 +617,21 @@ def dashboard():
 @app.route('/bridge/alliance-trust')
 @app.route('/alliance-trust')
 @app.route('/alliance')
+@app.route('/bridge-alliance')
 def bridge_alliance():
     return render_template('bridge_alliance.html')
 
 
 @app.route('/bridge/gem-cybersecurity')
+@app.route('/bridge-gem')
 def bridge_gem():
     return render_template('bridge_gem.html')
+
+
+@app.route('/client')
+@app.route('/client-portal')
+def client_portal():
+    return render_template('client.html')
 
 
 @app.route('/about-us')
