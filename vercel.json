@@ -5,13 +5,20 @@
       "src": "wsgi.py",
       "use": "@vercel/python",
       "config": {
-        "maxLambdaSize": "15mb",
+        "maxLambdaSize": "50mb",
         "runtime": "python3.11"
       }
     }
   ],
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/wsgi.py" }
+  "routes": [
+    {
+      "src": "/static/(.*)",
+      "dest": "/static/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/wsgi.py"
+    }
   ],
   "headers": [
     {
