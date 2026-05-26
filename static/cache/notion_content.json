@@ -1,1 +1,82 @@
-{}
+{
+  "services": [
+    {
+      "title": "Cyber Threat Monitoring",
+      "description": "24/7 real-time monitoring of your digital infrastructure with AI-powered threat detection and instant alerts.",
+      "icon": "shield",
+      "slug": "threat-monitoring"
+    },
+    {
+      "title": "Incident Response",
+      "description": "Rapid containment and recovery from cyber incidents with our expert response team available around the clock.",
+      "icon": "alert-triangle",
+      "slug": "incident-response"
+    },
+    {
+      "title": "Compliance & Governance",
+      "description": "End-to-end compliance management covering GDPR, HIPAA, SOC 2, and industry-specific regulatory frameworks.",
+      "icon": "check-circle",
+      "slug": "compliance"
+    },
+    {
+      "title": "Asset Recovery",
+      "description": "Digital asset tracing and recovery services for compromised accounts, stolen credentials, and financial fraud.",
+      "icon": "refresh-cw",
+      "slug": "asset-recovery"
+    },
+    {
+      "title": "Legal Documentation",
+      "description": "Court-ready digital evidence preservation, chain of custody documentation, and expert witness support.",
+      "icon": "file-text",
+      "slug": "legal"
+    },
+    {
+      "title": "Alliance Trust Realty",
+      "description": "Secure real estate transactions with cybersecurity-backed title verification and digital escrow protection.",
+      "icon": "home",
+      "slug": "alliance-trust"
+    }
+  ],
+  "news": [
+    {
+      "title": "GEM Launches Advanced Threat Intelligence Platform",
+      "summary": "Our new AI-driven threat intelligence system provides clients with predictive analysis of emerging cyber threats before they impact operations.",
+      "date": "2026-05-01",
+      "category": "Product Update"
+    },
+    {
+      "title": "Partnership with Alliance Trust Realty Expands Secure Property Services",
+      "summary": "GEM Assist Enterprise and Alliance Trust Realty announce expanded services for cybersecurity-protected real estate transactions.",
+      "date": "2026-04-15",
+      "category": "Partnership"
+    },
+    {
+      "title": "New Compliance Framework for Financial Institutions",
+      "summary": "Updated SOC 2 Type II and FISMA compliance packages now available for banking and financial services clients.",
+      "date": "2026-04-01",
+      "category": "Compliance"
+    }
+  ],
+  "testimonials": [
+    {
+      "name": "James R.",
+      "company": "Regional Bank of Commerce",
+      "text": "GEM's threat monitoring caught a sophisticated phishing campaign targeting our customers before any damage was done. Exceptional service.",
+      "rating": 5
+    },
+    {
+      "name": "Patricia W.",
+      "company": "Westfield Healthcare Group",
+      "text": "Their compliance team got us to HIPAA certification in record time. The documentation support was thorough and professional.",
+      "rating": 5
+    },
+    {
+      "name": "Michael T.",
+      "company": "Alliance Trust Realty Client",
+      "text": "The secure real estate transaction service gave us complete confidence in our property purchase. No fraud concerns whatsoever.",
+      "rating": 5
+    }
+  ],
+  "last_updated": "2026-05-26T00:00:00Z",
+  "version": "2.1.0"
+}
