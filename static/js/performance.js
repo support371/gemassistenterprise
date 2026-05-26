@@ -266,7 +266,6 @@ function cleanupEventListeners() {
 // Resource preloading
 function preloadCriticalResources() {
     const criticalImages = [
-        '/static/images/hero-bg.jpg',
         '/static/images/logo.png'
     ];
     
